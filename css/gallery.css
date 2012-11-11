@@ -1,0 +1,184 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+img {border: none;}
+
+a {outline: none;}
+
+/* Fades in the slideshow. Hides the initial animation on the li tag. Ooops!! */
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+		
+	}
+	
+	50% { 
+		opacity: 0;
+	}
+	
+	100% { 
+		opacity: 1;
+	}
+}
+
+#box {
+	text-align: left;
+	width: 900px;
+	padding:2px 0px 15px 0px;
+	margin: 5px 5px 5px 0px;
+	overflow: hidden;
+	
+	background:#FFF;
+	border:1px solid #c0c0c0;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+		
+	box-shadow: 1px 1px 1px #000;
+	-moz-box-shadow: 1px 1px 1px #000;
+	-webkit-box-shadow: 1px 1px 1px #000;
+	
+	-webkit-animation-name: fadeIn; 
+  	-webkit-animation-duration: 3s; 
+  	-webkit-animation-iteration-count: 1;
+  	-webkit-animation-delay: 0s;
+}
+
+#box .description {
+	line-height: 20px;
+	font-size: 13px;
+	text-align:justify;
+	margin: 0 auto;
+	width:870px;
+}
+
+#box .title {
+	margin:auto;
+	width: 870px;
+	font-size: 22px;
+	margin-bottom: 10px;
+	padding-bottom:5px;
+	margin-top: 4px;
+	border-bottom:1px solid #C0C0C0;	
+}
+
+ul#slider {
+	margin: 0 auto;
+	padding: 0px;
+	list-style: none;
+	position: relative;
+	width: 870px;
+	height: 522px;
+	overflow: hidden;
+	
+	background-color: #FFF;
+	
+	border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+}
+
+ul#thumb {
+	overflow: none;
+	margin: auto;
+	padding: 0px;
+	list-style: none;
+	position: relative;
+	background: #fff;
+	overflow: auto;
+	width: 870px;
+}
+
+ul#thumb a {
+	-webkit-transition: opacity .2s ease-in-out;
+	border: 1px solid #979797;
+	width: 200px;
+	height: 120px;
+	display: block;
+	overflow: hidden;
+	float: left;
+	margin: 5px 5px 5px 6px;
+	opacity: 0.8;
+	padding:2px;
+}
+
+ul#thumb a:hover {
+	opacity: 1;
+	border: 1px solid #003F78;
+} 
+
+ul#slider li {	
+	width: 870px;
+	height: 522px;
+	position: absolute;
+	}
+	
+ul#slider li p {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: inherit;
+	color: #fff;
+	background: rgba(0, 0, 0, .5);
+	width: 100%;
+}
+
+ul#slider li p span {
+	line-height: 1.2em;
+	padding: 10px;
+	display: block;
+}
+
+/* Animation for the :target image. Slides the image in. */
+
+@-webkit-keyframes moveTarget {
+	0% {
+		left:-870px;
+		
+	}
+	
+	100% { 
+		left:0px;
+	}
+}
+
+
+ul#slider li:target {
+	-webkit-animation-name: moveTarget; 
+	-webkit-animation-duration: .5s; 
+	-webkit-animation-iteration-count: 1;
+	top:0px;
+	left: 0px;
+	z-index: 10;
+}
+
+/*
+Animation for the current image. Slides it out the frame and back to the starting position. 
+Adds a lower z-index than the now current image.
+*/
+
+@-webkit-keyframes moveIt {
+	0% {
+		left:0px;
+		
+	}
+	50% {
+		left:870px;
+		
+	}
+	100% { 
+		left:-870px;
+		z-index: 5;
+	}
+}
+
+ul#slider li:not(:target) {
+	-webkit-animation-name: moveIt; 
+  	-webkit-animation-duration: 1.5s; 
+  	-webkit-animation-iteration-count: 1;
+	top:0px;
+	left: 0px;
+}

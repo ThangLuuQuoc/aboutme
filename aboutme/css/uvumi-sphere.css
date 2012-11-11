@@ -1,0 +1,83 @@
+.colorSphere { 
+	color:#999;
+	font-family: arial, helvetica, san-serif;
+	font-size: 11px;
+	background-color:#000;
+	padding-bottom: 8px;
+	border: 1px solid #333;
+	width: 160px;
+	height: 155px;
+}
+
+.colorSphere .topbar{
+	margin:0;
+	padding:0;
+	cursor:move;
+}
+
+.colorSphere .closeButton{
+	padding: 2px 3px;
+	width:8px;
+	height:8px;
+	text-align:center;
+	cursor:pointer;
+}
+
+.colorSphere .hexa{
+	text-transform:uppercase;
+	background-color:#000;
+	color:#999;
+	width:65px;
+	padding:8px;
+	border:0;
+}
+
+.colorSphere .spectrum{
+	margin:0 0 0 5px;
+	width:128px;
+	height:128px;
+	cursor:crosshair;
+	background-image:url('circle.jpg');
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+
+.colorSphere .gray-spectrum{
+	width:16px;
+	margin:0 5px 0 0;
+	height:128px;
+	cursor:crosshair;
+	background-image:url('gray-gradient.jpg');
+	background-repeat:repeat-x;
+	background-position:center center;
+}
+
+.colorSphere .selector{
+	height: 9px;
+	width: 9px;
+	background-image:url('miniCurr.gif');
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+
+.colorSphere .gray-selector{
+	height: 1px;
+	width: 14px;
+	background-color:#000;
+	border:1px solid #fff;
+	cursor:n-resize;
+}
+
+.colorSphereButton{
+	margin:-5px 10px 0 10px;
+	padding:5px;
+	padding-left:22px;
+	cursor:pointer;
+	color:#BBB;
+	border:2px outset #333;
+	background-color:#333;
+	background-image:url('palette-icon.gif');
+	background-repeat:no-repeat;
+	background-position:5px center;
+	
+}

@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* /system/vista/css/pie.htc  */
+
+.shadowA {
+	-webkit-box-shadow: #666 0px 0px 3px;
+	-moz-box-shadow: #666 0px 0px 3px;
+	box-shadow: #666 0px 0px 3px;
+	behavior: url(/system/vista/css/pie.htc);  
+}
+
+
+.shadowB {
+	-webkit-box-shadow: 0px 0px 3px #AEAEAE;
+	-moz-box-shadow: 0px 0px 3px #AEAEAE;
+	box-shadow: 0px 0px 3px #AEAEAE;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	behavior: url(/system/vista/css/pie.htc);
+}
+
+.shadowC {
+	-webkit-box-shadow: 0px 0px 3px #AEAEAE;
+	-moz-box-shadow: 0px 0px 3px #AEAEAE;
+	box-shadow: 0px 0px 3px #AEAEAE;
+	-webkit-border-radius: 4px 0px 4px 4px;
+	-moz-border-radius: 4px 0px 4px 4px;
+	border-radius: 4px 0px 4px 4px;
+	behavior: url(/system/vista/css/pie.htc);
+}
+
+.round {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	behavior: url(/system/vista/css/pie.htc);  
+}
+
+.roundt {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	behavior: url(/system/vista/css/pie.htc);  
+}
+

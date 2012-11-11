@@ -1,0 +1,71 @@
+RewriteEngine on
+#AuthUserFile /home/pagina/www/.htpasswd
+#AuthGroupFile /dev/null
+#AuthName “Password Protected Area”
+#AuthType Basic
+
+#AddDefaultCharset utf-8
+
+
+<limit GET POST>
+
+</limit>
+
+<LimitExcept POST GET>
+Order deny,allow
+Deny from all
+</LimitExcept>
+
+#english
+Rewriterule ^(inicio)$ /index.php
+Rewriterule ^(nosotros)$ /us.php
+Rewriterule ^(nosotros)/([0-9]*)/([A-Za-z0-9_\-]*)$ /us.php?cont_code=$2
+Rewriterule ^(nosotros)/(nuestro_personal)$ /personal.php
+Rewriterule ^(servicios)$ /services.php
+Rewriterule ^(servicios)/([0-9]*)/([A-Za-z0-9_\-]*)$ /services.php?sertype_code=$2&sertype_name=$3
+Rewriterule ^([0-9]*)/([0-9]*)/(servicios)/([0-9]*)/([A-Za-z0-9_\-]*)$ /services.php?sertype_code=$4&sertype_name=$5&init=$1&amount=$2
+Rewriterule ^(servicio)/([0-9]*)/([A-Za-z0-9_\-]*)$ /services.php?serv_code=$2&serv_name=$3
+
+Rewriterule ^(contactenos)$ /contact_us.php
+Rewriterule ^(galerias)$ /galleries.php
+Rewriterule ^([0-9]*)/([0-9]*)/(galerias)$ /galleries.php?init=$1&amount=$2
+Rewriterule ^(galeria)/([0-9]*)/([A-Za-z0-9_\-]*)$ /gallery.php?gall_code=$2
+Rewriterule ^(videos)$ /videos.php
+Rewriterule ^([0-9]*)/([0-9]*)/(videos)$ /videos.php?init=$1&amount=$2
+Rewriterule ^([0-9]*)/([0-9]*)/(videos)/([0-9]*)/([A-Za-z0-9_\-]*)$ /videos.php?init=$1&amount=$2&vid_code=$4
+Rewriterule ^(faq)$ /faq.php
+Rewriterule ^(es)$ /loadLanguage.php?lang=es
+
+#spanish
+Rewriterule ^(home)$ /index.php
+Rewriterule ^(us)$ /us.php
+Rewriterule ^(us)/([0-9]*)/([A-Za-z0-9_\-]*)$ /us.php?cont_code=$2
+Rewriterule ^(us)/(our_personal)$ /personal.php
+Rewriterule ^(services)$ /services.php
+Rewriterule ^(services)/([0-9]*)/([A-Za-z0-9_\-]*)$ /services.php?sertype_code=$2&sertype_name=$3
+Rewriterule ^([0-9]*)/([0-9]*)/(services)/([0-9]*)/([A-Za-z0-9_\-]*)$ /services.php?sertype_code=$4&sertype_name=$5&init=$1&amount=$2
+Rewriterule ^(service)/([0-9]*)/([A-Za-z0-9_\-]*)$ /services.php?serv_code=$2&serv_name=$3
+
+Rewriterule ^(contact_us)$ /contact_us.php
+Rewriterule ^(galleries)$ /galleries.php
+Rewriterule ^([0-9]*)/([0-9]*)/(galleries)$ /galleries.php?init=$1&amount=$2
+Rewriterule ^(gallery)/([0-9]*)/([A-Za-z0-9_\-]*)$ /gallery.php?gall_code=$2
+Rewriterule ^(videos)$ /videos.php
+Rewriterule ^([0-9]*)/([0-9]*)/(videos)$ /videos.php?init=$1&amount=$2
+Rewriterule ^([0-9]*)/([0-9]*)/(videos)/([0-9]*)/([A-Za-z0-9_\-]*)$ /videos.php?init=$1&amount=$2&vid_code=$4
+Rewriterule ^(faq)$ /faq.php
+Rewriterule ^(en)$ /loadLanguage.php?lang=en
+
+ErrorDocument 400 /errorDocument.php
+ErrorDocument 401 /errorDocument.php
+ErrorDocument 403 /errorDocument.php
+ErrorDocument 404 /errorDocument.php
+ErrorDocument 500 /errorDocument.php
+
+Options +FollowSymlinks
+#Protect against hotlinking
+
+#RewriteEngine On
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^http://(www.)?luisvelandia.com/ [nc]
+#RewriteRule .*.(gif|jpg|png)$ http://luisvelandia.com/images/ladron.jpg[nc]

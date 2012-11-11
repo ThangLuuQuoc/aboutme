@@ -1,0 +1,16 @@
+#sign_up {
+	background: #FFF;
+	
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+
+	border: 1px solid #666;
+	-webkit-box-shadow: rgba(0,0,0,.6) 0px 2px 12px;
+	-moz-box-shadow:  rgba(0,0,0,.6) 0px 2px 12px;;
+	
+	padding: 22px;
+	width: auto;
+	position: relative;
+	display: none;
+}
