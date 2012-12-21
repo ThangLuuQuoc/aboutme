@@ -77,7 +77,7 @@
 				"general_title_contents" => "Contenidos",
 				"general_title_contents_add" => "Nuevo Contenido",
 				"general_title_contents_update" => "Actualizar Contenido",
-				
+
 				"general_title_services" => "Servicios",
 				"general_title_services_add" => "Nuevo Servicio",
 				"general_title_services_update" => "Actualizar Servicio",
@@ -87,7 +87,7 @@
 				"general_title_services_type_update" => "Actualizar Tipo de Servicio",
 				
 				"general_title_personal" => "Personal",
-				"general_title_personal_add" => "Nuevo Personal",
+				"general_title_personal_add" => "Nuevo ",
 				"general_title_personal_update" => "Actualizar Personal",
 				
 				"general_title_personal_charge" => "Cargos",
@@ -344,6 +344,19 @@
 				"validationFaq_answerRequired" => "La respuesta es requerida (Espa&ntilde;ol)",
 				"validationFaq_queryRequired_e" => "La pregunta es requerida (English)",
 				"validationFaq_answerRequired_e" => "La respuesta es requerida (English)",
+
+				"validationCharge_nameRequired" => "El nombre es requerido (Espa&ntilde;ol)",
+				"validationCharge_nameRequired_e" => "El nombre es requerido (ingl&eacute;s)",
+				"charge_message_added" => "El cargo '{0}' ha sido agregado exitosamente",
+				"charge_message_errorAdding" => "Ha ocurrido un error al intentar agregar el cargo",
+				"charge_message_updated" => "El cargo '{0}' ha sido actualizado exitosamente",
+				"charge_message_errorUpdating" => "Ha ocurrido un error al intentar actualizar el cargo",
+				
+				"personal_message_added" => "'{0}' ha sido agregado exitosamente al personal",
+				"personal_message_errorAdding" => "Ha ocurrido un error al intentar agregar al personal",
+				"personal_message_updated" => "'{0}' ha sido actualizado exitosamente",
+				"personal_message_errorUpdating" => "Ha ocurrido un error al intentar actualizar",
+
 			);
 		} elseif ($lang == "en") {
 			
