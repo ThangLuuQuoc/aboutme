@@ -16,6 +16,13 @@
             <li><a href="listUser.php"<?php if ($item_select == 1){?>class="current"<?php }?>><?php echo $messages["general_title_users"];?></a></li>
             <li><a href="listItemsSlider.php"<?php if ($item_select == 2){?>class="current"<?php }?>><?php echo $messages["general_title_slider"];?></a></li>
             <li><a href="listContents.php"<?php if ($item_select == 3){?>class="current"<?php }?>><?php echo $messages["general_title_contents"];?></a></li>
+
+            <li class="sub"><a href="listPersonal.php"<?php if ($item_select == 10){?>class="current"<?php }?>><?php echo $messages["general_title_personal"];?></a>
+                <ul>
+                    <li><a href="listCharges.php" style="font-weight:bold; color:#009FD3"><?php echo $messages["general_title_personal_charge"];?></a></li>
+                </ul>
+            </li>
+
             <li class="sub"><a href="listServices.php"<?php if ($item_select == 4){?>class="current"<?php }?>><?php echo $messages["general_title_services"];?></a>
                 <ul>
                     <li><a href="listServicesType.php" style="font-weight:bold; color:#009FD3"><?php echo $messages["general_title_services_type"];?></a></li>
