@@ -135,7 +135,7 @@
                         <input type="hidden" id="order_prev_<?php echo $i?>" value="<?php echo (int) $list[$i]->chg_order;?>" />
                     </td>
                     <td class="<?php echo $class;?>">
-                        <a href="addUpdateServiceType.php?chg_code=<?php echo $list[$i]->chg_code;?>" title="<?php echo $messages["general_update"];?>">
+                        <a href="addUpdateCharge.php?chg_code=<?php echo $list[$i]->chg_code;?>" title="<?php echo $messages["general_update"];?>">
                         <img src="images/editar.png" width="16" height="16"  />
                         </a>
                         

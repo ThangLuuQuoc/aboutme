@@ -12,6 +12,8 @@
 	$listServiceType = $serviceType->serviceTypeList("", ' ORDER BY sertype_status, sertype_order', 0, 0, 0, false, 'es');
 	$countServiceType = count ($listServiceType);
 	
+	$data = array ();
+
 	$serv_code = "";
 	$sertype_code = "";
 	$serv_name = "";

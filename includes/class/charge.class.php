@@ -44,12 +44,12 @@ class Charge {
 		$where = "";
 				
 		if ($search != '') {
-			$where .= " WHERE (c.chg_name like '%".$search."%' OR c.chg_name_e like '%".$search."%')";
+			$where .= " AND (c.chg_name like '%".$search."%' OR c.chg_name_e like '%".$search."%')";
 		}
 		
 		$query  = "SELECT c.chg_code, c.chg_name, c.chg_status, c.chg_order, cp.amount_chg_actives FROM charge c LEFT JOIN ";
-		$query .= " (SELECT cp.chg_code, COUNT(*) AS amount_chg_actives FROM charge_person cp GROUP BY cp.chg_code) cp ";
-		$query .= " ON c.chg_code = cp.chg_code " . $where." ".$orderBy." ";
+		$query .= " (SELECT cp.chg_code, COUNT(*) AS amount_chg_actives FROM charge_personal cp GROUP BY cp.chg_code) cp ";
+		$query .= " ON c.chg_code = cp.chg_code WHERE c.chg_status <> 3 " . $where." ".$orderBy." ";
 		
 		
 		if (!($init == 0 && $amount == 0)) {
@@ -83,7 +83,7 @@ class Charge {
 		$where = '';
 		
 		if ($search != '') {
-			$where .= " WHERE (c.chg_name like '%".$search."%' OR c.chg_name_e like '%".$search."%')";
+			$where .= " AND (c.chg_name like '%".$search."%' OR c.chg_name_e like '%".$search."%')";
 		}
 		
 		$query = "SELECT COUNT(*) AS amount FROM charge c WHERE c.chg_status <> 3 ".$where.";";
@@ -117,7 +117,7 @@ class Charge {
 	/**
 	*	Funcion responsable de obtener los datos de un cargo.
 	*	@parameter chg_code, codigo del cargo.
-	*	@return datos del tipo de servicio en caso de encontrarlo.
+	*	@return datos del cargo en caso de encontrarlo.
 	*/
 	function getCharge($chg_code){		
 		$query = "SELECT c.chg_code, c.chg_name, c.chg_name_e, c.chg_status
@@ -213,7 +213,7 @@ class Charge {
 	*/
 	function validateRemove($chg_code) {
 		$response = false;
-		$query = "SELECT COUNT(*) AS amount FROM charge_person cp WHERE cp.chg_code=".$chg_code.";";
+		$query = "SELECT COUNT(*) AS amount FROM charge_personal cp WHERE cp.chg_code=".$chg_code.";";
 		
 		if ($result = mysql_query ($query)) {
 			if ($row = mysql_fetch_array ($result)) {
