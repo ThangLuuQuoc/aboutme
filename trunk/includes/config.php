@@ -1,14 +1,15 @@
 <?php
 
 @session_start();
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
+error_reporting(0);
 ini_set("display_errors", 1);
 setlocale(LC_ALL, 'es_CO');
 date_default_timezone_set("America/Bogota");
 require ("globals.php");
 
 $dbhost = "localhost";
-$dbname = "about_me";
+$dbname = "abus";
 $dbuser = "root";
 $dbpass = "";
 
