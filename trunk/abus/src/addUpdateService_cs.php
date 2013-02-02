@@ -12,7 +12,7 @@
 	$listServiceType = $serviceType->serviceTypeList("", ' ORDER BY sertype_status, sertype_order', 0, 0, 0, false, 'es');
 	$countServiceType = count ($listServiceType);
 	
-	$data = array ();
+	$data = NULL;
 
 	$serv_code = "";
 	$sertype_code = "";
@@ -80,7 +80,7 @@
 				}
 			}
 		}
-		
+
 		if (empty ($data->serv_code)) {
 			if ($service->insertService($data)) {
 				$_SESSION["message_value"] = replaceMessage($messages["service_message_added"], array($data->serv_name)).'<br />';
