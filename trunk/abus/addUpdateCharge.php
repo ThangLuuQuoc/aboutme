@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-	<?php echo $titlePage." :: ".$messages["general_name_app"];?>
+	<?php echo $titlePage . " :: " . $messages["general_name_app"];?>
 </title>
 <?php require ("general_includes.php");?>
 

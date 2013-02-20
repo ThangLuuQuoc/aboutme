@@ -40,17 +40,35 @@ class Charge {
 	*	@parameter amount, cantidad de valores a obtener del resultado de la consulta.
 	*	@retur array, lista de cargos
 	*/
-	function chargeList($search = '', $orderBy = '', $init = 0, $amount = 0) {
+	function chargeList($search = '', $orderBy = '', $init = 0, $amount = 0, $chg_status = 0, $onlyActives = FALSE, $lang = '') {
 		$where = "";
-				
+		$chg_name = "chg_name";
+
 		if ($search != '') {
 			$where .= " AND (c.chg_name like '%".$search."%' OR c.chg_name_e like '%".$search."%')";
 		}
+
+		if ((int) $chg_status > 0) {
+			$where .= " AND (c.chg_status =".(int) $chg_status.") ";
+		}
+
+		if ($onlyActives) {
+			$where .= " AND c.chg_code IN (SELECT cp.chg_code FROM charge_personal cp "
+				    . "JOIN personal p ON ch.pers_code=p.pers_code WHERE p.pers_status=1) ";	
+		}
+
+		if ($lang == "es" || $lang == "en") {
+			if ($lang == "es") {
+				$chg_name = "chg_name";
+			} elseif ($lang == "en") {
+				$chg_name = "chg_name_e";
+			}
+			
+		}
 		
-		$query  = "SELECT c.chg_code, c.chg_name, c.chg_status, c.chg_order, cp.amount_chg_actives FROM charge c LEFT JOIN ";
-		$query .= " (SELECT cp.chg_code, COUNT(*) AS amount_chg_actives FROM charge_personal cp GROUP BY cp.chg_code) cp ";
-		$query .= " ON c.chg_code = cp.chg_code WHERE c.chg_status <> 3 " . $where." ".$orderBy." ";
-		
+		$query  = "SELECT c.chg_code, c." . $chg_name . ", c.chg_status, c.chg_order, cp.amount_chg_actives FROM charge c LEFT JOIN "
+				. "(SELECT cp.chg_code, COUNT(*) AS amount_chg_actives FROM charge_personal cp GROUP BY cp.chg_code) cp "
+				. "ON c.chg_code = cp.chg_code WHERE c.chg_status <> 3 " . $where." ".$orderBy.";";		
 		
 		if (!($init == 0 && $amount == 0)) {
 			$query .= ' LIMIT '.$init.', '.$amount.';';
@@ -60,10 +78,10 @@ class Charge {
 		if ($consult = mysql_query($query)) {
 			$i = 0;
 			while ($row = mysql_fetch_array ($consult)) {
-				$data[$i]->chg_code = $row['chg_code'];
-				$data[$i]->chg_name = $row['chg_name'];
-				$data[$i]->chg_status = $row['chg_status'];
-				$data[$i]->chg_order = $row['chg_order'];
+				$data[$i]->chg_code           = $row['chg_code'];
+				$data[$i]->chg_name           = $row[$chg_name];
+				$data[$i]->chg_status         = $row['chg_status'];
+				$data[$i]->chg_order          = $row['chg_order'];
 				$data[$i]->amount_chg_actives = $row['amount_chg_actives'];
 
 				

@@ -9,7 +9,7 @@
 		$message_show = "";
 	}
 	
-	define ("SITE_NAME", "LU&Iacute;S VELANDIA Topograf&iacute;a");
+	define ("SITE_NAME", "Soluciones Celulares");
 	define ("SEPARATOR_A", " - ");
 		
 	$_SESSION['message_value'] = "";
@@ -201,6 +201,7 @@
 				"general_summary" => "Resumen",
 				"general_description" => "Descripci&oacute;n",
 				"general_service_type" => "Tipo de servicio",
+				"general_charges" => "Cargos",
 				"general_select" => "Seleccione",
 				"general_general_information" => "Informaci&oacute;n General",
 				"general_highlight" => "Destacar",
@@ -351,11 +352,18 @@
 				"charge_message_errorAdding" => "Ha ocurrido un error al intentar agregar el cargo",
 				"charge_message_updated" => "El cargo '{0}' ha sido actualizado exitosamente",
 				"charge_message_errorUpdating" => "Ha ocurrido un error al intentar actualizar el cargo",
-				
+
 				"personal_message_added" => "'{0}' ha sido agregado exitosamente al personal",
 				"personal_message_errorAdding" => "Ha ocurrido un error al intentar agregar al personal",
 				"personal_message_updated" => "'{0}' ha sido actualizado exitosamente",
 				"personal_message_errorUpdating" => "Ha ocurrido un error al intentar actualizar",
+				"" => "",
+				"" => "",
+				"" => "",
+				"" => "",
+				"" => "",
+				"" => "",
+
 
 			);
 		} elseif ($lang == "en") {
@@ -385,6 +393,7 @@
 				"general_contact_us_text" => "Si tienes preguntas o inquietudes env&iacute;alas mediante el siguiente formulario, tendremos el gusto de atenderte.",
 				"general_send" => "Enviar",
 				"general_our_personal" => "Nuestro personal",
+				"general_social_information" => "Informacion Social",
 				"general_showing" => "Mostrando {0}-{1} de {2}",
 				"general_no_data" => "No se encontraron datos",
 				"general_preview" => "Anterior",
@@ -428,6 +437,7 @@
 				"general_contact_us_text" => "For questions or restlessness send them using the form below, we will be happy to assist you.",
 				"general_send" => "Send",
 				"general_our_personal" => "Our personal",
+				"general_social_information" => "Social Information",
 				"general_showing" => "Showing {0}-{1} of {2}",
 				"general_no_data" => "No data found",
 				"general_preview" => "Preview",
@@ -461,7 +471,12 @@
 	}
 	
 	/**
-	*	Función reponsable de reemplazar en un mensaje los valores dinamicos del mismo, ej: "hola {0} hoy es {1}" quedaria "hola mundo hoy es lunes".
+	*	Función reponsable de reemplazar en un mensaje los valores dinamicos 
+	*	del mismo. Ej: con los parámetros: 
+	*							$message="hola {0} hoy es {1}", 
+	*							$args=array("mundo", "lunes") 
+	*			   retorna: 
+	*							"hola mundo hoy es lunes"
 	*	@parameters message: mensaje a ser modificado.
 	*				args: array de valores para reemplazar en el mensaje.
 	*	@return String, mensaje con los valores reemplazados.

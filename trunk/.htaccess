@@ -21,6 +21,7 @@ Rewriterule ^(inicio)$ /index.php
 Rewriterule ^(nosotros)$ /us.php
 Rewriterule ^(nosotros)/([0-9]*)/([A-Za-z0-9_\-]*)$ /us.php?cont_code=$2
 Rewriterule ^(nosotros)/(nuestro_personal)$ /personal.php
+Rewriterule ^(nosotros)/(informacion_social)$ /social_information.php
 Rewriterule ^(servicios)$ /services.php
 Rewriterule ^(servicios)/([0-9]*)/([A-Za-z0-9_\-]*)$ /services.php?sertype_code=$2&sertype_name=$3
 Rewriterule ^([0-9]*)/([0-9]*)/(servicios)/([0-9]*)/([A-Za-z0-9_\-]*)$ /services.php?sertype_code=$4&sertype_name=$5&init=$1&amount=$2
@@ -41,6 +42,7 @@ Rewriterule ^(home)$ /index.php
 Rewriterule ^(us)$ /us.php
 Rewriterule ^(us)/([0-9]*)/([A-Za-z0-9_\-]*)$ /us.php?cont_code=$2
 Rewriterule ^(us)/(our_personal)$ /personal.php
+Rewriterule ^(nosotros)/(social_information)$ /social_information.php
 Rewriterule ^(services)$ /services.php
 Rewriterule ^(services)/([0-9]*)/([A-Za-z0-9_\-]*)$ /services.php?sertype_code=$2&sertype_name=$3
 Rewriterule ^([0-9]*)/([0-9]*)/(services)/([0-9]*)/([A-Za-z0-9_\-]*)$ /services.php?sertype_code=$4&sertype_name=$5&init=$1&amount=$2
