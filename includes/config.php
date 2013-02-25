@@ -1,37 +1,32 @@
 <?php
 
 @session_start();
-//error_reporting(E_ALL);
-error_reporting(0);
+error_reporting(E_ALL); // reporta todos los errores
+//error_reporting(0); // no reporta ningún error
+//error_reporting(E_ALL ^ E_NOTICE); // reporta todo menos los notices
+
 ini_set("display_errors", 1);
 setlocale(LC_ALL, 'es_CO');
 date_default_timezone_set("America/Bogota");
+
+define ('ABUS_DB_NAME', 'abus');
+define ('ABUS_HOST', 'localhost');
+define ('ABUS_USER', 'root');
+define ('ABUS_PASS', '');
+
+require ("class/application.class.php");
 require ("globals.php");
 
-$dbhost = "localhost";
-$dbname = "abus";
-$dbuser = "root";
-$dbpass = "";
-
-/*
-  $dbhost = "localhost";
-  $dbname = "luisvela_abme";
-  $dbuser = "luisvela_mainabm";
-  $dbpass = "%~,RTv+7S9Hb";
- */
-
-mysql_connect($dbhost, $dbuser, $dbpass);
-if (!mysql_select_db($dbname)) {
-    die($messages["general_site_error"]);
+mysql_connect(ABUS_HOST, ABUS_USER, ABUS_PASS);
+if (!mysql_select_db(ABUS_DB_NAME)) {
+    Application :: showApplicationError($messages["general_site_error"]);
 }
+
 mysql_query("SET NAMES 'utf8'");
-require ("class/application.class.php");
-$application = new Application();
 
-$dataAppPublic = $application->getInformationApp($_SESSION["lang"]);
+$dataAppPublic = Application :: getInformationApp($_SESSION["lang"]);
 
-$appMenuPublic = $application->getAppMenu(1, $_SESSION["lang"]);
-//print_r($appMenuPublic);die;
+$appMenuPublic = Application :: getAppMenu(1, $_SESSION["lang"]);
 $countMenuPublic = count($appMenuPublic);
 
 $app_background_public = '';
@@ -55,5 +50,5 @@ if ($dataAppPublic->app_background_type == 2) {//image
 $meta_autor_value = "Sebastián Lara";
 $meta_description_value = "";
 $meta_keywords_value = $dataAppPublic->app_keywords;
-$meta_bussiness_name = "topografia";
+$meta_bussiness_name = "";
 ?>
