@@ -2,7 +2,7 @@
 	include("includes/secure.php");
 	include("../includes/config.php");
 	
-	$dataApp = $application->getInformationApp();
+	$dataApp = Application :: getInformationApp();
 	
 	$maxlength_app_information_office = 350;
 	$maxlength_app_information_office_e = 350;
@@ -10,7 +10,7 @@
 	$maxlength_app_keywords = 160;
 	$maxlength_app_keywords_e = 160;
 	
-	$appFullMenu = $application->getAppMenu();
+	$appFullMenu = Application :: getAppMenu();
 	$countFullMenu = count ($appFullMenu);
 	
 	$app_background = '<input type="hidden" name="app_background" id="app_background" value=""/><img src="../images/broken-image.png" style="border:0px" width="500" height="300"/>';

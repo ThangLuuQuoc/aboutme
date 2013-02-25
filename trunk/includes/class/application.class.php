@@ -11,7 +11,7 @@ class Application {
 	/**
 	*	Metodo constructor de la clase
 	*/	
-	function User (){
+	function Application (){
 	
 	}
 	
@@ -157,9 +157,32 @@ class Application {
 		if (mysql_query ($query)) {
 			return true;	
 		} else {
-			die($query);
 			return false;
 		}
+	}
+
+	/**
+	* Función responsable de listar las tablas de la aplicación.
+	* @return array, lista de tablas en la base de datos.
+	*/
+	public function getDatabaseTables() {
+		$query = "SHOW TABLES FROM " . ABUS_DB_NAME . ";";
+		$data  = NULL;
+
+		if ($result = mysql_query($query)) {
+			if ($row = mysql_fetch_array($result)) {
+				$data = $row;
+			}
+		}
+
+		return $data;
+	}
+
+	/**
+	* Función responsable de mostrar un error para la aplicación
+	*/
+	public function showApplicationError($errorCode = NULL) {
+		die ('Application Error: ' . $errorCode);
 	}
 }
 ?>
