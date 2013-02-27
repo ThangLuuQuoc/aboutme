@@ -7,6 +7,6 @@
         <div class="redes">
             <?php echo $messages_p["general_follow_us"]; ?>: <a href="#"><img src="/images/facebook.png" align="absmiddle" width="24" height="24" /></a> <a href="#"><img src="/images/twitter.png"  align="absmiddle" width="24" height="24"/></a>
         </div>
-        <div class="Slogan"><?php echo $dataAppPublic->app_slogan; ?></div>
+        <div class="Slogan"><?php echo $app_slogan; ?></div>
     </div>
 </div>

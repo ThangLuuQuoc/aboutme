@@ -9,14 +9,6 @@
 		$message_show = "";
 	}
 	
-	define ("SITE_NAME", "Clicksy");
-	define ("SEPARATOR_A", " - ");
-	define ("ADMIN", "admin");
-	define ("PUBLIC_", "public");
-	define ('PATH_LANGUAGE_ADMON_FILE', '/language/admin/');
-	define ('PATH_LANGUAGE_PUBLIC_FILE', '/language/public/');
-	define ('PATH_LANGUAGE_FILE', '/language/');
-
 	$_SESSION['message_value'] = "";
 	$_SESSION['message_show'] = "";
 	
@@ -33,7 +25,6 @@
 	}
 	$lang = $_SESSION["lang"];
 	$messages_p = getLanguage($_SESSION["lang"], PUBLIC_);
-	
 	
 	/**
 	*	Función responsable de hacer hacerle un check de seguridad a una cadena, el proceso consiste en trim, strip_tags, myreal_scape_string
@@ -62,48 +53,6 @@
 		return $field;
 	}
 	
-	/**
-	*	Función responsable de obtener el lenguaje que se usará en la app para el administrador.
-	*	@parameter lang: lenguaje a mostrar en la app.
-	*	@return array, array con el idioma cargado para mostrar en la app.
-	*/
-	function getLanguageAdmin($lang = "es") {
-		$fileLanguage = 'abus_language.es.php';
-		$abusLanguage = NULL;
-
-		if ($lang == "es") {
-			$fileLanguage = 'abus_language.es.php';
-		} elseif ($lang == "en") {
-			
-		}
-		
-		$abusLanguage = PATH_LANGUAGE_ADMON_FILE . $fileLanguage;
-		include($abusLanguage);
-
-		return $abusLanguage;
-	}
-	
-	/**
-	*	Función responsable de obtener el lenguaje que se usará en la app para los visitantes.
-	*	@parameter lang: lenguaje a mostrar en la app.
-	*	@return array, array con el idioma cargado para mostrar en la app.
-	*/
-	function getLanguagePublic($lang="es") {
-		$fileLanguage = 'abus_language.es.php';
-		$abusPrivateLanguage = NULL;
-
-		if ($lang == "es") {
-			$fileLanguage = 'abus_language.es.php';
-		} elseif ($lang == "en") {
-			
-		}
-		
-		$abusPrivateLanguage = PATH_LANGUAGE_PUBLIC_FILE . $fileLanguage;
-		include($abusPrivateLanguage);
-
-		return $abusPrivateLanguage;
-	}
-
 
 	/**
 	*	Función responsable de obtener el lenguaje que se usará en la app para los visitantes.

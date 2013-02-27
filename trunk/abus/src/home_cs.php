@@ -43,17 +43,19 @@
 	$checked1 = '';
 	$checked2 = '';
 	$checked3 = '';
-	if ($dataApp->app_background_type == 1) {
-		$checked1 = 'checked="checked"';
-		$checked2 = '';
-		$checked3 = '';
-	} elseif ($dataApp->app_background_type == 2) {
-		$checked1 = '';
-		$checked2 = 'checked="checked"';
-		$checked3 = '';
-	} elseif ($dataApp->app_background_type == 3) {
-		$checked1 = '';
-		$checked2 = '';
-		$checked3 = 'checked="checked"';
+	if (isset ($dataApp)) {
+		if ($dataApp->app_background_type == 1) {
+			$checked1 = 'checked="checked"';
+			$checked2 = '';
+			$checked3 = '';
+		} elseif ($dataApp->app_background_type == 2) {
+			$checked1 = '';
+			$checked2 = 'checked="checked"';
+			$checked3 = '';
+		} elseif ($dataApp->app_background_type == 3) {
+			$checked1 = '';
+			$checked2 = '';
+			$checked3 = 'checked="checked"';
+		}		
 	}
 ?>
