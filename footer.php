@@ -1,21 +1,21 @@
 <script language="javascript" type="text/javascript">
-		
+        
     function validateContactUs(){
         var msg = "";
-		
+        
         var contact_name = $.trim(document.getElementById("contact_name_f").value);
-        var contact_email = $.trim(document.getElementById("contact_email_f").value);		
+        var contact_email = $.trim(document.getElementById("contact_email_f").value);       
         var contact_phone = $.trim(document.getElementById("contact_phone_f").value);
         var contact_text = $.trim(document.getElementById("contact_text_f").value);
-		
+        
         if (contact_email != "" && ! isMail(contact_email)) {
             msg = " <?php echo $messages_p["validationContactus_emailValidation"]; ?>";
         }
-		
+        
         if (contact_name == "" || contact_email == "" || contact_phone == "" || contact_text == "") {
             msg = " <?php echo $messages_p["validationContactUs_allDataRequired"]; ?>";
         }
-				
+                
         if (msg == '') {
             jQuery.ajax({
                 type : "POST",
@@ -39,14 +39,14 @@
             return false;
         }
     }
-	
+    
 </script>
 <div id="Footer">
     <div class="scp">
         <div class="colm-a">
             <div class="contt">
                 <h2><?php echo $messages_p["general_principal_office"]; ?></h2>
-                <?php echo nl2br($dataAppPublic->app_information_office); ?>
+                <?php echo nl2br($app_information_office); ?>
             </div>
         </div>
         <div class="colm-a">
@@ -91,7 +91,7 @@
                 </div>
             </div>
         </div>
-        <div class="footCop"><?php echo $dataAppPublic->app_text_footer; ?></div>
+        <div class="footCop"><?php echo $app_text_footer; ?></div>
     </div>
 </div>
 <?php include ("divscoolmessage.php"); ?>
