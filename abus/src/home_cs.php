@@ -25,8 +25,8 @@
 	$app_slogan = NULL;
 	$app_slogan_e = NULL;
 	$app_information_office_e = NULL;
-	$app_keywords = NULL;
-	$app_keywords_e = NULL;
+	$app_keywords = '';
+	$app_keywords_e = '';
 
 	if (! empty ($dataApp->app_background)) {
 		$path_image = "../file_upload/background/".$dataApp->app_background;
