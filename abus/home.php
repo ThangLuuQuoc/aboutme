@@ -300,7 +300,7 @@
             </tr>
             <tr><td>&nbsp;</td></tr>
             
-			<tr id="bg_color" <?php if ($dataApp->app_background_type == 2) {?> style="display:none" <?php }?>>
+			<tr id="bg_color" <?php if ($app_background_type == 2) {?> style="display:none" <?php }?>>
             	<td>
                 	<table width="100%">
                     	<tr>
@@ -309,38 +309,38 @@
                         <tr>
                         	<td width="5%">
                             	<div id="colorSelector2">
-                                    <div id="content_color" style="background-color: <?php echo $dataApp->app_background_color;?>"></div>
+                                    <div id="content_color" style="background-color: <?php echo $app_background_color;?>"></div>
                                     
                                  </div>
                                 
                                 <div id="colorpickerHolder2">
                                     
                                 </div>
-                                <input type="hidden" id="app_background_color" name="app_background_color" value="<?php echo $dataApp->app_background_color;?>" />                                <input id="app_background_color_prev" value="<?php echo $dataApp->app_background_color;?>" name="app_background_color_prev" type="hidden"/>
+                                <input type="hidden" id="app_background_color" name="app_background_color" value="<?php echo $app_background_color;?>" />                                <input id="app_background_color_prev" value="<?php echo $app_background_color;?>" name="app_background_color_prev" type="hidden"/>
 							</td>
                             <td><input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" id="app_background_color_button"
-                                	onclick="saveInformationApp(this, 'app_background_color', <?php echo $dataApp->app_code;?>, 'general_app')"/></td>
+                                	onclick="saveInformationApp(this, 'app_background_color', <?php echo $app_code;?>, 'general_app')"/></td>
                         </tr>
                     </table>
 				</td>
             </tr>
-            <tr id="bg_image" <?php if ($dataApp->app_background_type != 2) {?> style="display:none" <?php }?>>
+            <tr id="bg_image" <?php if ($app_background_type != 2) {?> style="display:none" <?php }?>>
             	<td>
                 	<label class="subtitle"><?php echo $messages["general_background_image"];?></label><hr />
                 	<table width="100%">
                     	<tr>
                         	<td width="45%" valign="top">
                             	<div style="margin:10px;">                                
-                                <input type="hidden" name="app_background_prev" id="app_background_prev" value="<?php echo $dataApp->app_background;?>"/>
+                                <input type="hidden" name="app_background_prev" id="app_background_prev" value="<?php echo $app_background;?>"/>
                                 
                                 <input type="button" id="upload" class="button_grv" value="<?php echo $messages["general_load_image"]." (".$messages["general_spanish"].")";?>" style="width:200px; margin:0px;"/>
                                 <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>"  id="app_background_button"
-                                	onclick="saveInformationApp(this, 'app_background', <?php echo $dataApp->app_code;?>, 'general_app')"/>
+                                	onclick="saveInformationApp(this, 'app_background', <?php echo $app_code;?>, 'general_app')"/>
                                 </div>
                                 <div id="div_content_app_background" class="ajax_upload">
                                     <?php echo $app_background;?>
                                 </div>
-                                <div id="check_imagen" <?php if (empty ($dataApp->app_background)) {?>style="display:none"<?php }?>>
+                                <div id="check_imagen" <?php if (empty ($app_background)) {?>style="display:none"<?php }?>>
                                 <br />
                                 <input type="checkbox" name="check_imagen" onclick="javascript: copyInfo('app_background', 'app_background_e', this)" /><label class="lbl_gray"><?php echo $messages["general_message_use_image"]." ".$messages["general_english"];?></label></div>
                                 
@@ -348,16 +348,16 @@
                             <td width="10%">&nbsp;</td>
                             <td valign="top">
                             	<div style="margin:10px;">                                
-                                <input type="hidden" name="app_background_e_prev" id="app_background_e_prev" value="<?php echo $dataApp->app_background_e;?>"/>
+                                <input type="hidden" name="app_background_e_prev" id="app_background_e_prev" value="<?php echo $app_background_e;?>"/>
                                 
                                 <input type="button" id="upload_e" class="button_grv" value="<?php echo $messages["general_load_image"]." (".$messages["general_english"].")";?>" style="width:200px; margin:0px;"/>
                                 <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" id="app_background_e_button"
-                                	onclick="saveInformationApp(this, 'app_background_e', <?php echo $dataApp->app_code;?>, 'general_app')"/>
+                                	onclick="saveInformationApp(this, 'app_background_e', <?php echo $app_code;?>, 'general_app')"/>
                                 </div>
                                 <div id="div_content_app_background_e" class="ajax_upload">
                                     <?php echo $app_background_e;?>
                                 </div>
-                                <div id="check_imagen_e" <?php if (empty ($dataApp->app_background_e)) {?>style="display:none"<?php }?>>
+                                <div id="check_imagen_e" <?php if (empty ($app_background_e)) {?>style="display:none"<?php }?>>
                                 <br />
                                 <input type="checkbox" name="check_imagen_e" onclick="javascript: copyInfo('app_background_e', 'app_background', this)" /><label class="lbl_gray"><?php echo $messages["general_message_use_image"]." ".$messages["general_spanish"];?></label></div>
                             </td>
@@ -372,7 +372,7 @@
             <tr>
             	<td>
                 	<input type="text" name="app_slogan" id="app_slogan" class="text_grv" size="100" maxlength="100" 
-                    value="<?php echo $dataApp->app_slogan;?>" onKeyUp="return saveInfo(event, <?php echo $dataApp->app_code;?>, this, 'general_app')"/>
+                    value="<?php echo $app_slogan;?>" onKeyUp="return saveInfo(event, <?php echo $app_code;?>, this, 'general_app')"/>
 				</td>
             </tr>
             <tr><td>&nbsp;</td></tr>
@@ -382,8 +382,8 @@
             <tr>
             	<td>
                 	<input type="text" name="app_slogan_e" id="app_slogan_e" class="text_grv" size="100" maxlength="100" 
-                        value="<?php echo $dataApp->app_slogan_e;?>"
-                        onKeyUp="return saveInfo(event, <?php echo $dataApp->app_code;?>, this, 'general_app')"/>
+                        value="<?php echo $app_slogan_e;?>"
+                        onKeyUp="return saveInfo(event, <?php echo $app_code;?>, this, 'general_app')"/>
 				</td>
             </tr>
             
@@ -403,15 +403,15 @@
                         </tr>
                         <tr>
                         	<td valign="bottom">
-                            	<textarea cols="25" rows="12" class="text_grv" name="app_information_office" id="app_information_office" onkeyup="paintBgElement(this); limitLength(this, 'numero', <?php echo $maxlength_app_information_office;?>)"><?php echo $dataApp->app_information_office;?></textarea>
+                            	<textarea cols="25" rows="12" class="text_grv" name="app_information_office" id="app_information_office" onkeyup="paintBgElement(this); limitLength(this, 'numero', <?php echo $maxlength_app_information_office;?>)"><?php echo $app_information_office;?></textarea>
                                 
-                                <label id="numero" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_information_office - strlen ($dataApp->app_information_office));?></label>
+                                <label id="numero" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_information_office - strlen ($app_information_office));?></label>
                                 
                                 <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" style="float:right;"
-                                	onclick="saveInformationApp(this, 'app_information_office', <?php echo $dataApp->app_code;?>, 'general_app')"/>
+                                	onclick="saveInformationApp(this, 'app_information_office', <?php echo $app_code;?>, 'general_app')"/>
                             </td>
                             <td valign="bottom">
-                            	<textarea cols="25" rows="12" class="text_grv" name="app_information_office_e" id="app_information_office_e" onkeyup="paintBgElement(this); limitLength(this, 'numero_e', <?php echo $maxlength_app_information_office_e;?>)"><?php echo $dataApp->app_information_office_e;?></textarea>
+                            	<textarea cols="25" rows="12" class="text_grv" name="app_information_office_e" id="app_information_office_e" onkeyup="paintBgElement(this); limitLength(this, 'numero_e', <?php echo $maxlength_app_information_office_e;?>)"><?php echo $app_information_office_e;?></textarea>
                                 
                                 <label id="numero_e" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_information_office_e - strlen ($dataApp->app_information_office_e));?></label>
                                 

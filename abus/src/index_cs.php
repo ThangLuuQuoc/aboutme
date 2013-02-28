@@ -12,14 +12,12 @@
 	if ( !empty ($_POST['login']) && !empty ($_POST['password']) ) {
 		require ("../includes/class/RijndaelHex.php");
 		$rijndaelHex = new RijndaelHex();
-		
 		$loginUsername = $_SESSION['loginUsername'] = fieldSecure ($_POST['login']);
 		$password =	$rijndaelHex->linencrypthex( $loginUsername.fieldSecure($_POST['password'], false).$loginUsername );		
 		
 		if (!isset ($_SESSION['intentosLog'])) {
 			$_SESSION['intentosLog'] = 1;
 		}
-		
 		if ($_SESSION['intentosLog'] >= 7) {
 			if ($user->userExist($loginUsername)) {
 				if ($user->userChangeStatus( $user->use_code, 3)) {

@@ -16,7 +16,6 @@
                     validateForm();
                 }
             }
-
             function validateForm() {
                 f = window.document.form1;
 
