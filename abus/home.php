@@ -413,7 +413,7 @@
                             <td valign="bottom">
                             	<textarea cols="25" rows="12" class="text_grv" name="app_information_office_e" id="app_information_office_e" onkeyup="paintBgElement(this); limitLength(this, 'numero_e', <?php echo $maxlength_app_information_office_e;?>)"><?php echo $app_information_office_e;?></textarea>
                                 
-                                <label id="numero_e" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_information_office_e - strlen ($dataApp->app_information_office_e));?></label>
+                                <label id="numero_e" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_information_office_e - strlen ($app_information_office_e));?></label>
                                 
                                 <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" style="float:right;"
                                 	onclick="saveInformationApp(this, 'app_information_office_e', <?php echo $dataApp->app_code;?>, 'general_app')"/>
@@ -441,17 +441,17 @@
                         
                         <tr>
                         	<td valign="top">
-                            	<textarea cols="18" rows="6" class="text_grv" name="app_keywords" id="app_keywords" onkeyup="paintBgElement(this); limitLength(this, 'numero_k', <?php echo $maxlength_app_keywords;?>)"><?php echo $dataApp->app_keywords;?></textarea>
+                            	<textarea cols="18" rows="6" class="text_grv" name="app_keywords" id="app_keywords" onkeyup="paintBgElement(this); limitLength(this, 'numero_k', <?php echo $maxlength_app_keywords;?>)"><?php echo $app_keywords;?></textarea>
                                 
-                                <label id="numero_k" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_keywords - strlen ($dataApp->app_keywords));?></label>
+                                <label id="numero_k" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_keywords - strlen ($app_keywords));?></label>
                                 
                                 <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" style="float:right;"
                                 	onclick="saveInformationApp(this, 'app_keywords', <?php echo $dataApp->app_code;?>, 'general_app')"/>
                             </td>
                             <td valign="top">
-                            	<textarea cols="18" rows="6" class="text_grv" name="app_keywords_e" id="app_keywords_e" onkeyup="paintBgElement(this); limitLength(this, 'numero_k_e', <?php echo $maxlength_app_keywords_e;?>)"><?php echo $dataApp->app_keywords_e;?></textarea>
+                            	<textarea cols="18" rows="6" class="text_grv" name="app_keywords_e" id="app_keywords_e" onkeyup="paintBgElement(this); limitLength(this, 'numero_k_e', <?php echo $maxlength_app_keywords_e;?>)"><?php echo $app_keywords_e;?></textarea>
                                 
-                                <label id="numero_k_e" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_keywords_e - strlen ($dataApp->app_keywords_e));?></label>
+                                <label id="numero_k_e" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_keywords_e - strlen ($app_keywords_e));?></label>
                                 
                                 <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" style="float:right;"
                                 	onclick="saveInformationApp(this, 'app_keywords_e', <?php echo $dataApp->app_code;?>, 'general_app')"/>
