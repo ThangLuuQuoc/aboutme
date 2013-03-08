@@ -4,6 +4,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="favicon.ico">
+
+<script type="text/javascript" src="js/gmaps_api.js"></script>
+
 <title><?php echo $appMenuPublic[$menu_code]->menu_value.SEPARATOR_A.SITE_NAME;?></title>
 <?php require("general_includes.php");?>
 </head>
@@ -14,8 +17,8 @@
 		<div id="Main" class="shadowB">
 			<div class="bloq-a">
 				<div class="content-a">
-					<div class="spc">
-                        <img src="/informacion social.PNG" style="margin-left:-5px;"/>
+					<div id="map" class="spc">
+                        
                     </div>
 				</div>
 			</div>
