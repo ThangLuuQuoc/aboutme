@@ -278,10 +278,8 @@
     <div class="content_grv">
         <table class="tbl_list">
 			<tr>
-                <td><label class="title"><?php echo $messages["general_welcome"].' '.$_SESSION['use_name'].' '.$_SESSION['use_lastname'];?></label></td>
+                <td><label class="title"><?php echo $messages["general_genaral_configuration"];?></label></td>
             </tr>
-            <tr><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td></tr>
             <tr><td>&nbsp;</td></tr>
             
             <tr>
@@ -318,8 +316,9 @@
                                 </div>
                                 <input type="hidden" id="app_background_color" name="app_background_color" value="<?php echo $app_background_color;?>" />                                <input id="app_background_color_prev" value="<?php echo $app_background_color;?>" name="app_background_color_prev" type="hidden"/>
 							</td>
-                            <td><input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" id="app_background_color_button"
-                                	onclick="saveInformationApp(this, 'app_background_color', <?php echo $app_code;?>, 'general_app')"/></td>
+                            <td><input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>" id="app_background_color_button"
+                                	onclick="saveInformationApp(this, 'app_background_color', <?php echo $app_code;?>, 'general_app')"/>
+                                </td>
                         </tr>
                     </table>
 				</td>
@@ -333,8 +332,8 @@
                             	<div style="margin:10px;">                                
                                 <input type="hidden" name="app_background_prev" id="app_background_prev" value="<?php echo $app_background;?>"/>
                                 
-                                <input type="button" id="upload" class="button_grv" value="<?php echo $messages["general_load_image"]." (".$messages["general_spanish"].")";?>" style="width:200px; margin:0px;"/>
-                                <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>"  id="app_background_button"
+                                <input type="button" id="upload" class="w8-icon l-blue" value="<?php echo $messages["general_load_image"]." (".$messages["general_spanish"].")";?>" style="width:200px; margin:0px;"/>
+                                <input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>"  id="app_background_button"
                                 	onclick="saveInformationApp(this, 'app_background', <?php echo $app_code;?>, 'general_app')"/>
                                 </div>
                                 <div id="div_content_app_background" class="ajax_upload">
@@ -350,8 +349,8 @@
                             	<div style="margin:10px;">                                
                                 <input type="hidden" name="app_background_e_prev" id="app_background_e_prev" value="<?php echo $app_background_e;?>"/>
                                 
-                                <input type="button" id="upload_e" class="button_grv" value="<?php echo $messages["general_load_image"]." (".$messages["general_english"].")";?>" style="width:200px; margin:0px;"/>
-                                <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" id="app_background_e_button"
+                                <input type="button" id="upload_e" class="w8-icon l-blue" value="<?php echo $messages["general_load_image"]." (".$messages["general_english"].")";?>" style="width:200px; margin:0px;"/>
+                                <input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>" id="app_background_e_button"
                                 	onclick="saveInformationApp(this, 'app_background_e', <?php echo $app_code;?>, 'general_app')"/>
                                 </div>
                                 <div id="div_content_app_background_e" class="ajax_upload">
@@ -407,7 +406,7 @@
                                 
                                 <label id="numero" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_information_office - strlen ($app_information_office));?></label>
                                 
-                                <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" style="float:right;"
+                                <input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>" style="float:right;"
                                 	onclick="saveInformationApp(this, 'app_information_office', <?php echo $app_code;?>, 'general_app')"/>
                             </td>
                             <td valign="bottom">
@@ -415,7 +414,7 @@
                                 
                                 <label id="numero_e" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_information_office_e - strlen ($app_information_office_e));?></label>
                                 
-                                <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" style="float:right;"
+                                <input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>" style="float:right;"
                                 	onclick="saveInformationApp(this, 'app_information_office_e', <?php echo $dataApp->app_code;?>, 'general_app')"/>
                             </td>
                             <td valign="bottom">&nbsp;
@@ -445,7 +444,7 @@
                                 
                                 <label id="numero_k" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_keywords - strlen ($app_keywords));?></label>
                                 
-                                <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" style="float:right;"
+                                <input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>" style="float:right;"
                                 	onclick="saveInformationApp(this, 'app_keywords', <?php echo $dataApp->app_code;?>, 'general_app')"/>
                             </td>
                             <td valign="top">
@@ -453,7 +452,7 @@
                                 
                                 <label id="numero_k_e" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_app_keywords_e - strlen ($app_keywords_e));?></label>
                                 
-                                <input type="button" class="button_grv" value="<?php echo $messages["general_save"];?>" style="float:right;"
+                                <input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>" style="float:right;"
                                 	onclick="saveInformationApp(this, 'app_keywords_e', <?php echo $dataApp->app_code;?>, 'general_app')"/>
                             </td>
                             <td valign="top" class="note_important">

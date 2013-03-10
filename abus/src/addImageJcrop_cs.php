@@ -20,8 +20,10 @@
 	}	
 	$error = '';
 	$realScale = 1;
-	$w_orig = $h_orig = $scale = $x_ini = $y_ini = $w_ini = $h_ini = $w_iniAux = $h_iniAux = 0;//seleccionar porcion predeterminada.
+	$w_orig = $h_orig = $scale = $x_ini = $y_ini = $w_ini = $h_ini = $w_iniAux = $h_iniAux = $strictSize = 0;//seleccionar porcion predeterminada.
 	
+	// $strictSize = 1; // para que las imágenes cargadas cumplan como mínimo con el tamaño especificado
+
 	if (isset ($_GET["w_orig"]) && $_GET["w_orig"]!="")	{
 		$w_orig = $_GET["w_orig"];
 	}
@@ -56,6 +58,12 @@
 		$h_ini = $_POST["h_ini"];
 	} elseif (isset($_GET["h_ini"]) && $_GET["h_ini"]!="") {
 		$h_ini = $_GET["h_ini"];
+	}
+
+	if (isset ($_POST["strictSize"]) && $_POST["strictSize"]!="") {
+		$strictSize = $_POST["strictSize"];
+	} elseif (isset($_GET["strictSize"]) && $_GET["strictSize"]!="") {
+		$strictSize = $_GET["strictSize"];
 	}
 	
 	if (isset ($_GET["h_iniAux"]) && $_GET["h_iniAux"]!="") {
@@ -233,7 +241,11 @@
 				$uploaded = resizeImage($large_image_location, $width, $height, $scale);
 			}
 			//Refresh the page to show the new uploaded image
-			header("location:".$_SERVER["PHP_SELF"]."?x_ini=".$x_ini."&y_ini=".$y_ini."&w_ini=".$w_ini."&h_ini=".$h_ini."&w_iniAux=".$w_iniAux."&h_iniAux=".$h_iniAux."&reload=1&w_orig=".$width."&h_orig=".$height."&scale=".$scale."&large_image_name=".$large_image_name."&realScale=".$realScale);
+			header("location:".$_SERVER["PHP_SELF"]."?x_ini=".$x_ini."&y_ini=".$y_ini
+				."&w_ini=".$w_ini."&h_ini=".$h_ini."&w_iniAux=".$w_iniAux."&h_iniAux="
+				.$h_iniAux."&reload=1&w_orig=".$width."&h_orig=".$height."&scale="
+				.$scale."&large_image_name=".$large_image_name."&realScale="
+				.$realScale . "&strictSize=" . $strictSize);
 			exit();
 		}
 	} elseif (isset ($_POST["upload_thumbnail"])) {

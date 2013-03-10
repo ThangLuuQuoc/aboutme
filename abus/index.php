@@ -98,13 +98,13 @@
                                 <td colspan="3">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td colspan="3" align="center">
-                                    <input type="button"
-                                           class="button_grv"
-                                           value="<?php echo $messages["general_login"]; ?>"
-                                           onclick="javascript: validateForm()" /> <input type="button"
-                                           class="button_grv_cancel"
-                                           value="<?php echo $messages["general_clear"]; ?>" />
+                                <td></td>
+                                <td colspan="2" align="center">
+                                    <div class="div_items">
+                                        <div class="item"><input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_login"]; ?>" onclick="javascript: validateForm()" /></div>
+                                        <div class="item"><input type="reset" class="w8-icon grey" value="<?php echo $messages["general_clear"]; ?>" /></div>
+                                    </div>
+                                     
                                 </td>
                             </tr>
                         </table>
