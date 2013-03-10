@@ -3,10 +3,10 @@
         <tr>
             <td width="10%"><img src="../images/logo-h.png" /></td>
             <td align="right" valign="bottom">
-                <span class="lbl_black_a"><?php echo $messages["general_welcome"]." ".$_SESSION['use_name'].' '.$_SESSION['use_lastname'].' ('.$_SESSION['use_login'].')';?></span> | 
-                <a href="logout.php" class="button_red">
-                    <?php echo $messages["general_logout"];?>
-                </a>
+                <div class="div_items_r">
+                    <div class="item"><input type="button" class="w8-icon" value="<?php echo $messages["general_welcome"]." ".$_SESSION['use_name'].' '.$_SESSION['use_lastname'].' ('.$_SESSION['use_login'].')';?>"/></div>
+                    <div class="item"><input type="button" class="w8-icon pink" value="<?php echo $messages["general_logout"];?>" onclick="window.location.href='logout.php'" /></div>                    
+                </div>
             </td>
         </tr>
     </table>

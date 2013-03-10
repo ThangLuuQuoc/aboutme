@@ -113,6 +113,7 @@ $abusLanguage = array (
 	"general_disregard" => "Ignorar",
 	"general_query" => "Pregunta",
 	"general_answer" => "Respuesta",
+	"general_genaral_configuration" => "Configuraci&oacute;n General",
 	
 	"general_answered" => "Respuesto",
 	"general_unanswered" => "Sin responder",

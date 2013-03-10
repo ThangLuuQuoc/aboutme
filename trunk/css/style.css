@@ -50,10 +50,10 @@ body {
 #Header .logo {
     background-image: url(../images/logo-h.png);
     background-repeat: no-repeat;
-    height: 80px;
-    width: 700px;
+    height: 90px;
+    width: 400px;
     position: absolute;
-    top: 12px;
+    top: 5px;
     left:10px;
 }
 

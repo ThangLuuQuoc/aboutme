@@ -78,8 +78,8 @@
 			<?php 
 			$lbl_charge_img = $messages["general_load_image"].":";
 			$display_table = 'style="display:none"';
-			
-			if ((($w_orig < $w_ini) || ($h_orig < $h_ini)) && ($w_orig > 0 && $h_orig > 0)) {
+
+			if ((($w_orig < $w_ini) || ($h_orig < $h_ini)) && ($w_orig > 0 && $h_orig > 0) && $strictSize) {
 				$error = replaceMessage($messages["general_message_errorSizeImage"], array ($w_ini, $h_ini, $w_orig, $h_orig));
 			}
 			
