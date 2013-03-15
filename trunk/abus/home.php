@@ -1,4 +1,5 @@
 <?php include("src/home_cs.php");?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,7 +11,6 @@
 <script src="js/jquery.lightbox_me.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" src="js/ajaxupload.js"></script>
 <script language="javascript" type="text/javascript">
-	
 	function copyInfo(id_obj_from, id_obj_to, component){
 		var id_content = '';
 		var response = '<li style="display: block;"><img src="../images/broken-image.png" style="border:0px" width="500" height="300"/><input type="hidden" name="app_background" id="app_background" value=""/></li>';
@@ -107,7 +107,7 @@
 		}
 	}
 	
-	function saveInformationApp(btn, element_id, code, table) {
+	function saveInformationApp(btn, element_id, code, table) {		
 		btn.value = "<?php echo $messages["general_saving"];?>...";
 		var element = document.getElementById(element_id);
 		saveInfo(null, code, element, table);
@@ -314,11 +314,13 @@
                                 <div id="colorpickerHolder2">
                                     
                                 </div>
-                                <input type="hidden" id="app_background_color" name="app_background_color" value="<?php echo $app_background_color;?>" />                                <input id="app_background_color_prev" value="<?php echo $app_background_color;?>" name="app_background_color_prev" type="hidden"/>
+                                <input type="hidden" id="app_background_color" name="app_background_color" value="<?php echo $app_background_color;?>" />                                
+                                <input type="hidden" id="app_background_color_prev" value="<?php echo $app_background_color;?>" name="app_background_color_prev"/>
 							</td>
-                            <td><input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>" id="app_background_color_button"
+                            <td>
+                            	<input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>" id="app_background_color_button"
                                 	onclick="saveInformationApp(this, 'app_background_color', <?php echo $app_code;?>, 'general_app')"/>
-                                </td>
+                            </td>
                         </tr>
                     </table>
 				</td>
@@ -329,12 +331,18 @@
                 	<table width="100%">
                     	<tr>
                         	<td width="45%" valign="top">
-                            	<div style="margin:10px;">                                
-                                <input type="hidden" name="app_background_prev" id="app_background_prev" value="<?php echo $app_background;?>"/>
+                            	<div style="margin:10px;">
+	                                <input type="hidden" name="app_background_prev" id="app_background_prev" value='<?php echo $app_background;?>'/>
                                 
-                                <input type="button" id="upload" class="w8-icon l-blue" value="<?php echo $messages["general_load_image"]." (".$messages["general_spanish"].")";?>" style="width:200px; margin:0px;"/>
-                                <input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>"  id="app_background_button"
-                                	onclick="saveInformationApp(this, 'app_background', <?php echo $app_code;?>, 'general_app')"/>
+	                                <div class="div_items">
+	                                    <div class="item">
+	                                    	<input type="button" id="upload" class="w8-icon l-blue" value="<?php echo $messages["general_load_image"]." (".$messages["general_spanish"].")";?>" style="width:200px; margin:0px;"/>
+	                                    </div>
+	                                    <div class="item">
+	                                    	<input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>"  id="app_background_button"
+	                                	onclick="saveInformationApp(this, 'app_background', <?php echo $app_code;?>, 'general_app')"/>
+	                                    </div>
+	                                </div>                                
                                 </div>
                                 <div id="div_content_app_background" class="ajax_upload">
                                     <?php echo $app_background;?>
@@ -346,12 +354,17 @@
                             </td>
                             <td width="10%">&nbsp;</td>
                             <td valign="top">
-                            	<div style="margin:10px;">                                
-                                <input type="hidden" name="app_background_e_prev" id="app_background_e_prev" value="<?php echo $app_background_e;?>"/>
-                                
-                                <input type="button" id="upload_e" class="w8-icon l-blue" value="<?php echo $messages["general_load_image"]." (".$messages["general_english"].")";?>" style="width:200px; margin:0px;"/>
-                                <input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>" id="app_background_e_button"
-                                	onclick="saveInformationApp(this, 'app_background_e', <?php echo $app_code;?>, 'general_app')"/>
+                            	<div style="margin:10px;">
+	                                <input type="hidden" name="app_background_e_prev" id="app_background_e_prev" value='<?php echo $app_background_e;?>'/>
+                            		<div class="div_items">
+	                                    <div class="item">
+	                                    	<input type="button" id="upload_e" class="w8-icon l-blue" value="<?php echo $messages["general_load_image"]." (".$messages["general_english"].")";?>" style="width:200px; margin:0px;"/>
+	                                    </div>
+	                                    <div class="item">
+	                                    	<input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>" id="app_background_e_button"
+	                                	onclick="saveInformationApp(this, 'app_background_e', <?php echo $app_code;?>, 'general_app')"/>
+	                                    </div>
+	                                </div>	                                
                                 </div>
                                 <div id="div_content_app_background_e" class="ajax_upload">
                                     <?php echo $app_background_e;?>

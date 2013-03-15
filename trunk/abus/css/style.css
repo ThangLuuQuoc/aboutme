@@ -54,11 +54,19 @@ html, body {
 	float: right;
 }
 
+.div_items_c {
+	margin: 0 auto;
+}
+
 .div_items .item {
 	float: left;
 }
 
 .div_items_r .item {
+	float: left;
+}
+
+.div_items_c .item {
 	float: left;
 }
 
@@ -302,7 +310,6 @@ font-weight: normal;
 	width:90%;
 	border:1px solid #c0c0c0;
 	background:#FFFFFF;
-	box-shadow: 1px 1px 3px #000;
 }
 
 .tbl_form_fancy{
@@ -379,9 +386,20 @@ font-weight: normal;
 }
 
 .text_grv{
-	font-size:13px;
-	padding:1px 5px 1px 5px;
-	box-shadow: 1px 1px 2px #000;
+	margin: 0 1px;
+	padding: 4px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #BEBEBE;
+    border-right-color: #D6D6D6;
+    border-bottom-color: #D6D6D6;
+    border-left-color: #BEBEBE;
 }
 
 .button_grv{
@@ -420,90 +438,46 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', end
 
 .tbl_search{
 	width:100%;
-	padding:3px 0 3px 0;
-	
+	padding:3px 0 3px 0;	
 	margin:auto;
-	border:1px solid #c0c0c0;
-	
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	box-shadow: 1px 1px 1px #000;
-	-moz-box-shadow: 1px 1px 2px #000;
-	-webkit-box-shadow: 1px 1px 2px #000;
+	border:1px solid #c0c0c0;	
 }
 
 .tbl_list .item_head{
-	background: #00b7ea; /* Old browsers */
-	background: -moz-linear-gradient(top, #00b7ea 0%, #003f78 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#003f78)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #00b7ea 0%,#003f78 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #00b7ea 0%,#003f78 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #00b7ea 0%,#003f78 100%); /* IE10+ */
-	background: linear-gradient(to bottom, #00b7ea 0%,#003f78 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#003f78',GradientType=0 ); /* IE6-9 */ 
-
-		
+	background-color: #2d87ef;
 	text-transform:uppercase;
 	vertical-align:middle;
 	padding:5px;
-
-	
 	font-family: "lucida grande", tahoma, verdana, arial, sans-serif; 
 	font-size:12px;
-	font-weight:bold;
-	vertical-align:middle;
 	text-align:center;
 	color:#FFFBF0;
-	
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	box-shadow: 1px 1px 1px #000;
-	-moz-box-shadow: 1px 1px 2px #000;
-	-webkit-box-shadow: 1px 1px 2px #000;
 }
 
 .tbl_list .item_a{
 	padding:5px;
 	background:#fff;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 3px;
 	text-align:center;
 	color:#655A54;
-	box-shadow: 1px 1px 2px #000;
+	border: 1px solid #c0c0c0;
 }
 
 .tbl_list .item_b{
 	padding:5px;
 	background:#D9F2F7;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 3px;
 	text-align:center;
 	color:#655A54;
-	box-shadow: 1px 1px 2px #000;
+	border: 1px solid #c0c0c0;
 }
 
 .item_c{
-	background: #00b7ea; /* Old browsers */
-	background: -moz-linear-gradient(top, #00b7ea 0%, #003f78 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#003f78)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #00b7ea 0%,#003f78 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #00b7ea 0%,#003f78 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #00b7ea 0%,#003f78 100%); /* IE10+ */
-	background: linear-gradient(to bottom, #00b7ea 0%,#003f78 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#003f78',GradientType=0 ); /* IE6-9 */ 
-
+	background-color: #2d87ef;
 	vertical-align:middle;
 	padding:5px;
 	font-family: "lucida grande", tahoma, verdana, arial, sans-serif; 
 	font-size:12px;
-	font-weight:bold;
 	text-align:right;
 	color:#FFFBF0;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	box-shadow: 1px 1px 1px #000;
-	-moz-box-shadow: 1px 1px 2px #000;
-	-webkit-box-shadow: 1px 1px 2px #000;
 }
 
 .item_inactive {
@@ -560,8 +534,6 @@ font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
 .shadow{
 	background:#F8F8F8;
 	padding:20px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
 	border:1px solid #c0c0c0;
 }
 
