@@ -63,18 +63,17 @@
                                 <td align="right"><span class="lbl_gray"> <?php echo $messages["user_user"]; ?>:
                                     </span></td>
                                 <td width="1%">&nbsp;</td>
-                                <td><input type="text" name="login" id="login"
-                                           class="text_grv" size="30"
-                                           value="<?php echo $loginUsername; ?>"
-                                           onKeyPress="return enter(event)" /></td>
+                                <td>
+                                    <input type="text" name="login" id="login" class="text_grv" size="30" value="<?php echo $loginUsername; ?>" onKeyPress="return enter(event)" maxlength="15" />
+                                </td>
                             </tr>
                             <tr>
                                 <td align="right"><span class="lbl_gray"> <?php echo $messages["user_password"]; ?>:
                                     </span></td>
                                 <td>&nbsp;</td>
-                                <td><input type="password" name="password" id="password"
-                                           class="text_grv" size="30" value=""
-                                           onKeyPress="return enter(event)" /></td>
+                                <td>
+                                    <input type="password" name="password" id="password" class="text_grv" size="30" value="" onKeyPress="return enter(event)" maxlength="50" />
+                                </td>
                             </tr>
                             <?php if ($_SESSION['intentosLog'] >= 4) { ?>
                                 <tr>
@@ -89,22 +88,20 @@
                                     <td align="right"><span class="lbl_gray"> <?php echo $messages["general_insertSecurityImage"]; ?>:
                                         </span></td>
                                     <td>&nbsp;</td>
-                                    <td valign="top"><input name="code" id="code" type="text"
-                                                            class="text_grv" size="12" maxlength="6"
-                                                            onKeyPress="return enter(event)"></td>
+                                    <td valign="top">
+                                        <input name="code" id="code" type="text" class="text_grv" size="12" maxlength="6" onKeyPress="return enter(event)">
+                                    </td>
                                 </tr>
                             <?php } ?>
                             <tr>
                                 <td colspan="3">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td colspan="2" align="center">
+                                <td colspan="2"></td>
+                                <td align="center">
                                     <div class="div_items">
-                                        <div class="item"><input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_login"]; ?>" onclick="javascript: validateForm()" /></div>
-                                        <div class="item"><input type="reset" class="w8-icon grey" value="<?php echo $messages["general_clear"]; ?>" /></div>
+                                        <div class="item"><input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_login"]; ?>" onclick="javascript: validateForm()" /></div>                                    
                                     </div>
-                                     
                                 </td>
                             </tr>
                         </table>

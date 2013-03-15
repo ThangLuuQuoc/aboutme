@@ -145,13 +145,16 @@
 								<td colspan="3" align="center">&nbsp;</td>
 							</tr>
 							<tr>
-								<td colspan="3" align="center"><input type="button"
-									class="button_grv" value="<?php echo $messages["general_save"]?>"
-									onclick="javascript: validate ();"/> <input type="reset"
-									value="<?php echo $messages["general_clear"]?>"
-									class="button_grv_cancel"/> <input type="button"
-									class="button_grv_cancel" value="<?php echo $messages["general_cancel"]?>"
-									onClick="javascript:window.location.href='listUser.php';" /></td>
+								<td colspan="3" align="center">
+									<div class="div_items_c">
+	                                    <div class="item">
+	                                    	<input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"]?>" onclick="javascript: validate ();"/> 
+	                                    </div>
+	                                    <div class="item">
+											<input type="button" class="w8-icon grey" value="<?php echo $messages["general_cancel"]?>" onClick="javascript:window.location.href='listUser.php';" />
+	                                    </div>
+	                                </div>
+								</td>
 							</tr>
 						</table>
 					</td>

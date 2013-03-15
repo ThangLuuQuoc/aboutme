@@ -41,7 +41,7 @@ class Application {
 			$query = "SELECT a.app_code, a.app_slogan, a.app_slogan_e, a.app_information_office, a.app_information_office_e, a.app_text_footer, a.app_text_footer_e,
 						a.app_background, a.app_background_e, a.app_background_type, a.app_background_color, a.app_keywords, a.app_keywords_e FROM application a;";
 		}
-		
+
 		$data = NULL;
 		if ($result = mysql_query ($query)) {
 			if ($row = mysql_fetch_array ($result)) {
