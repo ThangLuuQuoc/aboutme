@@ -189,7 +189,7 @@
                 <td align="right" valign="top"><label class="lbl_gray"><?php echo $messages["general_response"];?>:</label></td>
                 <td id="lbl_date_create" class="lbl_black">
                 	<textarea name="contact_answer" rows="4" id="contact_answer"></textarea>
-                    <input type="button" class="button_grv" style="float:right" id="contact_answer" value="<?php echo $messages["general_send_response"]?>" 
+                    <input type="button" class="w8-icon l-blue" style="float:right" id="contact_answer" value="<?php echo $messages["general_send_response"]?>" 
                     	onclick="javascript: sendResponse();"/>
                 </td>
             </tr>
@@ -207,10 +207,20 @@
             </tr>
             <tr>
             	<td colspan="2" align="center">
-                	<input type="button" class="button_grv" id="btn_reply" value="<?php echo $messages["general_reply"];?>" onclick="javascript: replyContactus();" />
-                    <input type="button" class="button_grv" id="btn_disregard" value="<?php echo $messages["general_disregard"];?>" onclick="javascript: disregardContactus();" />
-                    <input type="button" class="button_grv" id="btn_delete" value="<?php echo $messages["general_remove"];?>" onclick="javascript: deleteContactUs();" />
-                    <input type="button" class="button_grv" id="btn_delete" value="<?php echo $messages["general_close"];?>" onclick="javascript: closebox();" />
+            		<div class="div_items_c">
+                        <div class="item">
+                			<input type="button" class="w8-icon l-blue" id="btn_reply" value="<?php echo $messages["general_reply"];?>" onclick="javascript: replyContactus();" />
+                        </div>
+                        <div class="item">
+                    		<input type="button" class="w8-icon l-blue" id="btn_disregard" value="<?php echo $messages["general_disregard"];?>" onclick="javascript: disregardContactus();" />
+                        </div>
+                        <div class="item">
+                    		<input type="button" class="w8-icon pink" id="btn_delete" value="<?php echo $messages["general_remove"];?>" onclick="javascript: deleteContactUs();" />
+                        </div>
+                        <div class="item">
+                    		<input type="button" class="w8-icon grey" id="btn_delete" value="<?php echo $messages["general_cancel"];?>" onclick="javascript: closebox();" />
+                        </div>
+                    </div>
                 </td>
             </tr>
         </table>    

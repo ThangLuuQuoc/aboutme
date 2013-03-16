@@ -13,14 +13,10 @@
 	</table>
 	<div class='buttons'>
 		<div class='no'>
-			<a href='javascript:;' class='textoBoton'>
-				<?php echo $messages["general_cancel"];?>
-			</a>
+			<input type="button" class="w8-icon grey" value="<?php echo $messages["general_cancel"];?>" />
 		</div>
 		<div class='yes'>
-			<a href='javascript:;' class='textoBoton'>
-				<?php echo $messages["general_acept"];?>
-			</a>
+			<input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_acept"];?>" />
 		</div>
 	</div>
 </div>
@@ -39,9 +35,7 @@
 	</table>
 	<div class='buttons'>
 		<div class='yes'>
-			<a href='javascript:;' class='textoBoton'>
-				<?php echo $messages["general_acept"];?>
-			</a>
+			<input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_acept"];?>" />
 		</div>
 	</div>
 </div>
@@ -60,9 +54,7 @@
 	</table>
 	<div class='buttons'>
 		<div class='yes'>
-			<a href='javascript:;' class='textoBoton'>
-				<?php echo $messages["general_acept"];?>
-			</a>
+			<input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_acept"];?>" />
 		</div>
 	</div>
 </div>
@@ -81,9 +73,7 @@
 	</table>
 	<div class='buttons'>
 		<div class='yes'>
-			<a href='javascript:;' class='textoBoton'>
-				<?php echo $messages["general_acept"];?>
-			</a>
+			<input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_acept"];?>" />
 		</div>
 	</div>
 </div>

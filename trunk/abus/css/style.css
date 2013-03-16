@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 html, body {
-	margin-top: 2px;
+	margin-top: 0;
 	padding: 0px;	
 	font-size:14px;
 }
@@ -55,7 +55,7 @@ html, body {
 }
 
 .div_items_c {
-	margin: 0 auto;
+	text-align: center;
 }
 
 .div_items .item {
@@ -67,7 +67,7 @@ html, body {
 }
 
 .div_items_c .item {
-	float: left;
+	 display: inline-block;
 }
 
 
@@ -318,7 +318,6 @@ font-weight: normal;
 	width:650px;
 	border:1px solid #c0c0c0;
 	background:#FFFFFF;
-	box-shadow: 1px 1px 3px #000;
 }
 
 .tbl_form_fancy .title{
