@@ -1,6 +1,6 @@
 <?php
 	if (!(isset($_GET["key"]) && $_GET["key"] == date ("YmddmY"))) {
-		require ("includes/secure.php");
+		//require ("includes/secure.php");
 	}
 	require ("../includes/config.php");
 	require ("../includes/class/user.class.php");
@@ -16,15 +16,13 @@
 	$use_login = "";
 	
 	$titlePage = $messages["general_title_users_add"];
-	
-	if (isset ($_POST['save']) && $_POST['save'] == 1) {		
+	if (isset ($_POST['save']) && $_POST['save'] == 1) {
 		$data->use_code = (int) fieldSecure($_POST['use_code']);		
 		$data->use_name = fieldSecure($_POST['use_name']);
 		$data->use_lastname = fieldSecure($_POST['use_lastname']);
 		$data->use_email = fieldSecure($_POST['use_email']);
 		$data->use_login = fieldSecure($_POST['use_login']);
 		$data->use_password = $rijndaelHex->linencrypthex( $data->use_login.fieldSecure($_POST['use_password'], false).$data->use_login );
-		
 		if ($data->use_code == 0) {					/*agregar usuario*/
 			if ($user->addUser($data)) {
 				$_SESSION["message_value"] = replaceMessage($messages["user_message_addedUser"], array($data->use_login));

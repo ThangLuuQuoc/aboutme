@@ -27,27 +27,38 @@
 		}
 		
 		if (faq_query_e == "") {
-			msg += "- <?php echo $messages["validationFaq_queryRequired_e"];?><br />";
+			msgAux += "- <?php echo $messages["validationFaq_queryRequired_e"];?><br />";
 		}
 		
 		if (faq_answer_e == "") {
-			msg += "- <?php echo $messages["validationFaq_answerRequired_e"];?><br />";
+			msgAux += "- <?php echo $messages["validationFaq_answerRequired_e"];?><br />";
 		}
 		
-		if (msg == '') {			
-			document.getElementById("form1").submit();
-			return true;
-		} else {
-			coolMessage("alert", msg)
-			return false;
-		}		
+		if (msgAux != "") {
+            msgAux += "<br /> <?php echo $messages["validationGeneral_englishRequired"];?><br />";
+        }
+        
+        if (msg == '') {
+            if (msgAux != '') {
+                coolMessage("confirm", msgAux, function(){
+                    document.getElementById("form1").submit();
+                    return true;
+                });
+            } else {
+                document.getElementById("form1").submit();
+                return true;
+            }
+        } else {
+            coolMessage("alert", msg)
+            return false;
+        }		
 	}
 	
 </script>
 
 </head>
 <body onload="showMessage('<?php echo $message_show;?>')">
-<?php $item_select = 9; include("menu.php");?><br />
+<?php $item_select = 9; include("menu.php");?>
     <form name="form1" id="form1" method="post" action="">
     <input type="hidden" name="save" id="save" value="1"/>
     <input type="hidden" name="faq_code" id="faq_code" value="<?php echo $faq_code;?>"/>    

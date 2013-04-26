@@ -4,7 +4,11 @@
             <td width="10%"><img src="../images/logo-h.png" /></td>
             <td align="right" valign="bottom">
                 <div class="div_items_r">
-                    <div class="item"><input type="button" class="w8-icon" value="<?php echo $messages["general_welcome"]." ".$_SESSION['use_name'].' '.$_SESSION['use_lastname'].' ('.$_SESSION['use_login'].')';?>"/></div>
+                    <div class="item">
+                        <?php if (isset ($_SESSION['use_name'])) {?>
+                        <input type="button" class="w8-icon" value="<?php echo $_SESSION['use_name'].' '.$_SESSION['use_lastname'].' ('.$_SESSION['use_login'].')';?>"/>
+                        <?php }?>
+                    </div>
                     <div class="item"><input type="button" class="w8-icon pink" value="<?php echo $messages["general_logout"];?>" onclick="window.location.href='logout.php'" /></div>                    
                 </div>
             </td>
@@ -17,11 +21,6 @@
             <li><a href="listItemsSlider.php"<?php if ($item_select == 2){?>class="current"<?php }?>><?php echo $messages["general_title_slider"];?></a></li>
             <li><a href="listContents.php"<?php if ($item_select == 3){?>class="current"<?php }?>><?php echo $messages["general_title_contents"];?></a></li>
 
-            <li class="sub"><a href="listPersonal.php"<?php if ($item_select == 10){?>class="current"<?php }?>><?php echo $messages["general_title_personal"];?></a>
-                <ul>
-                    <li><a href="listCharges.php" style="font-weight:bold; color:#009FD3"><?php echo $messages["general_title_personal_charge"];?></a></li>
-                </ul>
-            </li>
 
             <li class="sub"><a href="listServices.php"<?php if ($item_select == 4){?>class="current"<?php }?>><?php echo $messages["general_title_services"];?></a>
                 <ul>

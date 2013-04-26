@@ -296,6 +296,7 @@ class Gallery {
 		if (mysql_query ($query)) {
 			return mysql_insert_id ();	
 		} else {
+			die($query);
 			return false;	
 		}
 	}

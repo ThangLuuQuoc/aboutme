@@ -342,7 +342,7 @@
 	                                    	<input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"];?>"  id="app_background_button"
 	                                	onclick="saveInformationApp(this, 'app_background', <?php echo $app_code;?>, 'general_app')"/>
 	                                    </div>
-	                                </div>                                
+	                                </div>
                                 </div>
                                 <div id="div_content_app_background" class="ajax_upload">
                                     <?php echo $app_background;?>
