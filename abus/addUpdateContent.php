@@ -24,7 +24,11 @@
 		}
 		
 		if (cont_name_e == "") {
-			msgAux += "- <?php echo $messages["validationContent_englishRequired"];?><br />";
+			msgAux += "- <?php echo $messages["validationContent_titleRequired"];?><br />";
+		}
+
+		if (msgAux != "") {
+			msgAux += "<br /> <?php echo $messages["validationGeneral_englishRequired"];?><br />";
 		}
 		
 		if (msg == '') {
@@ -40,7 +44,7 @@
 		} else {
 			coolMessage("alert", msg)
 			return false;
-		}		
+		}
 	}
 	
 </script>
@@ -121,7 +125,7 @@
 
 </head>
 <body onload="showMessage('<?php echo $message_show;?>')">
-<?php $item_select = 3; include("menu.php");?><br />
+<?php $item_select = 3; include("menu.php");?>
     <form name="form1" id="form1" method="post" action="">
     <input type="hidden" name="save" id="save" value="1"/>
     <input type="hidden" name="cont_code" id="cont_code" value="<?php echo $cont_code;?>"/>    

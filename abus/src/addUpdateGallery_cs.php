@@ -66,8 +66,7 @@
 				$aux = explode (",", $_POST["array_images"][$i]);
 				$img_rename = $aux[0];
 				$img_code = $aux[1];				
-				
-				if (!file_exists ($image_path.$img_rename) || ! $_POST["array_images_valid"][$i]) {					
+				if (!file_exists ($image_path.$img_rename) || ! $_POST["array_images_valid"][$i]) {
 					if (! $_POST["array_images_valid"][$i] && $img_code && $gallery->isImageValid($data->gall_code, $img_code)) {//eliminar una image existente
 						if ($gallery->deleteImageGallery($img_code)) {
 							if ( file_exists($image_path_gallery.'870x522/'.$img_rename)) {
@@ -94,8 +93,9 @@
 				$data->img_description = "";
 				$data->img_description_e = "";
 				
-				if (!$img_code) {					
-					if ($img_code = $gallery->insertImage($data)) {						
+				if (!$img_code) {
+					if ($img_code = $gallery->insertImage($data)) {
+				
 						if (!$updatedFront) {
 							$data->img_code = $img_code;
 							if ($gallery->updateGalleryFront($data)) {
@@ -120,7 +120,6 @@
 				$_SESSION["message_show"] = 2;
 			}
 		}
-		
 		echo "<script> window.location.href='listGalleries.php'</script>";
 	} elseif (isset ($_GET["gall_code"]) && (int) $_GET["gall_code"] > 0) {
 		$gall_code = (int) $_GET["gall_code"];
@@ -134,8 +133,7 @@
 		$gall_description = $data->gall_description;
 		$gall_name_e = $data->gall_name_e;
 		$gall_description_e = $data->gall_description_e;
-		$gall_status = $data->gall_status;
-		
+		$gall_status = $data->gall_status;		
 	}
 	
 ?>

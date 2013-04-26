@@ -40,20 +40,31 @@
 		}
 		
 		if (serv_name_e == "") {
-			msg += "- <?php echo $messages["serviceValidation_nameRequired_e"];?><br />";
+			msgAux += "- <?php echo $messages["serviceValidation_nameRequired_e"];?><br />";
 		}
 		
 		if (serv_summary_e == "") {
-			msg += "- <?php echo $messages["serviceValidation_summaryRequired_e"];?><br />";
+			msgAux += "- <?php echo $messages["serviceValidation_summaryRequired_e"];?><br />";
 		}
 		
 		if (serv_image_e == "") {
-			msg += "- <?php echo $messages["serviceValidation_imageRequired_e"];?><br />";
+			msgAux += "- <?php echo $messages["serviceValidation_imageRequired_e"];?><br />";
 		}
 				
+		if (msgAux != "") {
+			msgAux += "<br /> <?php echo $messages["validationGeneral_englishRequired"];?><br />";
+		}
+		
 		if (msg == '') {
-			document.getElementById("form1").submit();
-			return true;
+			if (msgAux != '') {
+				coolMessage("confirm", msgAux, function(){
+					document.getElementById("form1").submit();
+					return true;
+				});
+			} else {
+				document.getElementById("form1").submit();
+				return true;
+			}
 		} else {
 			coolMessage("alert", msg)
 			return false;
@@ -186,7 +197,7 @@
 
 </head>
 <body onload="showMessage('<?php echo $message_show;?>')">
-<?php $item_select = 4; include("menu.php");?><br />
+<?php $item_select = 4; include("menu.php");?>
     <form name="form1" id="form1" method="post" action="">
     <input type="hidden" name="save" id="save" value="1"/>
     <input type="hidden" name="serv_code" id="serv_code" value="<?php echo $serv_code;?>"/>    
@@ -213,9 +224,9 @@
                                 <td>
                                 	<select name="sertype_code" id="sertype_code" class="text_grv">
                                     	<option value=""><?php echo $messages["general_select"];?>...</option>
-                                        <?php 
-										for ($i = 0; $i < $countServiceType; $i++) {
-											if ($data->sertype_code == $listServiceType[$i]->sertype_code) {
+                                        <?php
+										for ($i = 0; $i < $countServiceType; $i++) {											
+											if ($sertype_code == $listServiceType[$i]->sertype_code) {
 												$select = ' selected="selected" ';
 											} else {
 												$select = '';

@@ -12,7 +12,8 @@
 <script language="javascript" type="text/javascript">
 		
 	function validate(){
-		var msg = "";
+        var msg = "";
+		var msgAux = "";
 		
 		var vid_name = $.trim(document.getElementById("vid_name").value);		
 		var vid_name_e = $.trim(document.getElementById("vid_name_e").value);
@@ -32,7 +33,7 @@
 		}
 		
 		if (vid_name_e == "") {
-			msg += "- <?php echo $messages["videoValidation_nameRequired_e"];?><br />";
+			msgAux += "- <?php echo $messages["videoValidation_nameRequired_e"];?><br />";
 		}
 		
 		if (vid_type_pc == false && vid_type_yt == false) {
@@ -53,14 +54,24 @@
 			msg += "- <?php echo $messages["videoValidation_imageRequired"];?><br />";
 		}
 				
-		if (msg == '') {
-			coolMessage("loadingInfo")
-			document.getElementById("form1").submit();
-			return true;
-		} else {
-			coolMessage("alert", msg)
-			return false;
-		}		
+		if (msgAux != "") {
+            msgAux += "<br /> <?php echo $messages["validationGeneral_englishRequired"];?><br />";
+        }
+        
+        if (msg == '') {
+            if (msgAux != '') {
+                coolMessage("confirm", msgAux, function(){
+                    document.getElementById("form1").submit();
+                    return true;
+                });
+            } else {
+                document.getElementById("form1").submit();
+                return true;
+            }
+        } else {
+            coolMessage("alert", msg)
+            return false;
+        }
 	}
 		
 	$(document).ready(function(){
@@ -102,7 +113,7 @@
 </script>
 </head>
 <body onload="showMessage('<?php echo $message_show;?>')">
-<?php $item_select = 7; include("menu.php");?><br />
+<?php $item_select = 7; include("menu.php");?>
     <form name="form1" id="form1" method="post" action="" enctype="multipart/form-data">
     <input type="hidden" name="save" id="save" value="1"/>
     <input type="hidden" name="vid_code" id="vid_code" value="<?php echo $vid_code;?>"/>

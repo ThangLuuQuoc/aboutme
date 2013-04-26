@@ -11,6 +11,7 @@
 <script language="javascript" type="text/javascript">
 	function validate() {
 		var msg = '';
+		var msgAux = '';
 
 		var sertype_name = document.getElementById("sertype_name").value;
 		var sertype_name_e = document.getElementById("sertype_name_e").value;		
@@ -20,14 +21,25 @@
 		}
 
 		if (sertype_name_e == '') {
-			msg += '- <?php echo $messages["validationServiceType_nameRequired_e"];?><br />';
+			msgAux += '- <?php echo $messages["validationServiceType_nameRequired_e"];?><br />';
+		}
+		
+		if (msgAux != "") {
+			msgAux += "<br /> <?php echo $messages["validationGeneral_englishRequired"];?><br />";
 		}
 		
 		if (msg == '') {
-			document.getElementById('form').submit();
-			return true;
+			if (msgAux != '') {
+				coolMessage("confirm", msgAux, function(){
+					document.getElementById("form1").submit();
+					return true;
+				});
+			} else {
+				document.getElementById("form1").submit();
+				return true;
+			}
 		} else {
-			coolMessage('alert', msg);
+			coolMessage("alert", msg)
 			return false;
 		}
 	}

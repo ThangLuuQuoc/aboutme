@@ -71,9 +71,21 @@
 		if (slid_content == "") {
 			msg += "- <?php echo $messages["validationSlider_contentRequired"];?>";
 		}
+
+        if (slid_title_e == "") {
+            msgAux += "- <?php echo $messages["validationSlider_titleRequired_e"];?><br />";
+        }
+        
+        if (slid_image_rename_e == "") {
+            msgAux += "- <?php echo $messages["validationSlider_imageRequired_e"];?><br />";
+        }
+        
+        if (slid_content_e == "") {
+            msgAux += "- <?php echo $messages["validationSlider_contentRequired_e"];?><br />";
+        }
 		
-		if (slid_title_e == "" || slid_image_rename_e == "" || slid_content == "") {
-			msgAux += "- <?php echo $messages["validationSlider_englishRequired"];?><br />";
+		if (msgAux != "") {
+			msgAux += "<br /> <?php echo $messages["validationGeneral_englishRequired"];?><br />";
 		}
 		
 		if (slid_url != "" && !validateURL(slid_url)) {
@@ -113,10 +125,10 @@
 </script>
 </head>
 <body onload="showMessage('<?php echo $message_show;?>')">
-<?php $item_select = 2; include("menu.php");?><br />
+<?php $item_select = 2; include("menu.php");?>
     <form name="form1" id="form1" method="post" action="" enctype="multipart/form-data">
-    <input type="hidden" name="save" id="save" value="1"/>
-    <input type="hidden" name="slid_code" id="slid_code" value="<?php echo $slid_code;?>"/>    
+        <input type="hidden" name="save" id="save" value="1"/>
+        <input type="hidden" name="slid_code" id="slid_code" value="<?php echo $slid_code;?>"/>
         <div class="content_grv">
             <table width="90%" align="center" class="shadow">
                 <tr>

@@ -13,7 +13,8 @@
 	var countImages = parseInt (<?php echo $amountImages;?>);
 	
 	function validate(){
-		var msg = "";
+        var msg = "";
+		var msgAux = "";
 		
 		var gall_name = $.trim(document.getElementById("gall_name").value);
 		var gall_name_e = $.trim(document.getElementById("gall_name_e").value);
@@ -23,21 +24,31 @@
 		}
 		
 		if (gall_name_e == "") {
-			msg += "- <?php echo $messages["galleryValidation_nameRequired_e"];?><br />";
+			msgAux += "- <?php echo $messages["galleryValidation_nameRequired_e"];?><br />";
 		}
 		
 		if (countImages == 0) {
 			msg += "- <?php echo $messages["galleryValidation_imagesRequired"];?><br />";
 		}
 		
-		if (msg == '') {
-			coolMessage("loadingInfo")
-			document.getElementById("form1").submit();
-			return true;
-		} else {
-			coolMessage("alert", msg)
-			return false;
-		}		
+		if (msgAux != "") {
+            msgAux += "<br /> <?php echo $messages["validationGeneral_englishRequired"];?><br />";
+        }
+        
+        if (msg == '') {
+            if (msgAux != '') {
+                coolMessage("confirm", msgAux, function(){
+                    document.getElementById("form1").submit();
+                    return true;
+                });
+            } else {
+                document.getElementById("form1").submit();
+                return true;
+            }
+        } else {
+            coolMessage("alert", msg)
+            return false;
+        }		
 	}
 	
 	$(document).ready(function(){
@@ -113,7 +124,7 @@
 
 </head>
 <body onload="showMessage('<?php echo $message_show;?>')">
-<?php $item_select = 6; include("menu.php");?><br />
+<?php $item_select = 6; include("menu.php");?>
     <form name="form1" id="form1" method="post" action="">
     <input type="hidden" name="save" id="save" value="1"/>
     <input type="hidden" name="gall_code" id="gall_code" value="<?php echo $gall_code;?>"/>
