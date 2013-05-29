@@ -1,5 +1,6 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/styleLightbox.css" type="text/css" media="screen" />
 <link href='css/coolMessage.css' type='text/css' rel='stylesheet' media='screen' />
 <script language="javaScript" type="text/javascript" src="js/jquery.js"></script>
 <script language="javaScript" type="text/javascript" src="js/jquery.simplemodal.js"></script>
@@ -167,8 +168,8 @@
 		
 	}
 	
-	function closebox() {
-		window.location.href = window.location.href;
+	function closeLightBox() {
+		$('#sign_up').trigger('close');
 	}
 	
 </script>

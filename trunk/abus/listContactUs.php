@@ -6,7 +6,6 @@
 <title>
 	<?php echo $titlePage." :: ".$messages["general_name_app"];?>
 </title>
-<link rel="stylesheet" href="css/styleLightbox.css" type="text/css" media="screen" />
 <?php require ("general_includes.php");?>
 <script src="js/jquery.lightbox_me.js" type="text/javascript" charset="utf-8"></script>
 <script language="javascript" type="text/javascript">
@@ -49,9 +48,7 @@
 			coolMessage("error", "error");
 			return;
 		}
-		
-		
-						
+							
 		showLightBox();
 	}
 	
@@ -138,7 +135,7 @@
 			data: 'contact_code='+contact_code+"&contact_status="+contact_status,
 			success: function(result){
 				if (result == 1) {
-					closebox();
+					closeLightBox();
 				} else {
 					coolMessage("error", "<?php echo $messages["general_error"];?>");
 				}
@@ -218,7 +215,7 @@
                     		<input type="button" class="w8-icon pink" id="btn_delete" value="<?php echo $messages["general_remove"];?>" onclick="javascript: deleteContactUs();" />
                         </div>
                         <div class="item">
-                    		<input type="button" class="w8-icon grey" id="btn_delete" value="<?php echo $messages["general_cancel"];?>" onclick="javascript: closebox();" />
+                    		<input type="button" class="w8-icon grey" id="btn_delete" value="<?php echo $messages["general_cancel"];?>" onclick="javascript: closeLightBox();" />
                         </div>
                     </div>
                 </td>

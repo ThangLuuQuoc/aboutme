@@ -229,7 +229,7 @@
                                     	<tr>
                                         	<td valign="top" class="left" width="30%">
 	                                            <a href="javascript:;" id="upload"></a>
-    	                                        <a href="addImageJcrop.php?function=loadImageCropper&w_ini=840&h_ini=512" class="fancytoJcrop link_upload" style="margin-top:-5px;"><?php echo $messages["general_load_image"];?></a>
+    	                                        <a href="simpleJcropImage.php?function=loadImageCropper&widthAreaSelection=840&hightAreaSelection=512" class="fancytoJcrop link_upload" style="margin-top:-5px;"><?php echo $messages["general_load_image"];?></a>
 											</td>
                                             <td align="center">
                                                 <ul id="gallery" style="margin-top:-9px; padding:0px; height:114px;">

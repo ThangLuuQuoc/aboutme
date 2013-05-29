@@ -9,7 +9,7 @@
 <?php require ("general_includes.php");?>
 <script language="javascript" type="text/javascript">
 	
-	function chargerImage(image_rename, input_hidden, div) {	
+	function chargerImage(image_rename, input_hidden, div) {
 		document.getElementById(div).innerHTML = '<a href="javascript:;" onclick="javascript: return deleteImage(\''+div+'\')"><img src="images/delete.png" width="16" height="16" alt="<?php echo $messages["general_remove"]?>" /></a><br /><a class="fancytoImage" href="../file_upload/images_bank/'+image_rename+'"><img src="../file_upload/images_bank/'+image_rename+'"/></a>';
 		
 		document.getElementById(input_hidden).value = image_rename;
@@ -169,7 +169,8 @@
                                         	<td><label class="lbl_gray"><?php echo $messages["general_image"]." (".$messages["general_spanish"].")";?>:</label></td>
                                             <td>&nbsp;</td>
                                             <td>
-                                            	<a href="addImageJcrop.php?div=div_content_slid_image_rename&input_hidden=slid_image_rename&w_ini=620&h_ini=320" class="fancytoJcrop">[+] <?php echo $messages["general_load_image"]." (".$messages["general_spanish"].")";?></a>
+                                            	<!--<a href="addImageJcrop.php?div=div_content_slid_image_rename&input_hidden=slid_image_rename&w_ini=620&h_ini=320" class="fancytoJcrop">[+] <?php echo $messages["general_load_image"]." (".$messages["general_spanish"].")";?></a></br> -->
+                                                <a href="simpleJcropImage.php?divContent=div_content_slid_image_rename&idInputHidden=slid_image_rename&widthAreaSelection=620&hightAreaSelection=320" class="fancytoJcrop">[+] <?php echo $messages["general_load_image"]." [".$messages["general_spanish"]."]";?></a>
 											</td>
                                         </tr>                                        
                                         <tr>
@@ -216,7 +217,8 @@
                                         	<td><label class="lbl_gray"><?php echo $messages["general_image"]." (".$messages["general_english"].")";?>:</label></td>
                                             <td>&nbsp;</td>
                                             <td>
-                                            	<a href="addImageJcrop.php?div=div_content_slid_image_rename_e&input_hidden=slid_image_rename_e&w_ini=620&h_ini=320" class="fancytoJcrop">[+] <?php echo $messages["general_load_image"]." (".$messages["general_english"].")";?></a>&nbsp;												
+                                            	<!--<a href="addImageJcrop.php?div=div_content_slid_image_rename_e&input_hidden=slid_image_rename_e&w_ini=620&h_ini=320" class="fancytoJcrop">[+] <?php echo $messages["general_load_image"]." (".$messages["general_english"].")";?></a>&nbsp; -->
+                                                <a href="simpleJcropImage.php?divContent=div_content_slid_image_rename_e&idInputHidden=slid_image_rename_e&widthAreaSelection=620&hightAreaSelection=320" class="fancytoJcrop">[+] <?php echo $messages["general_load_image"]." [".$messages["general_spanish"]."]";?></a>
 											</td>
                                         </tr>                                        
                                         <tr>

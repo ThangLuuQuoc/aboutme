@@ -257,8 +257,7 @@
                                 	<label class="lbl_gray"><?php echo $messages["general_image"]." (".$messages["general_spanish"].")";?>:</label>
 								</td>
                                 <td>
-                                	<a href="addImageJcrop.php?div=div_content_serv_image&input_hidden=serv_image&w_ini=620&h_ini=465" class="fancytoJcrop">[+] <?php echo $messages["general_load_image"]." (".$messages["general_spanish"].")";?></a>
-                                    
+                                	<a href="simpleJcropImage.php?divContent=div_content_serv_image&idInputHidden=serv_image&widthAreaSelection=620&hightAreaSelection=465" class="fancytoJcrop">[+] <?php echo $messages["general_load_image"]." (".$messages["general_spanish"].")";?></a>
                                 	<div id="div_content_serv_image" style="width:620; height:465;">
                                         <?php echo $serv_image_element;?>
                                     </div>
@@ -309,7 +308,7 @@
                                 	<label class="lbl_gray"><?php echo $messages["general_image"]." (".$messages["general_english"].")";?>:</label>
 								</td>
                                 <td>
-                                	<a href="addImageJcrop.php?div=div_content_serv_image_e&input_hidden=serv_image_e&w_ini=620&h_ini=465" class="fancytoJcrop">[+] <?php echo $messages["general_load_image"]." (".$messages["general_english"].")";?></a>
+                                	<a href="simpleJcropImage.php?divContent=div_content_serv_image_e&idInputHidden=serv_image_e&widthAreaSelection=620&hightAreaSelection=465" class="fancytoJcrop">[+] <?php echo $messages["general_load_image"]." (".$messages["general_english"].")";?></a>
                                     
                                 	<div id="div_content_serv_image_e" style="width:620; height:465;">
                                         <?php echo $serv_image_e_element;?>

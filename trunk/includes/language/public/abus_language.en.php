@@ -2,6 +2,7 @@
 $abusLanguage = array (
 	"app_menu_service" => "service",
 	"app_menu_gallery" => "gallery",
+	"app_menu_videos" => "videos",
 	
 	"general_languaje" => "Language",
 	"general_follow_us" => "Follow us",
