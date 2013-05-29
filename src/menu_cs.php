@@ -11,8 +11,8 @@
 		for ($i = 0; $i < $countListContent; $i++) {
 			$submenuUs .= '<li><a href="/'.$appMenuPublic[2]->menu_link.'/'.$listContent[$i]->cont_code.'/'.formatToUrl($listContent[$i]->cont_name).'">'.$listContent[$i]->cont_name.'</a></li>';			
 		}
-		$submenuUs .= '<li><a href="/'.$appMenuPublic[2]->menu_link.'/'.formatToUrl($messages_p["general_our_personal"]).'">'.$messages_p["general_our_personal"].'</a></li>';
-		$submenuUs .= '<li><a href="/'.$appMenuPublic[2]->menu_link.'/'.formatToUrl($messages_p["general_social_information"]).'">'.$messages_p["general_social_information"].'</a></li>';
+		//$submenuUs .= '<li><a href="/'.$appMenuPublic[2]->menu_link.'/'.formatToUrl($messages_p["general_our_personal"]).'">'.$messages_p["general_our_personal"].'</a></li>';
+		//$submenuUs .= '<li><a href="/'.$appMenuPublic[2]->menu_link.'/'.formatToUrl($messages_p["general_social_information"]).'">'.$messages_p["general_social_information"].'</a></li>';
 		$submenuUs .= '</ul>';
 	}
 	

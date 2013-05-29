@@ -59,7 +59,7 @@ class ServiceType {
 				$sertype_name = "sertype_name_e";
 			}
 			
-			$query = "SELECT s.sertype_code, s.".$sertype_name." FROM service_type s WHERE s.sertype_status <> 3 ".$where;
+			$query = "SELECT s.sertype_code, s.".$sertype_name." FROM service_type s WHERE s.sertype_status <> 3 " . $where . " " . $orderBy;
 			
 			
 		} else {//ser_status

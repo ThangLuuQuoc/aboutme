@@ -195,7 +195,7 @@
                             	<td colspan="4">
                             		<div id="content">
                                         <a href="javascript:;" id="upload"></a>
-                                        <a href="addImageJcrop.php?function=loadImageCropper&w_ini=870&h_ini=522" class="fancytoJcrop link_upload"><?php echo $messages["general_load_image"];?></a>
+                                        <a href="simpleJcropImage.php?function=loadImageCropper&widthAreaSelection=870&hightAreaSelection=522" class="fancytoJcrop link_upload"><?php echo $messages["general_load_image"];?></a>
                                         <ul id="gallery">
                                             <!-- Cargar Fotos -->
                                         </ul>
@@ -221,7 +221,7 @@
                             </tr>
                             <tr>
                             	<td colspan="4" align="center">
-                            		<div class="div_items_c">
+                            		<div class="div_items_r">
                                         <div class="item">
                                 			<input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"]?>" onclick="javascript: validate();"/>
                                         </div>

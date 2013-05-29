@@ -142,14 +142,23 @@
                                     <input type="hidden" name="y_ini" value="<?php echo $y_ini;?>" /> 
                                     <input type="hidden" name="h_ini" value="<?php echo $h_ini;?>" />
                                     <input type="hidden" name="w_ini" value="<?php echo $w_ini;?>" />
+                                    <div class="div_items">
+                                        <div class="item">
+											<label class="lbl_black"><?php echo $messages["general_image"];?></label>
+                                        </div>
+                                        <div class="item">
+                                    		<input type="file" name="image" size="30"/>
+                                        </div>
+                                        <div class="item">
+                                    		<input type="button" name="upload_file" id="upload_file" value="<?php echo $messages["general_load_image"];?>" 
+                                    			onclick="javascript: uploadImage()" class="w8-icon l-blue"/>
+                                        </div>
+                                    </div>
 
-									<label class="lbl_black"><?php echo $messages["general_image"];?></label>
-                                    <input type="file" name="image" size="30"/>
-                                    <input type="button" name="upload_file" id="upload_file" value="<?php echo $messages["general_load_image"];?>" onclick="javascript: uploadImage()" class="button_grv"/>
                                     <input type="hidden" name="upload_image" id="upload_image" value="0" />
 								</td>
                                 <td align="right">
-                                <input type="button" class="button_grv_cancel" onclick="javascript: window.top.$.fn.fancybox.close();" value="<?php echo $messages["general_cancel"];?>" />
+									<input type="button" class="w8-icon grey" onclick="javascript: window.top.$.fn.fancybox.close();" value="<?php echo $messages["general_cancel"];?>" />
                                 </td>
 							</tr>
 						</table>
