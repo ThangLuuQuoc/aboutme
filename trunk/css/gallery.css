@@ -26,20 +26,15 @@ a {outline: none;}
 
 #box {
 	text-align: left;
-	width: 900px;
+	width: 100%;
 	padding:2px 0px 15px 0px;
 	margin: 5px 5px 5px 0px;
 	overflow: hidden;
 	
 	background:#FFF;
-	border:1px solid #c0c0c0;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-		
-	box-shadow: 1px 1px 1px #000;
-	-moz-box-shadow: 1px 1px 1px #000;
-	-webkit-box-shadow: 1px 1px 1px #000;
+	border-radius: 1px;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
 	
 	-webkit-animation-name: fadeIn; 
   	-webkit-animation-duration: 3s; 

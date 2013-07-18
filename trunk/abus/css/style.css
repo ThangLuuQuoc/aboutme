@@ -257,6 +257,7 @@ width: 150px;
 font-size: 0.95em;
 font-weight: normal;
 }
+
 #nav li ul li a:hover { 
 	text-decoration: underline; 
 	box-shadow: none;

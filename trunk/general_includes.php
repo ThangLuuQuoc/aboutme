@@ -2,6 +2,7 @@
 <link rel="shortcut icon" href="favicon.ico">
 <link href="/css/style.css" rel="stylesheet" type="text/css" />
 <link href="/css/coolMessage.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/css/style_menu.css" type="text/css" media="screen" />
 <style type="text/css">
 	body {
 		<?php echo $app_background_public;?>	
@@ -73,6 +74,16 @@
 	}
 	
 </script>
+
+<!-- <plugin_facebook> -->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- </plugin_facebook> -->
 
 <meta name="author" content="sebastian lara" />
 <meta name="description" content="<?php echo $meta_description_value;?>" />

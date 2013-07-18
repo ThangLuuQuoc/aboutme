@@ -6,6 +6,8 @@
 <title><?php echo $appMenuPublic[$menu_code]->menu_value.SEPARATOR_A.SITE_NAME;?></title>
 <?php require("general_includes.php");?>
 <link rel="stylesheet" href="/css/nGallery-slider.css" type="text/css" media="screen" />
+
+
 <script type="text/javascript" src="/js/jquery-1.6.1.min.js"></script>
 <script type="text/javascript" src="/js/jquery.gall.slider.pack.js"></script>
 <script type="text/javascript" src="/js/nSlide-control.js"></script>
@@ -13,9 +15,11 @@
 <script type="text/javascript" src="/js/prefixfree.min.js"></script>
 <script type="text/javascript" src="/js/modernizr-1.7.min.js"></script>
 
+
+
 </head>
 <body>	
-  <div class="wrap">
+    <div class="wrap">
 		<?php include ("header.php");?>
 		<?php include ("menu.php");?>
 		<div id="Middle">
@@ -35,13 +39,13 @@
                         if ( ! empty ($list[$i]->serv_image)) {
                             $path_img = "file_upload/service/620x465/".$list[$i]->serv_image;
                             if (file_exists ($path_img)) {
-                                $serv_image = '<img src="/'.$path_img.'" width="193" height="145" alt="'.$list[$i]->serv_name.'"/></a>';
+                                $serv_image = '<img src="/'.$path_img.'" alt="'.$list[$i]->serv_name.'"/></a>';
 							}
                         }
 						
-						$num_words = 150;
+						$num_words = 120;
 						if (strlen ($list[$i]->serv_name) > 22) {
-							$num_words = 120;
+							$num_words = 90;
 						}
 				?>
                         <div class="list-a" onclick="window.location.href='/<?php echo $messages_p["app_menu_service"].'/'.$list[$i]->serv_code.'/'.formatToUrl($list[$i]->serv_name);?>'">					
