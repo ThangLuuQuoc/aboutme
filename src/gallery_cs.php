@@ -21,7 +21,6 @@
 		echo ("<script> window.history.back(-1); </script>");
 	}
 	
-	$html_images = "";
 	$html_images_thumb = "";
 	
 	for ($i = 0; $i < $countImages; $i++) {
@@ -29,13 +28,7 @@
 			continue;
 		}
 		
-		$html_images .= '
-		<li id="'.($i+1).'">
-			<img src="/'.$path.'/870x522/'.$images[$i]->img_rename.'" alt="" width="870" height="522" />
-			<p><span></span></p>
-		</li>';
-		
 		$html_images_thumb .= '
-		<li><a href="#'.($i+1).'"><img src="/'.$path.'/200x120/'.$images[$i]->img_rename.'" alt="" width="200" height="120" /></a></li>';
+		<li><a class="fancybox" href="/'.$path.'/870x522/'.$images[$i]->img_rename.'" data-fancybox-group="gallery" title=""><img src="/'.$path.'/200x120/'.$images[$i]->img_rename.'" alt="" width="200" height="120" /></a></li>';
 	}
 ?>

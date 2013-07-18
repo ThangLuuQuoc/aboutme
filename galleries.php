@@ -33,12 +33,16 @@
 									}
 								}								
 						?>
+						<div class="content-item">
 							<div class="item">                    	
                                 <div class="gthumb"><a href="/<?php echo $messages_p["app_menu_gallery"].'/'.$list[$i]->gall_code.'/'.formatToUrl($list[$i]->gall_name);?>"><?php echo $gall_image;?></a></div>
                                 <div class="gback"></div>
-                                <h2><a href="/<?php echo $messages_p["app_menu_gallery"].'/'.$list[$i]->gall_code.'/'.formatToUrl($list[$i]->gall_name);?>"><?php echo $list[$i]->gall_name;?></a></h2>
-                                <div class="photos"><?php echo $list[$i]->amount_images;?> <?php echo $messages_p["general_photos"];?></div>
+                                <div class="gall-info">
+                                	<h2><a href="/<?php echo $messages_p["app_menu_gallery"].'/'.$list[$i]->gall_code.'/'.formatToUrl($list[$i]->gall_name);?>"><?php echo $list[$i]->gall_name;?></a></h2>
+                                	<div class="photos"><?php echo $list[$i]->amount_images;?> <?php echo $messages_p["general_photos"];?></div>
+                            	</div>
                             </div>
+                        </div>
 						<?php 
 							}
 							

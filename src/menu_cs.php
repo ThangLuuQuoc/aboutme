@@ -1,5 +1,5 @@
 <?php	
-	
+	$imgLogoSmall = '<img src="/images/logo_small.png" alt="Apple Logo" style="margin:6px 0 6px 0" />';
 	if (! isset ($submenuUs)) {
 		require_once ("includes/class/content.class.php");
 	

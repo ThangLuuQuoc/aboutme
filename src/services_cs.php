@@ -16,7 +16,8 @@
 	$serv_image_default = '<img src="/images/no_avaliable.jpg" style="border:0px" width="193" height="145" alt="'.$meta_bussiness_name.'"/>';
 	
 	$sertype_code = 0;
-	$sertype_name = "";
+	$sertype_name = ""; // para mostrar en la url
+	$sertype_name_value = ''; // para mostrar en la página
 	
 	$showServices = false; //bandera para saber si se tiene que mostrar o no una lista de servicios.
 	$isServiceValid = false;
@@ -34,7 +35,11 @@
 			$sertype_name = $_GET["sertype_name"];
 		}
 		
-		if ($serviceType->isValid($sertype_code)) {			
+		if ($serviceType->isValid($sertype_code)) {
+			$serviceTypeData = $serviceType->getServiceType($sertype_code, $_SESSION["lang"]);
+			$sertype_name_value = $serviceTypeData->sertype_name;
+
+
 			$showServices = true;
 			
 			if (isset ($_GET['init'])) {

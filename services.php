@@ -25,7 +25,7 @@
                             ?>
                             <div class="title-a">
                                 <div class="spc">
-                                    <h1>Servicios Especializados</h1>
+                                    <h1><?php echo $sertype_name_value;?></h1>
                                 </div>
                             </div>
                             <?php
@@ -34,13 +34,13 @@
                                 if (!empty($list[$i]->serv_image)) {
                                     $path_img = "file_upload/service/620x465/" . $list[$i]->serv_image;
                                     if (file_exists($path_img)) {
-                                        $serv_image = '<img src="/' . $path_img . '" width="193" height="145" alt="' . $list[$i]->serv_name . '"/></a>';
+                                        $serv_image = '<img src="/'.$path_img.'" alt="'.$list[$i]->serv_name.'"/></a>';
                                     }
                                 }
 
-                                $num_words = 150;
+                                $num_words = 120;
                                 if (strlen($list[$i]->serv_name) > 22) {
-                                    $num_words = 120;
+                                    $num_words = 90;
                                 }
                                 ?>
                                 <div class="list-a" onclick="window.location.href='/<?php echo $messages_p["app_menu_service"] . '/' . $list[$i]->serv_code . '/' . formatToUrl($list[$i]->serv_name); ?>'">
@@ -53,7 +53,6 @@
                                 <?php
                             }
                             ?>
-
                             <?php include ("pagination.php"); ?>
 
                             <?php

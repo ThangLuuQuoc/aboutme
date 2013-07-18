@@ -34,12 +34,11 @@
 					$images_slider .= '</a>';
 				}
 				
-				$content_slider .= '<div id="html-'.$k.'" class="nivo-html-caption"><h2 style="color:white; padding-left:10px;">'.$slid_title.'</h2><div class="data">'.truncate($slid_content, 400, '').'</div></div>';				
+				$content_slider .= '<div id="html-'.$k.'" class="nivo-html-caption"><h2 class="title">'.$slid_title.'</h2><div class="data">'.truncate($slid_content, 400, '').'</div></div>';				
 				$k ++;	
 			}
 		}
 	}	
-	
 	$serv_image_default = '<img src="/images/broken-image.png" style="border:0px" width="193" height="145" alt="'.$meta_bussiness_name.'"/>';
 	$list = $service->serviceList('', ' ORDER BY s.serv_order ', 0, 6, 1, 0, $_SESSION["lang"]);
 	$countRows = count ($list);
