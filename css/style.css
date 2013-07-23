@@ -135,21 +135,15 @@ ol,ul {
 }
 
 #Contents-b {
-    width: 900px;
+    width: 100%;
     float: left;
     height: auto;
     padding:2px 0px 15px 0px;
     margin: 5px 5px 5px 0px;
     background:#FFF;
-    border:1px solid #C0C0C0;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-
-    box-shadow: 1px 1px 1px #000;
-    -moz-box-shadow: 1px 1px 1px #000;
-    -webkit-box-shadow: 1px 1px 1px #000;
-
+    border-radius: 1px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
     overflow: hidden;
     z-index: 2;
 }
@@ -172,20 +166,15 @@ ol,ul {
 }
 
 #Contents {
-    width: 663px;
+    width: 99%;
     float: left;
     height: 570px;
     padding:2px 0px 2px 0px;
     margin: 0px 5px 5px 0px;
     background:#FFF;
-    border:1px solid #C0C0C0;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-
-    box-shadow: 1px 1px 1px #000;
-    -moz-box-shadow: 1px 1px 1px #000;
-    -webkit-box-shadow: 1px 1px 1px #000;
+    border-radius: 1px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
 
     overflow: hidden;
     z-index: 2;
@@ -329,7 +318,7 @@ h1 {
 .bloq-a .content-a {
     width: 99%;
     float: left;
-    min-height: 570px;
+    min-height: 573px;
     padding:2px 0px 2px 0px;
     margin: 0px 5px 5px 0px;
     background:#FFF;
@@ -355,16 +344,11 @@ h1 {
 }
 
 .bloq-a .content-a  .sthumb {
-    border: 1px solid #979797;
     padding:5px;
     margin: auto;
     z-index:2;
     width:620px;
     height:465px;
-}
-
-.bloq-a .content-a  .sthumb:hover {
-    border: 1px solid #003F78;
 }
 
 .bloq-a .content-a  .descrip {
@@ -749,13 +733,21 @@ h1 {
     padding-top: 10px;
     padding-bottom: 5px;
 }
-.mVideos .listVideoTh {
-    background-image: url(../images/marco-video.png);	
-    width: 200px;
-    height: 180px;
-    padding: 2px;
+
+.mVideos .content-video {
+    width: 24%;
+    height: auto;
     float: left;
-    margin-right: 8px;
+    margin: 3px;
+}
+
+.mVideos .content-video .listVideoTh {
+    background-image: url(../images/marco-video.png);	
+    width: 204px;
+    height: 150px;
+    padding: 10px;
+    float: left;
+    margin: 2px 12px 5px 12px;
 }
 
 .listVideoTh .vthumb {

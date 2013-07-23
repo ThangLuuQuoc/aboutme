@@ -30,31 +30,30 @@
 	text-align:left; 
 	background:#fff; 
 	border:1px solid #FFF;
-	radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
+	radius: 1px;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
 }
 
 #confirmModalContainer .header {
 	height:30px; 
 	width:100%; 
-	background: rgb(0,183,234);
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwYjdlYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDllYzMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-background: -moz-linear-gradient(top,  rgba(0,183,234,1) 0%, rgba(0,158,195,1) 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,183,234,1)), color-stop(100%,rgba(0,158,195,1)));
-background: -webkit-linear-gradient(top,  rgba(0,183,234,1) 0%,rgba(0,158,195,1) 100%);
-background: -o-linear-gradient(top,  rgba(0,183,234,1) 0%,rgba(0,158,195,1) 100%);
-background: -ms-linear-gradient(top,  rgba(0,183,234,1) 0%,rgba(0,158,195,1) 100%);
-background: linear-gradient(to bottom,  rgba(0,183,234,1) 0%,rgba(0,158,195,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+	background: #439ea8;
+    background: -moz-linear-gradient(top,  #439ea8 1%, #2582ed 51%, #0471ed 54%, #4e98ed 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#439ea8), color-stop(51%,#2582ed), color-stop(54%,#0471ed), color-stop(100%,#4e98ed));
+    background: -webkit-linear-gradient(top,  #439ea8 1%,#2582ed 51%,#0471ed 54%,#4e98ed 100%);
+    background: -o-linear-gradient(top,  #439ea8 1%,#2582ed 51%,#0471ed 54%,#4e98ed 100%);
+    background: -ms-linear-gradient(top,  #439ea8 1%,#2582ed 51%,#0471ed 54%,#4e98ed 100%);
+    background: linear-gradient(to bottom,  #439ea8 1%,#2582ed 51%,#0471ed 54%,#4e98ed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#439ea8', endColorstr='#4e98ed',GradientType=0 );
 	
 	line-height:30px;
 	font-family: "lucida grande" ,tahoma,verdana,arial,sans-serif;  
 	font-weight:bold;
 	font-size: 14px;  
 	color: #FFF;  
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
 }
 
 #confirmModalContainer .header span {padding-left:8px;}

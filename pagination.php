@@ -1,4 +1,4 @@
-<?php if ($listRows > $amount) {?>
+<?php if ($listRows > $amount || 1) {?>
 <div class="content-b">
 	<div class="pagination">
 		<?php echo $elementPreview;?>
