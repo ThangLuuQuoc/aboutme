@@ -50,7 +50,7 @@
             <?php include ("menu.php"); ?>
             <div id="Main">
                 <div class="bloq-a">
-                    <div id="Contents" class="shadowC">
+                    <div id="Contents">
                         <div class="spc">
                             <div class="iCont">
                                 <div class="title"><?php echo $appMenuPublic[$menu_code]->menu_value; ?></div>

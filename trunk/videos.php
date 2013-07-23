@@ -44,7 +44,7 @@
                                 </div>                        
                             </div>
                         <?php
-							for ($i = 0; $i < $countRows; $i++)	{								
+							for ($i = 0; $i < $countRows; $i++)	{
 								$path_video = "file_upload/videos/file/".$list[$i]->vid_file;
 								
 								if ($list[$i]->vid_type == 1 && ! file_exists ($path_video)) {
@@ -63,11 +63,13 @@
 									}
 								}
 						?>
-                            <div class="listVideoTh">
-	                            <div class="vthumb"><?php echo $thumb_image;?></div>
-    	                        <div class="play" onclick="window.location.href='/<?php echo $init.'/'.$amount.'/'.$messages_p["app_menu_videos"].'/'.$list[$i]->vid_code.'/'.formatToUrl($list[$i]->vid_name);?>'"></div>
-        	                    <div class="dat"><a href="/<?php echo $init.'/'.$amount.'/'.$messages_p["app_menu_videos"].'/'.$list[$i]->vid_code.'/'.formatToUrl($list[$i]->vid_name);?>" title="<?php echo $img_youtube;?>"><?php echo $list[$i]->vid_name;?></a></div>
-                            </div>
+							<div class="content-video">
+	                            <div class="listVideoTh">
+		                            <div class="vthumb"><?php echo $thumb_image;?></div>
+	    	                        <div class="play" onclick="window.location.href='/<?php echo $init.'/'.$amount.'/'.$messages_p["app_menu_videos"].'/'.$list[$i]->vid_code.'/'.formatToUrl($list[$i]->vid_name);?>'"></div>
+	        	                    <div class="dat"><a href="/<?php echo $init.'/'.$amount.'/'.$messages_p["app_menu_videos"].'/'.$list[$i]->vid_code.'/'.formatToUrl($list[$i]->vid_name);?>" title="<?php echo $img_youtube;?>"><?php echo $list[$i]->vid_name;?></a></div>
+	                            </div>
+	                        </div>                            
 						<?php 
 							}
 							include ("pagination.php");

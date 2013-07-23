@@ -39,7 +39,6 @@
 			$serviceTypeData = $serviceType->getServiceType($sertype_code, $_SESSION["lang"]);
 			$sertype_name_value = $serviceTypeData->sertype_name;
 
-
 			$showServices = true;
 			
 			if (isset ($_GET['init'])) {
