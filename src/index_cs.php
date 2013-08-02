@@ -22,13 +22,13 @@
 		$slid_url = $listItemsSlider[$i]->slid_url;
 		
 		if (! empty ($slid_image_rename)) {
-			$path_img = "file_upload/slider/620x320/".$slid_image_rename;
+			$path_img = "file_upload/slider/750x320/".$slid_image_rename;
 			if (file_exists ($path_img)){
 				if (! empty ($slid_url)) {
 					$images_slider .= '<a href="'.$slid_url.'" target="_blank">';
 				}
 				
-				$images_slider .= '<img src="/'.$path_img.'" style="border:0px" width="620" height="320" alt="'.$slid_title.'" title="#html-'.$k.'"/>';
+				$images_slider .= '<img src="/'.$path_img.'" style="border:0px" width="750" height="320" alt="'.$slid_title.'" title="#html-'.$k.'"/>';
 				
 				if (! empty ($slid_url)) {
 					$images_slider .= '</a>';

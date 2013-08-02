@@ -24,9 +24,18 @@
                 aspectRatio: 0 // 0
             }, function () {
                 jcrop_api = this;
+                // Setup and dipslay the interface for "enabled"
+                $('#ar_lock').attr('checked',false);
             });
 
         };
+
+        $('#ar_lock').change(function(e) {
+            alert('Hola')
+            jcrop_api.setOptions(this.checked ?
+            { aspectRatio: 4/3 } : { aspectRatio: 0 });
+            jcrop_api.focus();
+        });
 
         // Simple event handler, called from onChange and onSelect
         // event handlers, as per the Jcrop invocation above
@@ -46,7 +55,7 @@
         // validacion de la imagen a cargar
          $("#imageJcrop").change(function() {
             var val = $(this).val();
-
+            alert('in')
             switch(val.substring(val.lastIndexOf('.') + 1).toLowerCase()){
                 case 'jpg':
                     document.forms["formJcrop"].submit();
