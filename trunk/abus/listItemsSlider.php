@@ -105,7 +105,7 @@
                         						
                         $slid_image = '<img src="../images/broken-image.png" style="border:0px" width="165" height="80"/>';
                         if ( ! empty ($itemsSlider[$i]->slid_image_rename)) {
-                            $path_img = "../file_upload/slider/620x320/".$itemsSlider[$i]->slid_image_rename;
+                            $path_img = "../file_upload/slider/750x320/".$itemsSlider[$i]->slid_image_rename;
                             if (file_exists ($path_img)) {
                                 $slid_image = '<a href="'.$path_img.'" class="fancytoImage" title="'.$itemsSlider[$i]->slid_image_name.'"><img src="'.$path_img.'" style="border:0px" width="165" height="80"/></a>';
 							}
