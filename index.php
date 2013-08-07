@@ -39,7 +39,7 @@
                         if ( ! empty ($list[$i]->serv_image)) {
                             $path_img = "file_upload/service/620x465/".$list[$i]->serv_image;
                             if (file_exists ($path_img)) {
-                                $serv_image = '<img src="/'.$path_img.'" alt="'.$list[$i]->serv_name.'"/></a>';
+                                $serv_image = '<img src="/'.$path_img.'" width="200" height="150" alt="'.$list[$i]->serv_name.'"/></a>';
 							}
                         }
 						

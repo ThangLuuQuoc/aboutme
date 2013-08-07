@@ -30,15 +30,19 @@
 					$countImages = $gallery->countGalleryImages((int) $_GET['id']);
 					
 					for ($i = 0; $i < $countImages; $i++) {
-						$pathImage = "../file_upload/gallery/200x120/";
-						if (!file_exists ($pathImage.$images[$i]->img_rename)) {
+						$pathImage = "../file_upload/gallery/200x120/" . $images[$i]->img_rename;
+						if (!file_exists ($pathImage)) {
 							continue;
 						}
 						
 						echo  '
 						<li style="display: block;">
-							<a href="javascript:;" id="'.$images[$i]->img_code.'"><img src="../images/delete.png"></a>
-							<img src="'.$pathImage.$images[$i]->img_rename.'">
+							<input type="text" id="img_name_' . $images[$i]->img_code . '" value="' . $images[$i]->img_name . '" />
+							<input type="text" id="img_name_e_' . $images[$i]->img_code . '" value="' . $images[$i]->img_name_e . '" />
+							<input type="text" id="img_path_' . $images[$i]->img_code . '" value="' . $pathImage . '" />
+							<a href="javascript:;" class="to_delete" id="'.$images[$i]->img_code.'" title="' . $messages['general_remove'] . '"><img src="../images/delete.png"></a>
+							<a href="javascript:;" onclick="updateIMageInformation(' . $images[$i]->img_code.')" id="info_img_' . $images[$i]->img_code.'" title="' . $messages['general_information'] . '" class="info"><img src="../images/info.png" width="16" height="16"></a>
+							<img src="'.$pathImage.'">
 							<input type="hidden" name="array_images[]" value="'.$images[$i]->img_rename.', '.$images[$i]->img_code.'" />
 							<input type="hidden" name="array_images_valid[]" id="hidden_'.$images[$i]->img_code.'" value="1" />
 						</li>';
@@ -49,7 +53,7 @@
 	}
 	
 	//cargar image		
-	if (isset ($_FILES['image'])) {
+	if (isset ($_FILES['image']) && false) {
 		$allow_extensions = array(".jpg", ".gif", ".png");
 		$filename = basename($_FILES['image']['name']);
 		$file_ext = strtolower ( substr ( $filename, strrpos ( $filename, '.') ) );
@@ -65,7 +69,7 @@
 					
 			$path_to = "../file_upload/images_bank/";
 			$imageRename = $file->subirArchivo($_FILES['image']['tmp_name'], $_FILES['image']['name'], $path_to);
-			
+
 			if ($imageRename != ".") {
 				$image->redimensionarImagen(500, 300, $path_to.$imageRename, $path_to."thumb-".$imageRename, "white");
 				$inputHidden = '';
@@ -78,7 +82,11 @@
 				
 				echo '
 				<li style="display: block;">
+					<input type="text" id="img_name_0" value="" />
+					<input type="text" id="img_name_e_0" value="" />
+					<input type="text" id="img_path_0" value="' . $path_to . 'thumb-' . $imageRename . '" />
 					<a href="javascript:;" id="'.$imageRename.'"><img src="../images/delete.png"></a>
+					<a href="javascript:;" onclick="updateIMageInformation(0)" id="info_img_0" title="' . $messages['general_information'] . '" class="info"><img src="../images/info.png" width="16" height="16"></a>
 					<img src="'.$path_to.'thumb-'.$imageRename.'" style="border:0px;">
 					'.$inputHidden.'
 				</li>';

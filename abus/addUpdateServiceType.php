@@ -47,7 +47,7 @@
 </head>
 <body onload="javascript: showMessage(<?php echo $message_show;?>)">
 	<?php $item_select = 4; include ("menu.php");?>
-	<form name="form" id="form" method="post" action="">
+	<form name="form1" id="form1" method="post" action="">
 		<input type="hidden" name="save" id="save" value="1" />
 		<input type="hidden" name="sertype_code" id="sertype_code" value="<?php echo $sertype_code;?>" />
 		<div class="content_grv">

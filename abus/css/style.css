@@ -1532,6 +1532,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 		top:10px
 	}
 	
+	#gallery li .info {
+		position:absolute;
+		right:35px;
+		top:10px
+	}
+
 	#gallery li a img {
 		width:auto; 
 		height:auto

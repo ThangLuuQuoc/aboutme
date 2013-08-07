@@ -304,8 +304,20 @@ class Gallery {
 	/**
 	*	Función responsable de listar las imagenes de una galería
 	*/
-	function getGalleryImages($gall_code) {
-		$query = "SELECT i.img_code, i.img_rename FROM image i WHERE i.gall_code=".(int) $gall_code." ORDER BY i.img_code DESC;";	
+	function getGalleryImages($gall_code, $lang = '') {
+		if ($lang == "es" || $lang == "en") {
+			if ($lang == "es") {
+				$img_name = "img_name";
+			} elseif ($lang == "en") {
+				$img_name = "img_name";
+			}
+			$query = "SELECT i.img_code, i.img_rename, i.". $img_name ." "
+				   	. "FROM image i WHERE i.gall_code=".(int) $gall_code." ORDER BY i.img_code DESC;";
+		} else {
+			$query = "SELECT i.img_code, i.img_rename, i.img_name, i.img_name_e "
+				   	. "FROM image i WHERE i.gall_code=".(int) $gall_code." ORDER BY i.img_code DESC;";			
+		}
+
 		$data = NULL;
 		
 		if ($result = mysql_query ($query)) {
@@ -313,6 +325,13 @@ class Gallery {
 			while ($row = mysql_fetch_array ($result)) {
 				$data[$i]->img_code = $row["img_code"];
 				$data[$i]->img_rename = $row["img_rename"];
+				
+				if ($lang == "es" || $lang == "en") {
+					$data[$i]->img_name = $row[$img_name];
+				} else {
+					$data[$i]->img_name = $row['img_name'];
+					$data[$i]->img_name_e = $row['img_name_e'];
+				}
 				$i++;
 			}
 		}

@@ -8,6 +8,7 @@
 </title>
 <?php require ("general_includes.php");?>
 <script type="text/javascript" src="js/ajaxupload.js"></script>
+<script src="js/jquery.lightbox_me.js" type="text/javascript" charset="utf-8"></script>
 <script language="javascript" type="text/javascript">
 	
 	var countImages = parseInt (<?php echo $amountImages;?>);
@@ -60,7 +61,7 @@
 			name: 'image',
 			onSubmit : function(file, ext){
 				// cambiar el texto del boton cuando se selecicione la imagen		
-				button.text('Subiendo');
+				button.text('<?php echo $messages["general_uploading"];?>');
 				// desabilitar el boton
 				this.disable();
 				
@@ -69,12 +70,12 @@
 					if (text.length < 11){
 						button.text(text + '.');					
 					} else {
-						button.text('Subiendo');				
+						button.text('');				
 					}
 				}, 200);
 			},
 			onComplete: function(file, response){
-				button.text('Subir Foto');
+				button.text('<?php echo $messages["general_load_image"];?>');
 							
 				window.clearInterval(interval);
 							
@@ -96,19 +97,39 @@
 		$("#gallery").load("processingImage.php?action=getImages&id=<?php echo $gall_code;?>");
 		
 		// Eliminar		
-		$("#gallery li a").live("click",function(){
-			var a = $(this)
-			$.get("processingImage.php?action=delete", {id:a.attr("id")}, function() {
-				a.parent().fadeOut("slow");
-				countImages --;
-				document.getElementById("hidden_" + a.attr("id")).value = 0;
-			})
+		$("#gallery li .to_delete").live("click",function() {
+            var a = $(this)
+
+            coolMessage("confirm", '<?php echo $messages["general_message_confirmDeleteImage"];?>', function(){
+                $.get("processingImage.php?action=delete", {id:a.attr("id")}, function() {
+                    a.parent().fadeOut("slow");
+                    countImages --;
+                    document.getElementById("hidden_" + a.attr("id")).value = 0;
+                })
+            }); 
 		})
 	});
 
 	function loadImageCropper(image_rename) {
 		close_fancy();
-		var response = '<li style="display: block;"><a href="javascript:;" id="'+ image_rename +'"><img src="../images/delete.png"></a><img src="../file_upload/images_bank/'+ image_rename +'"><input type="hidden" name="array_images[]" value="' + image_rename + ',0" /><input type="hidden" name="array_images_valid[]" id="hidden_' + image_rename + '" value="1" /></li>';
+		var response = '<li style="display: block;">'
+                     + '<a href="javascript:;" id="'+ image_rename +'">'
+                     + '<img src="../images/delete.png"></a><img src="../file_upload/images_bank/'+ image_rename +'">'
+                     + '<input type="hidden" name="array_images[]" value="' + image_rename + ',0" />'
+                     + '<input type="hidden" name="array_images_valid[]" id="hidden_' + image_rename + '" value="1" />'
+                     + '</li>';
+        var img_code = 0;
+        response = '<li style="display: block;">'
+            + '<input type="text" id="img_name_' + img_code + '" value="" />'
+            + '<input type="text" id="img_name_e_' + img_code + '" value="" />'
+            + '<input type="text" id="img_path_' + img_code + '" value="' + image_rename + '" />'
+            + '<a href="javascript:;" class="to_delete" id="'.$images[$i]->img_code.'" title="' . $messages['general_remove'] . '"><img src="../images/delete.png"></a>'
+            + '<a href="javascript:;" onclick="updateIMageInformation(' . $images[$i]->img_code.')" id="info_img_' . $images[$i]->img_code.'" title="' . $messages['general_information'] . '" class="info"><img src="../images/info.png" width="16" height="16"></a>'
+            + '<img src="' + image_rename + '">'
+            + '<input type="hidden" name="array_images[]" value="'.$images[$i]->img_rename.', '.$images[$i]->img_code.'" />'
+            + '<input type="hidden" name="array_images_valid[]" id="hidden_'.$images[$i]->img_code.'" value="1" />'
+        + '</li>';
+
 		if ($('#gallery li').length == 0) {
 			$('#gallery').html(response).fadeIn("fast");
 			$('#gallery li').eq(0).hide().show("slow");
@@ -119,12 +140,74 @@
 		
 		countImages ++;
 	}
+
+    function updateIMageInformation (img_code) {
+        var img_name = $.trim($("#img_name_" + img_code).val());
+        var img_name_e = $.trim($("#img_name_e_" + img_code).val());
+        var img_path = $.trim($("#img_path_" + img_code).val());
+
+        $('#content_image').html('<img src="' + img_path + '">');
+        $('#img_name').val(img_name);
+        $('#img_name_e').val(img_name_e);
+        $('#img_code').val(img_code);
+
+        showLightBox();
+    }
+
+    function updateImageData() {
+        var img_code = $("#img_code").val();
+        var img_name = $("#img_name").val();
+        var img_name_e = $("#img_name_e").val();
+        alert(img_code)
+        if (img_code != 0) {
+            $('#img_name_' + img_code).val(img_name);
+            $('#img_name_e_' + img_code).val(img_name_e);
+        }
+    }
+
 </script>
 
 
 </head>
 <body onload="showMessage('<?php echo $message_show;?>')">
-<?php $item_select = 6; include("menu.php");?>
+        <input type="text" id="img_code" value="0" />
+    <div id="sign_up">
+        <table class="tbl_form_fancy">
+            <tr>
+                <td colspan="2" style="border-bottom:1px solid #c0c0c0;" align="center"><label class="title"><?php echo $messages["general_information"];?></label></td>
+            </tr>
+            <tr>
+                <td width="40%" align="right" valign="top"><label class="lbl_gray"><?php echo $messages["general_image"];?>:</label></td>
+                <td id="content_image" class="lbl_black">-</td>
+            </tr>
+            <tr>
+                <td align="right"><label class="lbl_gray"><?php echo $messages["general_name"] . ' (' . $messages["general_spanish"] . ')';?>:</label></td>
+                <td class="lbl_black">
+                    <input type="text" id="img_name" class="text_grv" value="" maxlength="45">
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><label class="lbl_gray"><?php echo $messages["general_name"] . ' (' . $messages["general_english"] . ')';?>:</label></td>
+                <td class="lbl_black">
+                    <input type="text" id="img_name_e" class="text_grv" value="" maxlength="45">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <div class="div_items_c">
+                        <div class="item">
+                            <input type="button" class="w8-icon l-blue" id="btn_disregard" 
+                                value="<?php echo $messages["general_save"];?>" onclick="javascript: updateImageData();" />
+                        </div>
+                        <div class="item">
+                            <input type="button" class="w8-icon grey" id="btn_delete" value="<?php echo $messages["general_cancel"];?>" onclick="javascript: closeLightBox();" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>    
+    </div>
+    <?php $item_select = 6; include("menu.php");?>
     <form name="form1" id="form1" method="post" action="">
     <input type="hidden" name="save" id="save" value="1"/>
     <input type="hidden" name="gall_code" id="gall_code" value="<?php echo $gall_code;?>"/>

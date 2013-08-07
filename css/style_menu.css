@@ -317,7 +317,7 @@ We also remove the borders, since they don't need them. */
     font-size:13px;
     
     /* Apply a subtle text-shadow to the text */
-    text-shadow: 0 -1px 1px #202020;
+    text-shadow: none;
 
     text-align:left;
     line-height:14px;
