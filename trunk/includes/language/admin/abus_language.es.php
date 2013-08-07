@@ -56,6 +56,7 @@ $abusLanguage = array (
 	"general_error" => "Error",				
 	"general_alert" => "Alerta",
 	"general_information" => "Informaci&oacute;n",
+	"general_uploading" => "Subiendo",
 	"general_confirm" => "Confirmar",
 	"general_calcel" => "Cancelar",
 	"general_acept" => "Aceptar",
@@ -161,6 +162,7 @@ $abusLanguage = array (
 	
 	"general_messageCharacters" => "Caracteres disponibles por escribir: ",
 	"general_message_confirmDelete" => "¿Est&aacute; seguro de eliminar este item?",
+	"general_message_confirmDeleteImage" => "¿Est&aacute; seguro de eliminar esta imagen?",
 	"general_message_confirmHighlight" => "¿Est&aacute; seguro que desea destacar este item?",
 	"general_message_confirmNoHighlight" => "¿Est&aacute; seguro que desea dejar de destacar este item?",
 	"general_message_errorOrder" => "Ha ocurrido un error al tratar de actualizar el orden para el item, intenta m&aacute;s tarde",
