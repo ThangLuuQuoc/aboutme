@@ -1,5 +1,5 @@
-<?php
-	header('Content-Type: text/html; charset=UTF-8');	
+﻿<?php
+	//header('Content-Type: text/html; charset=UTF-8');	
 	
 	if (!empty ($_SESSION['message_value']) && !empty ($_SESSION['message_show'])) {
 		$message_value = $_SESSION['message_value'];
