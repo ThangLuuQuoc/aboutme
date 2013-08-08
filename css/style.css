@@ -162,7 +162,6 @@ ol,ul {
     margin-bottom: 10px;
     padding-bottom:5px;
     margin-top: 4px;
-    border-bottom:1px solid #C0C0C0;
 }
 
 #Contents {
@@ -645,9 +644,9 @@ h1 {
     border-right-color: #D6D6D6;
     border-bottom-color: #D6D6D6;
     border-left-color: #BEBEBE;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
 }
 
 .c-form .lab-bt #button {
@@ -858,24 +857,22 @@ h1 {
     padding-bottom: 20px;
     margin-top: 0px;
     position: relative;
-    /*background-image: url(../images/bg-footer.png);
-    background-repeat: repeat-x;*/
-
+    background-image: url(../images/bg-footer.jpg);
+    background-repeat: repeat;
+    border-top: 1px solid black;
 }
 #Footer .scp {
     margin: auto;
-    width: 1002px;
+    width: 80%;
     height: 100%;
     overflow: hidden;
     padding-top: 20px;
 }
 .colm-a {
-    width: 245px;
+    width: 26%;
     float: left;
     height: 190px;
-    background-image: url(../images/lin-v.png);
-    background-repeat: repeat-y;
-    background-position: right 0px;
+    border-right: 1px solid #333;
 }
 .colm-a .contt {
     padding-top: 4px;
@@ -933,7 +930,7 @@ h1 {
 }
 .colm-b {
     float: left;
-    width: 400px;
+    width: 46%;
 }
 .colm-b .contt {
     padding-left: 18px;
@@ -946,19 +943,19 @@ h1 {
 }
 .colm-b .contt .c-fr-a {
     float: left;
-    width: 185px;
+    width: 49%;
 }
 .colm-b .contt .c-fr-a .inp-field {
     margin-bottom: 5px;
-    color: #999;
+    color: #333;
     border: 1px solid #333;
     background-color: #FFF;
-    width: 170px;
+    width: 90%;
     padding-top: 6px;
     padding-right: 4px;
     padding-bottom: 6px;
     padding-left: 8px;
-    border-radius:4px;
+    border-radius:1px;
     font-size: 13px;
     line-height: 13px;
     font-family: 'DaxProRegular';
@@ -967,21 +964,21 @@ h1 {
     margin-bottom: 2px;
     padding-right: 4px;
     padding-left: 6px;
-    color: #999;
+    color: #333;
     font-family: 'DaxProRegular';
     font-size: 13px;
     padding-top: 6px;
     overflow: hidden;
-    width: 180px;
+    width: 95%;
     height: 92px;
     border: 1px solid #333;
-    border-radius:4px;
+    border-radius:1px;
     line-height: 13px;
 }
 .dbutt {
     clear: both;
     text-align: right;
-    width: 384px;
+    width: 99%;
     float: left;
 }
 .colm-b .contt .dbutt .button {
@@ -999,8 +996,6 @@ h1 {
 }
 .footCop {
     clear: both;
-    background-image: url(../images/bot-bg.png);
-    background-repeat: no-repeat;
     background-position: center 9px;
     padding-top: 18px;
     padding-bottom: 8px;
@@ -1133,3 +1128,24 @@ ul.tweet_list li {
     float:left;
     text-align:left;		
 }
+
+/** (Comment if you don't like transition) Transition */
+.w8-button, .w8-icon { transition: 0.2s all ease; -moz-transition: 0.2s all ease; -webkit-transition: 0.2s all ease; -o-transition: 0.2s all ease; -ms-transition: 0.2s all ease; }
+
+/** Buttons */
+.w8-button { display: table; padding: 7px 15px 8px 15px; border: none; font-family: "open_sans_lightregular"; font-size: 13px; font-weight: bold; cursor: pointer; opacity: 0.9;}
+.w8-icon { display: table; padding: 4px 7px 7px 7px; border: none; cursor: pointer; opacity: 0.9; width: auto; height: 24px;}
+.w8-button:hover, .w8-icon:hover { opacity: 1; }    
+.w8-button:active, .w8-icon:active { color: white !important; background-color: #191919 !important; }
+
+.w8-button.iconize { padding-right: 50px !important; background: url(../images/win.png) no-repeat 115px center; }
+
+.w8-button.l-red, .w8-icon.l-red { background-color: #d9522c;  color: #FFFFFF;}
+.w8-button.green, .w8-icon.green { background-color: #009900;  color: #FFFFFF;}
+.w8-button.pink, .w8-icon.pink { background-color: #ae193e;  color: #FFFFFF;}
+.w8-button.d-blue, .w8-icon.d-blue { background-color: #0099ab;  color: #FFFFFF;}
+.w8-button.yellow, .w8-icon.yellow { background-color: #fba919;  color: #FFFFFF;}
+.w8-button.l-blue, .w8-icon.l-blue { background-color: #2d87ef;  color: #FFFFFF;}
+.w8-button.violet, .w8-icon.violet { background-color: #5b39b6;  color: #FFFFFF;}
+.w8-button.grey, .w8-icon.grey { background-color: #474747;  color: #FFFFFF;}
+.w8-button.white, .w8-icon.white { background-color: #FFF;  color: #000000;}

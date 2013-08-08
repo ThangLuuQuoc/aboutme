@@ -31,7 +31,6 @@
         };
 
         $('#ar_lock').change(function(e) {
-            alert('Hola')
             jcrop_api.setOptions(this.checked ?
             { aspectRatio: 4/3 } : { aspectRatio: 0 });
             jcrop_api.focus();
@@ -55,7 +54,6 @@
         // validacion de la imagen a cargar
          $("#imageJcrop").change(function() {
             var val = $(this).val();
-            alert('in')
             switch(val.substring(val.lastIndexOf('.') + 1).toLowerCase()){
                 case 'jpg':
                     document.forms["formJcrop"].submit();

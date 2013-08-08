@@ -87,7 +87,8 @@
                 </div>
 
                 <div class="dbutt" style="">
-                    <div class="msg_value" id="message_validation"></div><input type="button" name="button" value="<?php echo $messages_p["general_send"]; ?>" class="button_am" onclick="javascript: validateContactUs();"/>
+                    <div class="msg_value" id="message_validation"></div>
+                    <input type="button" name="button" value="<?php echo $messages_p["general_send"]; ?>" class="w8-icon l-blue" onclick="javascript: validateContactUs();"/>
                 </div>
             </div>
         </div>

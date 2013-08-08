@@ -41,7 +41,7 @@ $abusLanguage = array (
 	"validationContactus_emailValidation" => "El correo electr&oacute;nico es inv&aacute;lido",
 	"validationContactUs_queryConcernRequired" => "Tu pregunta / inquietud es requerida",
 
-	"validationContactUs_allDataRequired" => "Debes de llenar todos los campos",
+	"validationContactUs_allDataRequired" => "Debes comletar todos los campos",
 	"" => "",
 	"" => "",
 	"" => "",

@@ -109,25 +109,36 @@
             }); 
 		})
 	});
+    
+    
+    var isNewImg = 'newImg'; // texto que se le concatena en el id de las imágenes que son nuevas
+    var img_code_temp = 0; // codigo temporal de la imagen
 
-	function loadImageCropper(image_rename) {
-		close_fancy();
-		var response = '<li style="display: block;">'
+
+    function loadImageCropper(image_rename) {
+        close_fancy();
+        var response = '<li style="display: block;">'
                      + '<a href="javascript:;" id="'+ image_rename +'">'
                      + '<img src="../images/delete.png"></a><img src="../file_upload/images_bank/'+ image_rename +'">'
                      + '<input type="hidden" name="array_images[]" value="' + image_rename + ',0" />'
                      + '<input type="hidden" name="array_images_valid[]" id="hidden_' + image_rename + '" value="1" />'
                      + '</li>';
-        var img_code = 0;
+        var img_code = countImages + isNewImg;
+
         response = '<li style="display: block;">'
-            + '<input type="text" id="img_name_' + img_code + '" value="" />'
-            + '<input type="text" id="img_name_e_' + img_code + '" value="" />'
-            + '<input type="text" id="img_path_' + img_code + '" value="' + image_rename + '" />'
-            + '<a href="javascript:;" class="to_delete" id="'.$images[$i]->img_code.'" title="' . $messages['general_remove'] . '"><img src="../images/delete.png"></a>'
-            + '<a href="javascript:;" onclick="updateIMageInformation(' . $images[$i]->img_code.')" id="info_img_' . $images[$i]->img_code.'" title="' . $messages['general_information'] . '" class="info"><img src="../images/info.png" width="16" height="16"></a>'
-            + '<img src="' + image_rename + '">'
-            + '<input type="hidden" name="array_images[]" value="'.$images[$i]->img_rename.', '.$images[$i]->img_code.'" />'
-            + '<input type="hidden" name="array_images_valid[]" id="hidden_'.$images[$i]->img_code.'" value="1" />'
+            + '<input type="hidden" name="img_name[]" id="img_name_' + img_code + '" value=" " />'
+            + '<input type="hidden" name="img_name_e[]" id="img_name_e_' + img_code + '" value=" " />'
+            + '<input type="hidden" id="img_path_' + img_code + '" value="../file_upload/images_bank/' + image_rename + '" />'
+            + '<a href="javascript:;" class="to_delete" id="' + img_code + '" title="<?php echo $messages['general_remove']; ?>">'
+            + '<img src="../images/delete.png"></a>'
+
+            + '<a href="javascript:;" onclick="updateIMageInformation(\'' + img_code + '\')" id="info_img_' + img_code + '" '
+            + 'title="<?php echo $messages['general_information'];?>" class="info">'
+            +'<img src="../images/info.png" width="16" height="16"></a>'
+
+            + '<img id="img_elem_' + img_code + '" src="../file_upload/images_bank/'+ image_rename +'">'
+            + '<input type="hidden" name="array_images[]" value="' + image_rename + ',0" />'
+            + '<input type="hidden" name="array_images_valid[]" id="hidden_' + image_rename + '" value="1" />'
         + '</li>';
 
 		if ($('#gallery li').length == 0) {
@@ -146,23 +157,34 @@
         var img_name_e = $.trim($("#img_name_e_" + img_code).val());
         var img_path = $.trim($("#img_path_" + img_code).val());
 
-        $('#content_image').html('<img src="' + img_path + '">');
+        var title_img  = '[<?php echo $messages['general_es'];?>: ' + img_name + '] '
+                     + '[<?php echo $messages['general_en'];?>: ' + img_name_e + ']';
+
+        var html_img = '<img src="' + img_path + '" width="200" height="120" '
+                     + 'title="' + title_img + '">';
+        
+
+        $('#content_image').html(html_img);
         $('#img_name').val(img_name);
         $('#img_name_e').val(img_name_e);
-        $('#img_code').val(img_code);
-
+        $('#img_code_temp').val(img_code);
         showLightBox();
     }
 
     function updateImageData() {
-        var img_code = $("#img_code").val();
+        var img_code = $("#img_code_temp").val();
         var img_name = $("#img_name").val();
         var img_name_e = $("#img_name_e").val();
-        alert(img_code)
+
         if (img_code != 0) {
-            $('#img_name_' + img_code).val(img_name);
-            $('#img_name_e_' + img_code).val(img_name_e);
+            $('#img_name_' + img_code).val(img_name + ' ');
+            $('#img_name_e_' + img_code).val(img_name_e + ' ');
+
+            var title_img  = '[<?php echo $messages['general_es'];?>: ' + img_name + '] '
+                     + '[<?php echo $messages['general_en'];?>: ' + img_name_e + ']';
+            $('#img_elem_' + img_code).attr('title', title_img); // se actualiza el "title" de la imagen
         }
+        closeLightBox();
     }
 
 </script>
@@ -170,8 +192,8 @@
 
 </head>
 <body onload="showMessage('<?php echo $message_show;?>')">
-        <input type="text" id="img_code" value="0" />
     <div id="sign_up">
+        <input type="hidden" id="img_code_temp" value="0" />
         <table class="tbl_form_fancy">
             <tr>
                 <td colspan="2" style="border-bottom:1px solid #c0c0c0;" align="center"><label class="title"><?php echo $messages["general_information"];?></label></td>
@@ -303,8 +325,11 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
                             	<td colspan="4" align="center">
-                            		<div class="div_items_r">
+                            		<div class="div_items_c">
                                         <div class="item">
                                 			<input type="button" class="w8-icon l-blue" value="<?php echo $messages["general_save"]?>" onclick="javascript: validate();"/>
                                         </div>

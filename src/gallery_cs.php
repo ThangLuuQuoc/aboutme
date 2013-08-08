@@ -15,7 +15,7 @@
 	if (isset ($_GET["gall_code"]) && ((int) $_GET["gall_code"] > 0) && $gallery->isValid((int) $_GET["gall_code"])) {
 		$gall_code = (int) $_GET["gall_code"];
 		$data = $gallery->getGallery($gall_code, $_SESSION["lang"]);
-		$images = $gallery->getGalleryImages($gall_code);
+		$images = $gallery->getGalleryImages($gall_code, $_SESSION["lang"]);
 		$countImages = count ($images);
 	} else {
 		echo ("<script> window.history.back(-1); </script>");
@@ -29,6 +29,6 @@
 		}
 		
 		$html_images_thumb .= '
-		<li><a class="fancybox" href="/'.$path.'/870x522/'.$images[$i]->img_rename.'" data-fancybox-group="gallery" title=""><img src="/'.$path.'/200x120/'.$images[$i]->img_rename.'" alt="" width="200" height="120" /></a></li>';
+		<li><a class="fancybox" href="/'.$path.'/870x522/'.$images[$i]->img_rename.'" data-fancybox-group="gallery" title=" ' . $images[$i]->img_name . ' "><img src="/'.$path.'/200x120/'.$images[$i]->img_rename.'" alt="" width="200" height="120" /></a></li>';
 	}
 ?>
