@@ -291,13 +291,34 @@ class Gallery {
 	*	Función responsable de insertar una nueva imagen para una galería.
 	*/
 	function insertImage($data){
-		$query = "INSERT INTO image (img_code, gall_code, use_code, img_rename, img_date_create, img_original_name, img_width, img_high, img_name, img_name_e, img_description, img_description_e) VALUES (NULL, '".$data->gall_code."', '".$data->use_code."', '".$data->img_rename."', '".date ("Y-m-d H:i:s")."', '".$data->img_original_name."', '".$data->img_width."', '".$data->img_high."', '".$data->img_name."', '".$data->img_name_e."', '".$data->img_description."', '".$data->img_description_e."');";
-		
+		$query = "INSERT INTO image "
+			   . "(img_code, gall_code, use_code, img_rename, img_date_create, "
+			   . "img_original_name, img_width, img_high, img_name, img_name_e, "
+			   . "img_description, img_description_e) "
+			   . "VALUES (NULL, '" . $data->gall_code . "', '" . $data->use_code . "', '"
+			   . $data->img_rename . "', '" . date ("Y-m-d H:i:s") . "', '"
+			   . $data->img_original_name . "', '" . $data->img_width . "', '"
+			   . $data->img_high . "', '" . $data->img_name . "', '" . $data->img_name_e
+			   . "', '" . $data->img_description . "', '" . $data->img_description_e . "');";
 		if (mysql_query ($query)) {
 			return mysql_insert_id ();	
 		} else {
-			die($query);
 			return false;	
+		}
+	}
+
+	/**
+	*	Función responsable de actuaizar la información de una imagen para una galería.
+	*/
+	function updateImageInfo($data) {
+		$query = "UPDATE image SET img_name = '" . $data->img_name . "',"
+			   . "img_name_e = '" . $data->img_name_e . "' "
+			   . "WHERE img_code=" . (int) $data->img_code . ";";
+
+		if (mysql_query($query)) {
+			return TRUE;
+		} else {
+			return FALSE;
 		}
 	}
 	
@@ -309,7 +330,7 @@ class Gallery {
 			if ($lang == "es") {
 				$img_name = "img_name";
 			} elseif ($lang == "en") {
-				$img_name = "img_name";
+				$img_name = "img_name_e";
 			}
 			$query = "SELECT i.img_code, i.img_rename, i.". $img_name ." "
 				   	. "FROM image i WHERE i.gall_code=".(int) $gall_code." ORDER BY i.img_code DESC;";

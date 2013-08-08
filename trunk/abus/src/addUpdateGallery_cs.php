@@ -61,11 +61,17 @@
 			$image_path_gallery = "../file_upload/gallery/";
 			$errorImages = false;
 			$updatedFront = false;
-			
+
+			$width = NULL;
+			$height = NULL;
+			$type = NULL;
+			$attr = NULL;
+			//die(print_r($_POST["img_name"]));
 			for ($i = 0; $i < $count_images; $i++) {
 				$aux = explode (",", $_POST["array_images"][$i]);
 				$img_rename = $aux[0];
-				$img_code = $aux[1];				
+				$img_code = $aux[1];
+
 				if (!file_exists ($image_path.$img_rename) || ! $_POST["array_images_valid"][$i]) {
 					if (! $_POST["array_images_valid"][$i] && $img_code && $gallery->isImageValid($data->gall_code, $img_code)) {//eliminar una image existente
 						if ($gallery->deleteImageGallery($img_code)) {
@@ -77,23 +83,29 @@
 								unlink ($image_path_gallery.'200x120/'.$img_rename);
 							}
 						}
+						continue;
 					}
-					
-					continue;
 				}
 				
-				list ($width, $height, $type, $attr) = getimagesize ($image_path.$img_rename);
-				
+				if (file_exists ($image_path.$img_rename)) {
+					list ($width, $height, $type, $attr) = getimagesize ($image_path.$img_rename);					
+				}
+
 				$data->img_rename = $img_rename;
 				$data->img_original_name = "";
 				$data->img_width = $width;
 				$data->img_high = $height;
-				$data->img_name	= "";
-				$data->img_name_e = "";
+				$data->img_name	= $_POST["img_name"][$i];
+				$data->img_name_e = $_POST["img_name_e"][$i];
 				$data->img_description = "";
 				$data->img_description_e = "";
 				
-				if (!$img_code) {
+				if ($img_code) { // actualizar información de la imagen
+					$data->img_code = $img_code;
+					if (!$gallery->updateImageInfo($data)) {
+						$errorImages = true;						
+					}
+				} else { // agregar nueva imagen
 					if ($img_code = $gallery->insertImage($data)) {
 				
 						if (!$updatedFront) {
@@ -114,7 +126,7 @@
 					}
 				}
 			}
-			
+
 			if ($errorImages) {
 				$_SESSION["message_value"] = $messages["gallery_message_successWarningImages"].'<br />';
 				$_SESSION["message_show"] = 2;
