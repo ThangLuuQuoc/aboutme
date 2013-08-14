@@ -41,7 +41,7 @@
                 <input type="file" name="imageJcrop" id="imageJcrop"/>
                 <?php if (strlen($pathImageToCrop) > 0) {?>
                 <input type="submit" class="btn-mini-azul" value="<?php echo $lblEndCrop;?>" onclick="return checkCoords();"/>
-                <label><input type="checkbox" id="ar_lock" />Aspect ratio</label>
+                <label><input type="checkbox" id="ar_lock" /> <?php echo $messages['general_aspect_ratio'];?></label>
                 <?php }?>
             </div>
 

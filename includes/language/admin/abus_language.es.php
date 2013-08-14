@@ -177,6 +177,7 @@ $abusLanguage = array (
 	"general_message_confirmDisregar" => "¿Est&aacute; seguro de ignorar este item?",
 	"general_message_invalidImageExtension" => "Extensi&oacute;n NO permitida, debes cargar una imagen con formato {0}",
 	"general_message_imageHomeValidation" => "Debes seleccionar una imagen antes de guardar",
+	"general_aspect_ratio" => "Mantener relaci&oacute;n de aspecto",
 	
 	"validationUser_nameRequired" => "El nombre es requerido",
 	"validationUser_lastnameRequired" => "El apellido es requerido",
