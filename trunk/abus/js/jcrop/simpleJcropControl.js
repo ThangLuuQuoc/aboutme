@@ -1,6 +1,5 @@
 
     jQuery(function ($) {
-
         // The variable jcrop_api will hold a reference to the
         // Jcrop API once Jcrop is instantiated.
         var jcrop_api;
@@ -11,10 +10,16 @@
 
         // The function is pretty simple
 
+        var widthAreaSelection = parseInt($('#widthAreaSelection').val(), 10);
+        var hightAreaSelection = parseInt($('#hightAreaSelection').val(), 10);
+        var aspectRatioValue   = (widthAreaSelection / hightAreaSelection);
+        
         function initJcrop() {
+
             // Hide any interface elements that require Jcrop
             // (This is for the local user interface portion.)
             $('.requiresjcrop').hide();
+
 
             // Invoke Jcrop in typical fashion
             $('#target').Jcrop({
@@ -32,7 +37,7 @@
 
         $('#ar_lock').change(function(e) {
             jcrop_api.setOptions(this.checked ?
-            { aspectRatio: 4/3 } : { aspectRatio: 0 });
+            { aspectRatio: aspectRatioValue } : { aspectRatio: 0 });
             jcrop_api.focus();
         });
 

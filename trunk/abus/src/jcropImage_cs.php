@@ -2,6 +2,8 @@
     error_reporting(E_ALL);
 
     require ("../includes/class/resize/imagen.class.php5");
+    require ("../includes/config.php");
+    
     $imageObj = new Imagen();
 
     // 850px de ancho y 567px de alto.

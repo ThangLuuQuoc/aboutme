@@ -35,22 +35,44 @@
 	*	@return cadena con la seguridad aplicada.
 	*/
 	function fieldSecure($field, $aplyTrim=true, $aplyMyRealScapeString=true, $aplyStripTags=true) {
-		$field = str_replace ("'", "", $field);	 
-		$field = str_replace ('"', '', $field);
-		
-		if ($aplyTrim) {
-			$field = trim ($field);
-		}
-		
-		if ($aplyMyRealScapeString) {
-			$field = mysql_real_escape_string ($field);
-		}
-		
-		if ($aplyStripTags) {
-			$field = strip_tags ($field);
+		if (is_array($field)) {
+			foreach ($field as $var=>$val) {
+				$output[$var] = fieldSecure($val, $aplyTrim, $aplyMyRealScapeString, $aplyStripTags);
+			}
+		} else {
+			$field = cleanInput($field);
+			$field = str_replace ("'", "", $field);	 
+			$field = str_replace ('"', '', $field);
+			
+			if ($aplyTrim) {
+				$field = trim ($field);
+			}
+			
+			if ($aplyMyRealScapeString) {
+				$field = mysql_real_escape_string ($field);
+			}
+			
+			if ($aplyStripTags) {
+				$field = strip_tags ($field);
+				if (get_magic_quotes_gpc()) {
+					$field = stripslashes($field);
+				}
+			}			
 		}
 		
 		return $field;
+	}
+
+	function cleanInput($input) {
+		$search = array(
+			'@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+			'@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+			'@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+			'@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+		);
+
+		$output = preg_replace($search, '', $input);
+		return $output;
 	}
 	
 
