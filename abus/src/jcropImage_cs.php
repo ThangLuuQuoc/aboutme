@@ -1,8 +1,9 @@
 <?php
-    error_reporting(E_ALL);
 
     require ("../includes/class/resize/imagen.class.php5");
     require ("../includes/config.php");
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     
     $imageObj = new Imagen();
 
@@ -257,12 +258,12 @@
             $scaleAreaSelect = 1;
             if ($widthAreaSelection > 0 && $hightAreaSelection > 0) {
                 // la imagen necesita un tamaño predeterminado
-                if ($widthAreaSelection != $w) {
+                if (($widthAreaSelection != $w) && ($w > 0)) {
                     // se ajusta la escala para tomar el ancho deseado
                     $scaleAreaSelect = ($widthAreaSelection / $w);
                 } 
 
-                if ($hightAreaSelection != $h) {
+                if (($hightAreaSelection != $h) && ($h > 0)) {
                     // se ajusta la escala para tomar el alto deseado
                     $scaleAux = ($hightAreaSelection / $h);
                     if ($scaleAux < $scaleAreaSelect) {
@@ -371,6 +372,9 @@
     * @return
     */
     function cropImage($pathCropperImage, $pathImageToCrop, $startWidth, $startHeight, $newImageWidth, $newImageHeight, $widthImageToCrop, $heightImageToCrop){      
+        if ($newImageWidth == 0 || $newImageHeight == 0) {
+            return NULL;
+        }
         $newImage = imagecreatetruecolor ($newImageWidth, $newImageHeight);
         $source = imagecreatefromjpeg($pathImageToCrop);
         imagecopyresampled($newImage, $source, 0, 0, $startWidth, $startHeight, $newImageWidth, $newImageHeight, $widthImageToCrop, $heightImageToCrop);
