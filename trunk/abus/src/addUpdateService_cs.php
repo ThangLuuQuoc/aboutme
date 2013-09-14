@@ -3,10 +3,12 @@
 	require ("../includes/config.php");	
 	require ("../includes/class/serviceType.class.php");
 	require ("../includes/class/service.class.php");
-	
+	require ("../includes/class/resize/imagen.class.php5");
+
 	$service = new Service();
 	$serviceType = new ServiceType();
-	
+	$image = new Imagen();
+
 	$titlePage = $messages["general_title_services_add"];
 	
 	$listServiceType = $serviceType->serviceTypeList("", ' ORDER BY sertype_status, sertype_order', 0, 0, 0, false, 'es');
@@ -47,20 +49,24 @@
 		
 		$delImage = false;
 		$pathPrev = "";
+		$pathPrevSmall = "";
 		
 		$delImage_e = false;
 		$pathPrev_e = "";
+		$pathPrev_eSmall = "";
 		
 		if ((isset ( $_POST['serv_image'] ) && $_POST['serv_image'] != '' ) && ($_POST['serv_image'] != $_POST['serv_image_prev'])) {
 			
-			$copyImage = copy ("../file_upload/images_bank/".$_POST['serv_image'],'../file_upload/service/620x465/'.$_POST['serv_image']);
+			$copyImage = copy ("../file_upload/images_bank/".$_POST['serv_image'],'../file_upload/service/620x465/' . $_POST['serv_image']);
 						
-			if ( $copyImage ){
+			if ( $copyImage ) {
+				$image->redimensionarImagen(200, 150, '../file_upload/service/620x465/' . $_POST['serv_image'], '../file_upload/service/200x150/' . $_POST['serv_image'], "white");
 				if ($_POST['serv_image'] != $_POST['serv_image_e']) {
 					unlink ("../file_upload/images_bank/".$_POST['serv_image']);	
 				}
 				$data->serv_image = fieldSecure($_POST['serv_image']);
-				$pathPrev = '../file_upload/service/620x465/'.$_POST['serv_image_prev'];
+				$pathPrev = '../file_upload/service/620x465/' . $_POST['serv_image_prev'];
+				$pathPrevSmall = '../file_upload/service/200x150/' . $_POST['serv_image_prev'];
 				if (($_POST['serv_image_prev'] != $_POST['serv_image_e']) && file_exists ($pathPrev)) {
 					$delImage = true;
 				}
@@ -71,10 +77,12 @@
 			$copyImage = copy ("../file_upload/images_bank/".$_POST['serv_image_e'],'../file_upload/service/620x465/'.$_POST['serv_image_e']);
 						
 			if ( $copyImage ) {
+				$image->redimensionarImagen(200, 150, '../file_upload/service/620x465/' . $_POST['serv_image_e'], '../file_upload/service/200x150/' . $_POST['serv_image_e'], "white");
 				unlink ("../file_upload/images_bank/".$_POST['serv_image_e']);
 				$data->serv_image_e = fieldSecure($_POST['serv_image_e']);
 				
-				$pathPrev_e = '../file_upload/service/620x465/'.$_POST['serv_image_e_prev'];
+				$pathPrev_e = '../file_upload/service/620x465/' . $_POST['serv_image_e_prev'];
+				$pathPrev_eSmall = '../file_upload/service/200x150/' . $_POST['serv_image_e_prev'];
 				if (($_POST['serv_image_e_prev'] != $_POST['serv_image']) && file_exists ($pathPrev_e)) {
 					$delImage_e = true;
 				}
@@ -102,10 +110,16 @@
 		if ($_SESSION["message_show"] == 3) {
 			if ($delImage) {
 				unlink ($pathPrev);	
+				if (file_exists($pathPrevSmall)) {
+					unlink ($pathPrevSmall);
+				}
 			}
 			
 			if ($delImage_e && ($pathPrev != $pathPrev_e)) {
 				unlink ($pathPrev_e);
+				if (file_exists($pathPrev_eSmall)) {
+					unlink ($pathPrev_eSmall);
+				}
 			}
 		}
 		
