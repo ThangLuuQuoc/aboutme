@@ -1,5 +1,7 @@
 <?php
+	
 	require ("includes/secure.php");
+	include_once ("../includes/config.php");
 	
 	if (!empty ($_GET['action'])) {
 		$result = 0;		
@@ -20,7 +22,6 @@
 			
 			case 'getImages':
 				if (!empty($_GET['id'])) {
-					require ("../includes/config.php");
 					require ("../includes/class/gallery.class.php");					
 					
 					$gallery = new Gallery();
@@ -53,7 +54,7 @@
 	}
 	
 	//cargar image		
-	if (isset ($_FILES['image']) && false) {
+	if (isset ($_FILES['image'])) {
 		$allow_extensions = array(".jpg", ".gif", ".png");
 		$filename = basename($_FILES['image']['name']);
 		$file_ext = strtolower ( substr ( $filename, strrpos ( $filename, '.') ) );
@@ -86,7 +87,6 @@
 					<input type="hidden" id="img_name_e_0" value="" />
 					<input type="hidden" id="img_path_0" value="' . $path_to . 'thumb-' . $imageRename . '" />
 					<a href="javascript:;" id="'.$imageRename.'"><img src="../images/delete.png"></a>
-					<a href="javascript:;" onclick="updateIMageInformation(0)" id="info_img_0" title="' . $messages['general_information'] . '" class="info"><img src="../images/info.png" width="16" height="16"></a>
 					<img src="'.$path_to.'thumb-'.$imageRename.'" style="border:0px;">
 					'.$inputHidden.'
 				</li>';

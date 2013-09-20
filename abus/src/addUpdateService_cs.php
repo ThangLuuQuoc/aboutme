@@ -37,12 +37,12 @@
 		$data->use_code = fieldSecure((int) $_SESSION['use_code']);
 		$data->serv_name = fieldSecure($_POST['serv_name']);
 		$data->serv_summary = fieldSecure($_POST['serv_summary']);
-		$data->serv_description = fieldSecure($_POST['serv_description'], true, true, false);
+		$data->serv_description = $_POST['serv_description'];
 		$data->serv_image = fieldSecure($_POST['serv_image']);
 		$data->serv_status = fieldSecure($_POST['serv_status']);		
 		$data->serv_name_e = fieldSecure($_POST['serv_name_e']);
 		$data->serv_summary_e = fieldSecure($_POST['serv_summary_e']);
-		$data->serv_description_e = fieldSecure($_POST['serv_description_e'], true, true, false);
+		$data->serv_description_e = $_POST['serv_description_e'];
 		$data->serv_image_e = fieldSecure($_POST['serv_image_e']);
 		$data->serv_order = ($service->getMaxOrder($data->sertype_code) + 1);
 		$data->serv_highlight = 0;
