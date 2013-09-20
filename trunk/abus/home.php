@@ -81,7 +81,7 @@
 				url : "ajaxHome.php",
 				data : 'field=' + field + "&field_value=" + field_value + "&code=" + code + "&table=" + table + parameterAux + "&flagSave=" + flagSave + "&flagSave_e=" + flagSave_e,
 				success : function(result) {
-					if (result == 1) {
+					if (result.indexOf("ok") != -1) {
 						element.style.backgroundColor = "#FFF";
 						
 						if (field == 'app_background_color') {
@@ -108,10 +108,15 @@
 	}
 	
 	function saveInformationApp(btn, element_id, code, table) {		
-		btn.value = "<?php echo $messages["general_saving"];?>...";
 		var element = document.getElementById(element_id);
-		saveInfo(null, code, element, table);
-		btn.value = "<?php echo $messages["general_save"];?>";
+
+		if (element) {
+			btn.value = "<?php echo $messages["general_saving"];?>...";
+			saveInfo(null, code, element, table);
+			btn.value = "<?php echo $messages["general_save"];?>";			
+		} else {
+			coolMessage("error", "<?php echo $messages["general_errorSaving"];?>");
+		}
 	}
 	
 	function changeBgType(type) {
@@ -176,7 +181,6 @@
 							
 				// Habilitar boton otra vez
 				this.enable();
-				
 				if (response == -1) {//formato no permitido
 					coolMessage("alert", "<?php echo replaceMessage($messages["general_message_invalidImageExtension"], array ("[.jpg, .png, .gif]"));?>");
 				} else {
@@ -198,7 +202,10 @@
 				
 				if (app_background_prev != "") {
 					if (file_exists('../file_upload/background/' + app_background_prev) && file_exists('../file_upload/background/thumb-' + app_background_prev)) {
-						response = '<li style="display: block;"><img src="../file_upload/background/thumb-' + app_background_prev + '" style="border:0px" width="500" height="300"/><input type="hidden" name="app_background" id="app_background" value="' + app_background_prev +'"/></li>';
+						response = '<li style="display: block;">'
+								 + '<img src="../file_upload/background/thumb-' + app_background_prev + '" style="border:0px" width="500" height="300"/>' 
+								 + '<input type="hidden" name="app_background" id="app_background" value="' + app_background_prev +'"/>'
+								 + '</li>';
 						flagSave = false;
 					}
 				}
@@ -332,7 +339,7 @@
                     	<tr>
                         	<td width="45%" valign="top">
                             	<div style="margin:10px;">
-	                                <input type="hidden" name="app_background_prev" id="app_background_prev" value='<?php echo $app_background;?>'/>
+	                                <input type="hidden" name="app_background_prev" id="app_background_prev" value='<?php echo $dataApp->app_background;?>'/>
                                 
 	                                <div class="div_items">
 	                                    <div class="item">
@@ -355,7 +362,7 @@
                             <td width="10%">&nbsp;</td>
                             <td valign="top">
                             	<div style="margin:10px;">
-	                                <input type="hidden" name="app_background_e_prev" id="app_background_e_prev" value='<?php echo $app_background_e;?>'/>
+	                                <input type="hidden" name="app_background_e_prev" id="app_background_e_prev" value='<?php echo $dataApp->app_background_e;?>'/>
                             		<div class="div_items">
 	                                    <div class="item">
 	                                    	<input type="button" id="upload_e" class="w8-icon l-blue" value="<?php echo $messages["general_load_image"]." (".$messages["general_english"].")";?>" style="width:200px; margin:0px;"/>

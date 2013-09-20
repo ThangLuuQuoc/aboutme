@@ -13,9 +13,9 @@
 		
 		if ($table == 'menu') {
 			if ($application->updateFieldMenu($field, $field_value, $code)) {
-				echo 1;
+				echo '1';
 			} else {
-				echo 0;
+				echo '0';
 			}
 		} elseif ($table == 'general_app') {
 			if ($application->updateInformationApp($field, $field_value, $code)) {
@@ -58,21 +58,21 @@
 					
 					if ($copyImage || ($field == "app_background" && (isset ($_POST["flagSave"]) && $_POST["flagSave"])) || 
 													($field == "app_background_e" && (isset ($_POST["flagSave_e"]) && $_POST["flagSave_e"]))) {
-						echo 1;
+						echo 'ok';
 					} else {
-						echo -1;
+						echo '-1';
 					}
 					
 				} elseif(! ($field == "app_background" || $field == "app_background_e")) {
-					echo 1;
+					echo '1';
 				}
 			} else {
-				echo -3;
+				echo '-3';
 			}
 		} else {
-			echo -4;
+			echo '-4';
 		}
 	} else {
-		echo -5;
+		echo '-5';
 	}
 ?>

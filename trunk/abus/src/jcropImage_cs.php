@@ -227,7 +227,8 @@
             $positionXAreaSelection = ceil ($newImageWidth - $widthAreaSelectionAux) / 2;
             $positionYAreaSelection = ceil ($newImageHeight - $hightAreaSelectionAux) / 2;
             // Se refresca la página para mostrar la imagen cargada.
-            header('location:'.$_SERVER['PHP_SELF'].'?' 
+
+            $urlRedirect = $_SERVER['PHP_SELF'] . '?' 
                 . 'tmpImageName='            . $tmpImageName
                 . '&scaleResize='            . $scaleResize
                 . '&widthAreaSelection='     . $widthAreaSelection
@@ -238,10 +239,18 @@
                 . '&positionYAreaSelection=' . $positionYAreaSelection
                 . '&divContent='             . $divContent
                 . '&idInputHidden='          . $idInputHidden
-                . '&function='               . $function
+                . '&function='               . $function;
 
-
-                );
+            if (!headers_sent()) {    
+                header('Location: '.$urlRedirect);
+            } else {  
+                echo '<script type="text/javascript">';
+                echo 'window.location.href="'.$urlRedirect.'";';
+                echo '</script>';
+                echo '<noscript>';
+                echo '<meta http-equiv="refresh" content="0;url='.$urlRedirect.'" />';
+                echo '</noscript>';
+            }
             exit();
         }
     } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
