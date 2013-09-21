@@ -40,7 +40,6 @@
 				$output[$var] = fieldSecure($val, $aplyTrim, $aplyMyRealScapeString, $aplyStripTags);
 			}
 		} else {
-			$field = cleanInput($field);
 			$field = str_replace ("'", "", $field);	 
 			$field = str_replace ('"', '', $field);
 			
@@ -53,6 +52,7 @@
 			}
 			
 			if ($aplyStripTags) {
+				$field = cleanInput($field);
 				$field = strip_tags ($field);
 				if (get_magic_quotes_gpc()) {
 					$field = stripslashes($field);
