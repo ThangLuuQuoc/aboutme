@@ -58,7 +58,7 @@
 					
 					if ($copyImage || ($field == "app_background" && (isset ($_POST["flagSave"]) && $_POST["flagSave"])) || 
 													($field == "app_background_e" && (isset ($_POST["flagSave_e"]) && $_POST["flagSave_e"]))) {
-						echo 'ok';
+						echo '1';
 					} else {
 						echo '-1';
 					}

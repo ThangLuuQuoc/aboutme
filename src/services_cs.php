@@ -125,5 +125,7 @@
 			$submenuServiceType .= '<li><a href="/'.$appMenuPublic[3]->menu_link.'/'.$listServiceType[$i]->sertype_code.'/'.formatToUrl($listServiceType[$i]->sertype_name).'">'.$listServiceType[$i]->sertype_name.'</a></li>';
 		}
 		$submenuServiceType .= '</ul>';	
-	}	
+	}
+
+	$twitterText = $serv_name . ', ' . strip_tags ($serv_description);
 ?>

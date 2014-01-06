@@ -14,11 +14,12 @@
 		<div id="Main" class="shadowB">
 			<div class="bloq-a">
 				<div class="content-a">
-					<div class="spc">						
+					<div class="spc">
 						<h1><?php echo $usName;?></h1>
 						<div class="descrip"><?php echo $usDescript;?></div>
 					</div>
 				</div>
+				<?php include ('socialBar.php');?>
 			</div>
 			<?php include ("bloq-b.php");?>
 		</div>

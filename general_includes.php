@@ -3,14 +3,26 @@
 <link href="/css/style.css" rel="stylesheet" type="text/css" />
 <link href="/css/coolMessage.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="/css/style_menu.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/searcher/foxycomplete.css" />
+<link rel="stylesheet" href="/css/fixed-button.css" />
+<link rel="stylesheet" href="/css/styleLightbox.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/nGallery-slider.css" type="text/css" media="screen" />
+
 <style type="text/css">
 	body {
 		<?php echo $app_background_public;?>	
 	}
 </style>
+
+<?php include ("css/abus-dinamic.php");?>
 <script language="javaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="javaScript" type="text/javascript" src="/js/jquery.simplemodal.js"></script>
 <script language="javaScript" type="text/javascript" src="/js/coolMessage.js"></script>
+
+<!-- <searcher>-->
+<script type='text/javascript' src='/js/searcher/jquery.autocomplete.js'></script>
+<script type='text/javascript' src='/js/searcher/foxycomplete.js'></script>
+<!-- </searcher>-->
 
 <script language="javaScript" type="text/javascript">
 	
@@ -73,18 +85,106 @@
 		}
 	}
 	
+	
+
 </script>
 
-<!-- <plugin_facebook> -->
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+	<!-- <plugin_facebook> -->
+	<script>
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
+	function showLightBox()	{
+		function launch() 
+		{
+		  $('#sign_up').lightbox_me({centered: true, onLoad: function() { $('#sign_up').find('input:first').focus()}});
+		}
+		$("#sign_up").lightbox_me({centered: true, onLoad: function() {
+			$("#sign_up").find("input:first").focus();
+			$("#sign_up").find("input:first").select();
+		}});
+		$('table tr:nth-child(even)').addClass('stripe');
+		
+	}
+	
+	function closeLightBox() {
+		$('#sign_up').trigger('close');
+	}
+
+	function validateSendOrder() {
+		var msg = "";
+        
+        var brow_serv_order_nro = $.trim(document.getElementById("brow_serv_order_nro").value);
+        var brow_serv_email = $.trim(document.getElementById("brow_serv_email").value);       
+        var brow_serv_comment = $.trim(document.getElementById("brow_serv_comment").value);       
+        
+        
+        if (brow_serv_order_nro == "" ) {
+            msg += " <?php echo $messages_p["validationBrowseByService_order_nro"]; ?><br>";
+        }
+
+        if (brow_serv_email == "") {
+            msg += " <?php echo $messages_p["validationBrowseByService_email_response"]; ?>";
+        } else if (!isMail(brow_serv_email)) {
+            msg += " <?php echo $messages_p["validationContactus_emailValidation"]; ?>";
+        }
+                
+        if (msg == '') {
+            jQuery.ajax({
+                type : "POST",
+                async : false,
+                url : "/sendDataBrowseByService.php",
+                data : 'brow_serv_order_nro=' + brow_serv_order_nro + '&brow_serv_email=' + brow_serv_email + '&brow_serv_comment=' + brow_serv_comment,
+                success : function(result) {
+                    if (result == 1) {
+                        document.getElementById("brow_serv_order_nro").value = "";
+                        document.getElementById("brow_serv_email").value = "";
+                        document.getElementById("brow_serv_comment").value = "";
+                        coolMessage("information", '<?php echo $messages_p["browseByService_info_send"]; ?>', closeLightBox())
+                    } else {
+                        coolMessage("error", '<?php echo $messages_p["general_error_send_short"]; ?>')
+                    }
+                }
+            });
+        } else {
+        	coolMessage("alert", msg)
+            return false;
+        }
+	}
+
+	// like button facebook
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) 
+			return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=284384915038452";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
+	// twitter button
+	!function(d,s,id){
+		var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+
+		if(!d.getElementById(id)){
+			js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+			fjs.parentNode.insertBefore(js,fjs);
+		}
+	}(document, 'script', 'twitter-wjs');
+
+
+</script>
 <!-- </plugin_facebook> -->
+
+<!-- google+ -->
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 <meta name="author" content="sebastian lara" />
 <meta name="description" content="<?php echo $meta_description_value;?>" />
 <meta name="keywords" content="<?php echo $meta_keywords_value;?>" />
+<div id="fb-root"></div>

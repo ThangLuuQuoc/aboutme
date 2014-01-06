@@ -81,7 +81,9 @@
 				url : "ajaxHome.php",
 				data : 'field=' + field + "&field_value=" + field_value + "&code=" + code + "&table=" + table + parameterAux + "&flagSave=" + flagSave + "&flagSave_e=" + flagSave_e,
 				success : function(result) {
-					if (result.indexOf("ok") != -1) {
+					if (result.indexOf("-1") != -1) {
+						coolMessage('error', "<?php echo $messages["general_errorSaving"];?>");
+					} else if (result.indexOf("1") != -1) {
 						element.style.backgroundColor = "#FFF";
 						
 						if (field == 'app_background_color') {
@@ -95,9 +97,7 @@
 						if (isBackgroundImage == true) {
 							document.getElementById(field + "_prev").value = field_value;
 						}
-					} else {
-						coolMessage('error', "<?php echo $messages["general_errorSaving"];?>");
-					}
+					} 
 				}
 			});
 		} else if (keyEvent != 9) {

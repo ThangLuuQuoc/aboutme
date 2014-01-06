@@ -5,10 +5,7 @@
 <link rel="shortcut icon" href="favicon.ico">
 <title><?php echo $appMenuPublic[$menu_code]->menu_value.SEPARATOR_A.SITE_NAME;?></title>
 <?php require("general_includes.php");?>
-<link rel="stylesheet" href="/css/nGallery-slider.css" type="text/css" media="screen" />
 
-
-<script type="text/javascript" src="/js/jquery-1.6.1.min.js"></script>
 <script type="text/javascript" src="/js/jquery.gall.slider.pack.js"></script>
 <script type="text/javascript" src="/js/nSlide-control.js"></script>
 <script type="text/javascript" src="/js/cross-browser.js"></script>
@@ -16,9 +13,8 @@
 <script type="text/javascript" src="/js/modernizr-1.7.min.js"></script>
 
 
-
 </head>
-<body>	
+<body>
     <div class="wrap">
 		<?php include ("header.php");?>
 		<?php include ("menu.php");?>

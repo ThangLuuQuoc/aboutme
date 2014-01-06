@@ -66,6 +66,7 @@
                                 <div class="descrip"><?php echo $serv_description; ?></div>
                             </div>
                         </div>
+                        <?php include ('socialBar.php');?>
                         <?php } else {
                         ?>
                         <div class="content-a">
