@@ -5,6 +5,8 @@
 	
 	$slider = new Slider();
 	
+	$maxlength_slid_content = 200;
+
 	$titlePage = $messages["general_title_newItemSlider"];
 	
 	$slid_code = "";

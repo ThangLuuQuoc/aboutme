@@ -280,7 +280,7 @@
 </script>
 <?php require ("pick.php");?>
 </head>
-<body onload="javascript: showMessage(<?php echo $message_show;?>)">
+<body onload="javascript: showMessage(<?php echo $messageShow;?>)">
 	<?php $item_select = 0; include ("menu.php");?>
     <div class="content_grv">
         <table class="tbl_list">

@@ -34,7 +34,7 @@
 					$images_slider .= '</a>';
 				}
 				
-				$content_slider .= '<div id="html-'.$k.'" class="nivo-html-caption"><h2 class="title">'.$slid_title.'</h2><div class="data">'.truncate($slid_content, 400, '').'</div></div>';				
+				$content_slider .= '<div id="html-'.$k.'" class="nivo-html-caption"><h2 class="title">'.$slid_title.'</h2><div class="data">'.truncate($slid_content, 210, '').'</div></div>';				
 				$k ++;	
 			}
 		}

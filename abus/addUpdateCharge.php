@@ -33,7 +33,7 @@
 	}
 </script>
 </head>
-<body onload="javascript: showMessage(<?php echo $message_show;?>)">
+<body onload="javascript: showMessage(<?php echo $messageShow;?>)">
 	<?php $item_select = 10; include ("menu.php");?>
 	<form name="form" id="form" method="post" action="">
 		<input type="hidden" name="save" id="save" value="1" />

@@ -18,8 +18,13 @@
     <div class="item_social">
         <div class="fb-like" 
             data-href="<?php echo curPageURL();?>" 
-            data-layout="button_count" 
+            data-layout="standard" 
             data-action="like" 
-            data-show-faces="true" data-share="true"></div>
+            data-show-faces="false" data-share="true"></div>
     </div>
 </div>
+<?php if (!isset($hiddenCommentsPlugin) || $hiddenCommentsPlugin == false) {?>
+<div class="<?php echo $socialBarClass;?>">
+    <div class="fb-comments" data-href="<?php echo curPageURL();?>" data-numposts="5" data-colorscheme="light"></div>
+</div>
+<?php }?>

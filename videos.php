@@ -41,7 +41,12 @@
                                 <div class="v1">
                                     <video src="<?php echo $video_view;?>" height="512" id="container" <?php echo $vid_image;?> width="840"></video>
                                     <div class="shadow"></div>
-                                </div>                        
+                                </div>
+								<?php 
+									if ($vid_code) {							
+										include ("socialBar.php");							
+									}
+								?>
                             </div>
                         <?php
 							for ($i = 0; $i < $countRows; $i++)	{
@@ -69,12 +74,13 @@
 	    	                        <div class="play" onclick="window.location.href='/<?php echo $init.'/'.$amount.'/'.$messages_p["app_menu_videos"].'/'.$list[$i]->vid_code.'/'.formatToUrl($list[$i]->vid_name);?>'"></div>
 	        	                    <div class="dat"><a href="/<?php echo $init.'/'.$amount.'/'.$messages_p["app_menu_videos"].'/'.$list[$i]->vid_code.'/'.formatToUrl($list[$i]->vid_name);?>" title="<?php echo $img_youtube;?>"><?php echo $list[$i]->vid_name;?></a></div>
 	                            </div>
-	                        </div>                            
+	                        </div>
 						<?php 
 							}
 							include ("pagination.php");
 						}?>
                     </div>
+                    
                 </div>
             </div>
     	</div>

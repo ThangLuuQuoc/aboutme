@@ -177,7 +177,9 @@
                                         	<td valign="top"><label class="lbl_gray"><?php echo $messages["general_content"]." (".$messages["general_spanish"].")";?>:</label></td>
                                             <td>&nbsp;</td>
                                             <td>
-                                            	<textarea name="slid_content" id="slid_content" cols="26" rows="12" class="text_grv"><?php echo $slid_content;?></textarea>
+                                            	<textarea name="slid_content" id="slid_content" cols="26" rows="8" class="text_grv"
+                                                    onkeyup="limitLength(this, 'slid_content_lbl', <?php echo $maxlength_slid_content;?>)"><?php echo $slid_content;?></textarea>
+                                                <label id="slid_content_lbl" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_slid_content - strlen ($slid_content));?></label>
                                             </td>
                                         </tr>
                                     </table>
@@ -225,7 +227,9 @@
                                         	<td valign="top"><label class="lbl_gray"><?php echo $messages["general_content"]." (".$messages["general_english"].")";?>:</label></td>
                                             <td>&nbsp;</td>
                                             <td>
-                                            	<textarea name="slid_content_e" id="slid_content_e" cols="26" rows="12" class="text_grv"><?php echo $slid_content_e;?></textarea>
+                                            	<textarea name="slid_content_e" id="slid_content_e" cols="26" rows="8" class="text_grv"
+                                                    onkeyup="limitLength(this, 'slid_content_lbl_e', <?php echo $maxlength_slid_content;?>)"><?php echo $slid_content_e;?></textarea>                                                
+                                                <label id="slid_content_lbl_e" class="note"><?php echo $messages["general_messageCharacters"].($maxlength_slid_content - strlen ($slid_content_e));?></label>
                                             </td>
                                         </tr>
                                     </table>
