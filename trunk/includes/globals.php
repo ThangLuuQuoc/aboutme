@@ -2,16 +2,16 @@
 	//header('Content-Type: text/html; charset=UTF-8');	
 	
 	if (!empty ($_SESSION['message_value']) && !empty ($_SESSION['message_show'])) {
-		$message_value = $_SESSION['message_value'];
-		$message_show = $_SESSION['message_show'];
+		$messageValue = $_SESSION['message_value'];
+		$messageShow = $_SESSION['message_show'];
 	} else {
-		$message_value = "";
-		$message_show = "";
+		$messageValue = "";
+		$messageShow = "";
 	}
 	
+		
 	$_SESSION['message_value'] = "";
 	$_SESSION['message_show'] = "";
-	
 	$_SESSION["lang_admin"] = "es";//idioma del admnin.	
 	
 	$messages = getLanguage($_SESSION["lang_admin"], ADMIN);
@@ -315,9 +315,9 @@
 		if ($_SERVER["SERVER_PORT"] != "80") {
 			$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
 		} else {
-			$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+			$pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
 		}
 		return $pageURL;
 	}
 
-?>
+	

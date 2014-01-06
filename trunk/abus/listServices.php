@@ -121,7 +121,7 @@
 </script>
 
 </head>
-<body onload="javascript: showMessage(<?php echo $message_show;?>)">
+<body onload="javascript: showMessage(<?php echo $messageShow;?>)">
 	<?php $item_select = 4; include("menu.php");?>
     <form name="form1" id="form1" method="post" action="">
     <input type="hidden" id="amount_list" value="<?php echo $countOrders;?>" />

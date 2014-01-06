@@ -19,7 +19,7 @@ define ("SEPARATOR_A", " - ");
 define ("ADMIN", "admin");
 define ("PUBLIC_", "public");
 define ('PATH_LANGUAGE_FILE', 'language/');
-define ('URL', 'http://clicksy.co');
+
 define ('EMAIL_FROM', 'info@clicksy.co');
 define ('EMAIL_TO', 'contact.abus@gmail.com');
 define ('WHATSAPP', '312 774 8821');

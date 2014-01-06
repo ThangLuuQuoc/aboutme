@@ -44,7 +44,7 @@
         </script>
     </head>
 
-    <body onload="javascript: showMessage(<?php echo $message_show; ?>)">
+    <body onload="javascript: showMessage(<?php echo $messageShow; ?>)">
         <div class="wrap">
             <?php include ("header.php"); ?>
             <?php include ("menu.php"); ?>
@@ -69,7 +69,7 @@
                                         <div class="lab"> <?php echo $messages_p["general_question_concern"]; ?>: </div>
                                         <textarea name="contact_text" id="contact_text" rows="6" style="width:80%" class="inp-field"></textarea>
                                         <div class="lab-bt">
-                                            <input type="button" name="button2" id="button" class="shadowB" value="<?php echo $messages_p["general_send"]; ?>" 
+                                            <input type="button" name="button2" id="button" value="<?php echo $messages_p["general_send"]; ?>" 
                                                    onclick="return validate()"/>
                                         </div>
                                     </form>

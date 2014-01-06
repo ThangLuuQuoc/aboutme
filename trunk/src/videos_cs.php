@@ -93,4 +93,7 @@
 			}
 		}
 	}
+
+	$twitterText = $vid_name;
+	$hiddenCommentsPlugin = true;
 ?>

@@ -31,4 +31,7 @@
 		$html_images_thumb .= '
 		<li><a class="fancybox" href="/'.$path.'/870x522/'.$images[$i]->img_rename.'" data-fancybox-group="gallery" title=" ' . $images[$i]->img_name . ' "><img src="/'.$path.'/200x120/'.$images[$i]->img_rename.'" alt="" width="200" height="120" /></a></li>';
 	}
+
+	$twitterText = $data->gall_name . ', ' . $data->gall_decription;
+	$socialBarClass = 'socialbar-b';
 ?>

@@ -17,17 +17,17 @@
 		switch (show_msg) {
 			case 1://error
 				coolMessage('error',
-						"<?php echo $message_value;?>");
+						"<?php echo $messageValue;?>");
 				break;
 	
 			case 2://alert
 				coolMessage('alert',
-						"<?php echo $message_value;?>");
+						"<?php echo $messageValue;?>");
 				break;
 	
 			case 3://information
 				coolMessage('information',
-						"<?php echo $message_value;?>");
+						"<?php echo $messageValue;?>");
 				break;
 	
 			default:

@@ -88,7 +88,7 @@
 						document.getElementById("tr_response_view").style.display = displayRow;
 						document.getElementById("btn_reply").style.display = 'none';
 						
-						//window.location.href = window.location.href
+						closeLightBox();
 					} else {
 						coolMessage("alert", "<?php echo $messages["contactUs_error"];?>");
 					}
@@ -146,7 +146,7 @@
 </script>
 
 </head>
-<body onload="javascript: showMessage(<?php echo $message_show;?>)">
+<body onload="javascript: showMessage(<?php echo $messageShow;?>)">
 	<div id="sign_up">
     	<input type="hidden" id="contact_code" value="0" />
         <input type="hidden" id="contact_status" value="0" />

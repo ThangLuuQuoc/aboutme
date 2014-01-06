@@ -7,7 +7,6 @@
 	
 	require ($aux."includes/config.php");
 	require ($aux."includes/class/contactus.class.php");
-	
 	$contactus = new ContactUs();
 	$menu_code = 7;
 	
@@ -34,11 +33,11 @@
 		$bodyEmail .= $spaces . '<b>Correo electronico: </b>' . $data->contact_email . $htmlEnter;
 		$bodyEmail .= $spaces . '<b>Telefono: </b>' . $data->contact_phone . $htmlEnter;
 		$bodyEmail .= $spaces . '<b>Pais / Estado / Ciudad: </b>' . $data->contact_city . $htmlEnter;
-		$bodyEmail .= $spaces . '<b>Preguntas / inquietudes: </b>' . $data->contact_text . $htmlEnter;
+		$bodyEmail .= $spaces . '<b>Preguntas / inquietudes: </b>' . str_replace("\r\n", "\n", $data->contact_text) . $htmlEnter;
 
 		$dataEmail->emailMU_body = $bodyEmail;
 		$dataEmail->emailMU_address[0] = EMAIL_TO;
-		$dataEmail->emailMU_subject = 'Pregunta / Inquietud ' . URL;
+		$dataEmail->emailMU_subject = 'Pregunta / Inquietud ' . $_SERVER["SERVER_NAME"];
 
 		$dataEmail->emailMU_signature = false;
 		$dataEmail->email_from = EMAIL_FROM;

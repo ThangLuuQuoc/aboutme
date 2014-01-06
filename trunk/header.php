@@ -21,4 +21,8 @@
     </div>
 </div>
 <script src="js/jquery.lightbox_me.js" type="text/javascript" charset="utf-8"></script>
-<?php include (SPECIAL_MODULE);?>
+<?php 
+    if (strlen(SPECIAL_MODULE)) {
+        include (SPECIAL_MODULE);
+    }
+?>

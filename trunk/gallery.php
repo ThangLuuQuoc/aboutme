@@ -3,7 +3,7 @@
 <html lang="">
 <head>  
 <meta charset="utf-8">
-<title><?php echo $appMenuPublic[$menu_code]->menu_value.SEPARATOR_A.SITE_NAME;?></title>
+<title><?php echo $data->gall_name.SEPARATOR_A.SITE_NAME;?></title>
 <link href="/css/gallery.css" rel="stylesheet" type="text/css" />
 <?php require("general_includes.php");?>
 <!-- Add jQuery library -->
@@ -36,6 +36,7 @@
                 <?php echo $html_images_thumb;?>
                 </ul>                
             </div>
+            <?php include ('socialBar.php');?>
         </div>
     </div>
     <?php include ("footer.php");?>

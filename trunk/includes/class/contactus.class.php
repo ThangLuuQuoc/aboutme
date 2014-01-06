@@ -140,18 +140,13 @@ class ContactUs {
 	}
 	
 	/**
-	*	Funcion responsable de obtener los datos de un tipo de servicio.
-	*	@parameter sertype_code, codigo del tipo de servicio.
-	*	@return datos del tipo de servicio en caso de encontrarlo.
+	*	Funcion responsable de obtener los datos de un contacto
+	*	@parameter contact_code, codigo del contacto
+	*	@return datos del contacto.
 	*/
-	function getServiceType($contact_code) {
-		$query = "
-		SELECT c.contact_code, c.contact_name, c.contact_email, c.contact_phone, c.contact_text, c.contact_date_create, c.contact_status,
-					c.use_code, c.contact_answer, u.use_login FROM
-			(SELECT c.contact_code, c.contact_name, c.contact_email, c.contact_phone, c.contact_text, c.contact_date_create, c.contact_status,
-						 c.use_code, c.contact_answer FROM contact c WHERE c.contact_code = ".$contact_code.") c
-		JOIN user u ON c.use_code=u.use_code;";
-		
+	function getContactUs($contact_code) {
+		$query = "SELECT c.contact_code, c.contact_name, c.contact_email, c.contact_phone, c.contact_text, c.contact_city, c.contact_date_create, c.contact_status,
+						 c.use_code, c.contact_answer FROM contact c WHERE c.contact_code = ".$contact_code.";";
 		
 		$data = NULL;
 		if ($consult = mysql_query ($query)) {
@@ -161,11 +156,11 @@ class ContactUs {
 				$data->contact_email = $row['contact_email'];
 				$data->contact_phone = $row['contact_phone'];
 				$data->contact_text = $row['contact_text'];
+				$data->contact_city = $row['contact_city'];
 				$data->contact_date_create = $row['contact_date_create'];
 				$data->contact_status = $row['contact_status'];
 				$data->use_code = $row['use_code'];
 				$data->contact_answer = $row['contact_answer'];
-				$data->use_login = $row['use_login'];
 			}
 		}
 	

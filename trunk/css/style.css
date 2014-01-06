@@ -72,8 +72,8 @@ body {
 
 #Header .Datinfo .redes {
     font-size: 12px;
-    padding-top: 7px;
-    padding-bottom: 4px;
+    padding-top: 5px;
+    padding-bottom: 2px;
 }
 
 #Header .Datinfo .Slogan {
@@ -657,30 +657,14 @@ h1 {
     padding-bottom: 6px;
     padding-left: 20px;
     color: #FFF;
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-top-color: #3C2A44;
-    border-right-color: #66406F;
-    border-bottom-color: #66406F;
-    border-left-color: #3C2A44;
     cursor: pointer;
 
-    background: rgb(58,154,227);
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzNhOWFlMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI0NzhkMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzYTlhZTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-    background: -moz-linear-gradient(top, rgba(58,154,227,1) 0%, rgba(36,120,210,1) 50%, rgba(58,154,227,1) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(58,154,227,1)), color-stop(50%,rgba(36,120,210,1)), color-stop(100%,rgba(58,154,227,1)));
-    background: -webkit-linear-gradient(top, rgba(58,154,227,1) 0%,rgba(36,120,210,1) 50%,rgba(58,154,227,1) 100%);
-    background: -o-linear-gradient(top, rgba(58,154,227,1) 0%,rgba(36,120,210,1) 50%,rgba(58,154,227,1) 100%);
-    background: -ms-linear-gradient(top, rgba(58,154,227,1) 0%,rgba(36,120,210,1) 50%,rgba(58,154,227,1) 100%);
-    background: linear-gradient(to bottom, rgba(58,154,227,1) 0%,rgba(36,120,210,1) 50%,rgba(58,154,227,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a9ae3', endColorstr='#3a9ae3',GradientType=0 );
+    background: #2d87ef;
 }
+
+.c-form .lab-bt #button:hover { opacity: 1; }    
+.c-form .lab-bt #button:active { color: white !important; background-color: #191919 !important; }
+
 
 .c-form .lab-bt #button:hover {
     background: rgb(43,150,226);
@@ -1199,6 +1183,17 @@ ul.tweet_list li {
     -webkit-border-radius: 1px;
 }
 
+.socialbar-b {
+    width: 100%;
+    float: left;
+    padding:6px 0px 0px 0px;
+    margin: 0px 5px 5px 0px;
+    background:#FFF;
+    border-radius: 1px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+}
+
 .item_social {
     width: auto;
     float: right;
@@ -1207,4 +1202,23 @@ ul.tweet_list li {
     border-radius: 1px;
     -moz-border-radius: 1px;
     -webkit-border-radius: 1px;
+}
+
+.fb-comments, .fb-comments iframe[style], .fb-comments span[style] {
+    width: 100% !important;
+}
+
+/* To fill the container and nothing else */
+
+.fb_iframe_widget, .fb_iframe_widget span iframe[style] {
+  width: 100% !important;
+}
+
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {
+    display: none !important;
+}
+
+.fb-like{
+    height: 20px;
+    overflow: hidden;
 }
