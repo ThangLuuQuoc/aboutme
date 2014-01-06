@@ -19,11 +19,11 @@
 		$data->cont_code = fieldSecure($_POST['cont_code']);
 		
 		$data->cont_name = fieldSecure($_POST['cont_name']);
-		$data->cont_text = fieldSecure($_POST['cont_text'], true, true, false);
+		$data->cont_text = $_POST['cont_text'];
 		
 		$data->cont_status = fieldSecure($_POST['cont_status']);
 		$data->cont_name_e = fieldSecure($_POST['cont_name_e']);
-		$data->cont_text_e = fieldSecure($_POST['cont_text_e'], true, true, false);
+		$data->cont_text_e = $_POST['cont_text_e'];
 		
 		$data->cont_order = ($content->getMaxOrder() + 1);
 		if ($data->cont_code == 0) {

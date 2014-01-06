@@ -262,5 +262,62 @@
 		
 		return $string;
 	}
+
+
+	/**
+	*	Funcion responsble de enviar un email.
+	*/
+	function sendEmailAbus($data){
+		include_once("phpmailer/class.phpmailer.php");
+		$mail = new PHPMailer();
+		$mail->IsHTML(true);
+		
+		//if( isset($dataEmail->emailMU_signature) && $dataEmail->emailMU_signature == false)
+			$mail->Body = $data->emailMU_body;
+		//else
+		//	$mail->Body = sendEmailSite($data->emailMU_body);
+		
+		foreach($data->emailMU_address as $address)
+			$mail->AddAddress($address);
+		
+		if(isset($data->emailMU_from) && $data->emailMU_from != "")
+			$mail->From = $data->emailMU_address;
+		else
+			$mail->From = EMAIL_FROM;
+		
+		if(isset($data->emailMU_fromName) && $data->emailMU_fromName != "")
+			$mail->FromName = $data->emailMU_fromName;
+		
+		if(isset($data->emailMU_sender) && $data->emailMU_sender != "")
+			$mail->sender = $data->emailMU_sender;
+		else
+			$mail->sender = "livethechanges@abus.co";
+		
+		if(isset($data->emailMU_subject) && $data->emailMU_subject != "")		
+			$mail->Subject = $data->emailMU_subject;
+		else
+			$mail->Subject = "";
+		
+		return $mail->send();
+	}
 	
+	/**
+	*	Función responsable de obtener la url actual cuando se es llamada
+	*	esta función
+	*/
+	function curPageURL() {
+		$pageURL = 'http';
+		if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
+			$pageURL .= "s";
+		}
+		
+		$pageURL .= "://";
+		if ($_SERVER["SERVER_PORT"] != "80") {
+			$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+		} else {
+			$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+		}
+		return $pageURL;
+	}
+
 ?>

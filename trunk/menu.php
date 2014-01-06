@@ -36,7 +36,7 @@
     <?php }?>
         <li>
             <form>
-                <input type="text" />
+                <input type="text" name="s" id="s" />
             </form>
         </li>
     </ul>

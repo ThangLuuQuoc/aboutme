@@ -1,0 +1,21 @@
+#suggestPost
+{
+    background:transparent url(../images/check_service_order.png) no-repeat scroll 0px 0px;
+    height:264px;
+    left:0;
+    position:fixed;
+    top:150px;
+    width:40px;
+}
+
+div#suggestPost:hover
+{
+    background-position:-41px 0px;
+}
+
+#suggestPost a
+{
+    display:block;
+    height:170px;
+    width:40px;
+}

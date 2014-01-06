@@ -14,12 +14,20 @@ define ('ABUS_HOST', 'localhost');
 define ('ABUS_USER', 'root');
 define ('ABUS_PASS', '');
 
-define ("SITE_NAME", "Cimev");
+define ("SITE_NAME", "Abus");
 define ("SEPARATOR_A", " - ");
 define ("ADMIN", "admin");
 define ("PUBLIC_", "public");
 define ('PATH_LANGUAGE_FILE', 'language/');
-define ('URL', 'http://cimev.clicksy.co');
+define ('URL', 'http://clicksy.co');
+define ('EMAIL_FROM', 'info@clicksy.co');
+define ('EMAIL_TO', 'contact.abus@gmail.com');
+define ('WHATSAPP', '312 774 8821');
+define ('TWITTER_URL', 'http://twitter.com/');
+define ('FACEBOOK_URL', 'http://facebook.com/');
+define ('TWITTER_ACCOUNT', 'sebastianlara_');
+/* Nombre del servicio especial a cargar */
+define ('SPECIAL_MODULE', 'specialServiceSolucionesCelulares.php');
 
 require ("class/application.class.php");
 require ("globals.php");

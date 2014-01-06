@@ -1149,3 +1149,62 @@ ul.tweet_list li {
 .w8-button.violet, .w8-icon.violet { background-color: #5b39b6;  color: #FFFFFF;}
 .w8-button.grey, .w8-icon.grey { background-color: #474747;  color: #FFFFFF;}
 .w8-button.white, .w8-icon.white { background-color: #FFF;  color: #000000;}
+
+/** estilos fancy */
+
+.tbl_form_fancy{
+    margin:0px;
+    padding:0px;
+    width:650px;
+    border:1px solid #c0c0c0;
+    background:#FFFFFF;
+}
+
+.tbl_form_fancy .title{
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size:18px;
+    color:#333;
+    padding:5px;
+}
+
+.tbl_form, .tbl_form_fancy td{
+    padding:5px;    
+}
+
+.lbl_black{
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif; 
+    font-size:13px;
+    color:#000; 
+    padding:2px;
+}
+
+.div_items_c {
+    text-align: center;
+}
+
+.div_items_c .item {
+     display: inline-block;
+}
+
+
+/** social bar */
+.socialbar-a {
+    width: 99%;
+    float: left;
+    padding:6px 0px 0px 0px;
+    margin: 0px 5px 5px 0px;
+    background:#FFF;
+    border-radius: 1px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+}
+
+.item_social {
+    width: auto;
+    float: right;
+    margin: 0px 7px 7px 0px;
+    background:#FFF;
+    border-radius: 1px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+}

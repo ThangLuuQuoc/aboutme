@@ -25,6 +25,26 @@
 		
 		$data->contact_text = fieldSecure($_POST["contact_text"]);
 		
+		/* email */
+		$spaces = '   ';
+		$htmlEnter = '<br />';
+
+		$bodyEmail = $spaces . $htmlEnter .'Nueva pregunta / inquietud:' .$htmlEnter . $htmlEnter;
+		$bodyEmail .= $spaces . '<b>Nombre: </b>' . $data->contact_name . $htmlEnter;
+		$bodyEmail .= $spaces . '<b>Correo electronico: </b>' . $data->contact_email . $htmlEnter;
+		$bodyEmail .= $spaces . '<b>Telefono: </b>' . $data->contact_phone . $htmlEnter;
+		$bodyEmail .= $spaces . '<b>Pais / Estado / Ciudad: </b>' . $data->contact_city . $htmlEnter;
+		$bodyEmail .= $spaces . '<b>Preguntas / inquietudes: </b>' . $data->contact_text . $htmlEnter;
+
+		$dataEmail->emailMU_body = $bodyEmail;
+		$dataEmail->emailMU_address[0] = EMAIL_TO;
+		$dataEmail->emailMU_subject = 'Pregunta / Inquietud ' . URL;
+
+		$dataEmail->emailMU_signature = false;
+		$dataEmail->email_from = EMAIL_FROM;
+		$dataEmail->emailMU_fromName = SITE_NAME;
+		sendEmailAbus($dataEmail);
+		/* email */
 		if ($contactus->insertContactUs($data)) {
 			if ($save == 1) {
 				$_SESSION["message_value"] = $messages_p["general_info_send"];

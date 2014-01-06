@@ -33,4 +33,6 @@
 		$submenuUs .= '</ul>';
 		$usDescript = $submenuUs;
 	}
+
+	$twitterText = $usName . ', ' . strip_tags ($usDescript);
 ?>
