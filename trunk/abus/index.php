@@ -44,7 +44,7 @@
         </script>
 
     </head>
-    <body onload="javascript: showMessage(<?php echo $message_show; ?>)">
+    <body onload="javascript: showMessage(<?php echo $messageShow; ?>)">
         <div class="logo"></div>
         <form name="form1" method="post" action="">
             <table width="99%" class="tbl_login">
