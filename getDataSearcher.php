@@ -31,7 +31,7 @@
 	$result[0] = array(
 		"permalink" => "#",
 		"image" => "./images/noimg.png",
-		"title" => "Not data found"
+		"title" => "No se encontraton Datos"
 	);
 
 	if (isset($_POST['q']) && !empty($_POST['q'])) {
