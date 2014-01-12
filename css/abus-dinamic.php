@@ -41,7 +41,7 @@
 	}
 
 	#appleNav li {
-	    <?php echo $gradientMenu;?>
+	    <?php echo $gradientColorMenu;?>
 	}
 	
 	#appleNav .current {
