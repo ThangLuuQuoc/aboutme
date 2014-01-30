@@ -28,19 +28,19 @@
 		$data->cont_order = ($content->getMaxOrder() + 1);
 		if ($data->cont_code == 0) {
 			if ($content->insertContent($data)) {
-				$_SESSION["message_value"] = $messages["content_message_addedItem"].'<br />';
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = $messages["content_message_addedItem"].'<br />';
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["content_message_errorAdding"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["content_message_errorAdding"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		} elseif ($data->cont_code > 0) {
 			if ($content->updateContent($data)) {
-				$_SESSION["message_value"] = $messages["content_message_updatedItem"].'<br />';
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = $messages["content_message_updatedItem"].'<br />';
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["content_message_errorUpdating"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["content_message_errorUpdating"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		}
 		echo "<script> window.location.href='listContents.php'</script>";

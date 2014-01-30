@@ -1,17 +1,17 @@
 ﻿<?php
 	//header('Content-Type: text/html; charset=UTF-8');	
 	
-	if (!empty ($_SESSION['message_value']) && !empty ($_SESSION['message_show'])) {
-		$messageValue = $_SESSION['message_value'];
-		$messageShow = $_SESSION['message_show'];
+	if (!empty ($_SESSION['messageValue']) && !empty ($_SESSION['messageShow '])) {
+		$messageValue = $_SESSION['messageValue'];
+		$messageShow = $_SESSION['messageShow '];
 	} else {
 		$messageValue = "";
 		$messageShow = "";
 	}
 	
 		
-	$_SESSION['message_value'] = "";
-	$_SESSION['message_show'] = "";
+	$_SESSION['messageValue'] = "";
+	$_SESSION['messageShow '] = "";
 	$_SESSION["lang_admin"] = "es";//idioma del admnin.	
 	
 	$messages = getLanguage($_SESSION["lang_admin"], ADMIN);

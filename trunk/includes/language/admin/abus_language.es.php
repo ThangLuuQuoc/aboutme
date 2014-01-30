@@ -131,7 +131,7 @@ $abusLanguage = array (
 	"general_preview_show" => "Vista previa",
 	"general_save_selection" => "Guardar selecci&oacute;n",
 	"general_note_status" => "Nota: si seleccionas \"Activo\" el item se mostrara en el sitio, \"Inactivo\" NO se muestra",
-	"general_note_keywords" => "<strong>Importante:</strong> Ingresa Palabras Claves que identifiquen a tu negocio o actividad, las palabras debes de ingresarlas separadas por coma (,). Puedes utilizar Palabras Claves compuestas, como por ejemplo: telefon&iacute;a celular, hospital veterinario, peluquer&iacute;a Armenia, etc.. Hay que ser h&aacute;biles e inteligentes a la hora de elegir las Palabras Claves, estas deben ser justamente eso, Claves para que los potenciales clientes te puedan encontrar. Estas palabras sirven para que nuestro sitio web tenga m&aacute;s posibilidades de ser encontrado por los motores de busqueda como Google. <strong>Evita errores ortogr&aacute;ficos</strong>",
+	"general_note_keywords" => "<strong>Importante:</strong> Ingresa Palabras Claves que identifiquen a tu negocio o actividad, las palabras debes de ingresarlas separadas por coma (,). Puedes utilizar Palabras Claves compuestas, como por ejemplo: telefon&iacute;a celular, hospital veterinario, peluquer&iacute;a Armenia, etc.. ",
 	"general_more_tips" => "M&aacute;s consejos",
 	"general_menu" => "Men&uacute;",				
 	"general_footer" => "Pi&eacute; de p&aacute;gina",
@@ -306,6 +306,13 @@ $abusLanguage = array (
 	"personal_message_errorUpdating" => "Ha ocurrido un error al intentar actualizar",
 	
 	"validationGeneral_englishRequired" => "No haz completado toda la informaci&oacute;n en ingl&eacute;s, deseas continuar?",
+	
+	"home_advertising_type" => "Tipo de publicidad",
+	"general_facebook" => "Facebook",
+	"general_banner" => "Banner",
+	"" => "",
+	"" => "",
+	"" => "",
 	"" => "",
 	"" => "",
 	"" => "",

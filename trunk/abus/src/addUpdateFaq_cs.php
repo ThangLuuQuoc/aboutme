@@ -28,19 +28,19 @@
 		$data->faq_order = ($faq->getMaxOrder() + 1);
 		if ($data->faq_code == 0) {
 			if ($faq->insertFaq($data)) {
-				$_SESSION["message_value"] = $messages["faq_message_addedItem"].'<br />';
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = $messages["faq_message_addedItem"].'<br />';
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["faq_message_errorAdding"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["faq_message_errorAdding"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		} elseif ($data->faq_code > 0) {
 			if ($faq->updateFaq($data)) {
-				$_SESSION["message_value"] = $messages["faq_message_updatedItem"].'<br />';
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = $messages["faq_message_updatedItem"].'<br />';
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["faq_message_errorUpdating"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["faq_message_errorUpdating"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		}
 		echo "<script> window.location.href='listFaq.php'</script>";

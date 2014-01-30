@@ -588,7 +588,7 @@ h1 {
 
 .bloq-b .contt {
     height: 573px;
-    padding:2px 0px 2px 0px;
+    padding:0px 0px 0px 0px;
     margin: 0px 0px 3px 0px;
     background:#FFF;
     border-radius: 1px;
@@ -855,7 +855,7 @@ h1 {
 .colm-a {
     width: 26%;
     float: left;
-    height: 190px;
+    min-height: 190px;
     border-right: 1px solid #333;
 }
 .colm-a .contt {

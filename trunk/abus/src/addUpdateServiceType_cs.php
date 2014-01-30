@@ -21,19 +21,19 @@
 		
 		if ($data->sertype_code == 0) {					/*agregar*/
 			if ($serviceType->insertServiceType($data)) {
-				$_SESSION["message_value"] = replaceMessage($messages["service_type_message_added"], array($data->sertype_name));
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = replaceMessage($messages["service_type_message_added"], array($data->sertype_name));
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["service_type_message_errorAdding"];
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["service_type_message_errorAdding"];
+				$_SESSION["messageShow "] = 1;
 			}
 		} elseif ($data->sertype_code > 0) {			/*actualizar*/
 			if ($serviceType->updateServiceType($data)) {
-				$_SESSION["message_value"] = replaceMessage($messages["service_type_message_updated"], array($data->sertype_name));
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = replaceMessage($messages["service_type_message_updated"], array($data->sertype_name));
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["service_type_message_errorUpdating"];
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["service_type_message_errorUpdating"];
+				$_SESSION["messageShow "] = 1;
 			}
 		}
 		echo ("<script> window.location.href='listServicesType.php'</script>");

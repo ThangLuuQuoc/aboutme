@@ -61,23 +61,23 @@
 		
 		if (empty ($data->pers_code)) {
 			if ($personal->insertPersonal($data)) {
-				$_SESSION["message_value"] = replaceMessage($messages["personal_message_added"], array($data->pers_name)).'<br />';
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = replaceMessage($messages["personal_message_added"], array($data->pers_name)).'<br />';
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["personal_message_errorAdding"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["personal_message_errorAdding"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		} elseif ($data->pers_code > 0) {
 			if ($personal->updatePersonal($data)) {
-				$_SESSION["message_value"] = replaceMessage($messages["personal_message_updated"], array($data->pers_name));
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = replaceMessage($messages["personal_message_updated"], array($data->pers_name));
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["personal_message_errorUpdating"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["personal_message_errorUpdating"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		}
 		
-		if ($_SESSION["message_show"] == 3) {
+		if ($_SESSION["messageShow "] == 3) {
 			if ($delImage) {
 				unlink ($pathPrev);	
 			}

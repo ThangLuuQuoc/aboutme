@@ -78,23 +78,23 @@
 		
 		if ($data->slid_code == 0) {
 			if ($slider->insertItemSlider($data)) {
-				$_SESSION["message_value"] = $messages["slider_message_addedItem"].'<br />';
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = $messages["slider_message_addedItem"].'<br />';
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["slider_message_errorAdding"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["slider_message_errorAdding"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		} elseif ($data->slid_code > 0) {
 			if ($slider->updateItemSlider($data)) {
-				$_SESSION["message_value"] = $messages["slider_message_updatedItem"].'<br />';
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = $messages["slider_message_updatedItem"].'<br />';
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["slider_message_errorUpdating"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["slider_message_errorUpdating"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		}
 		
-		if ($_SESSION["message_show"] == 3) {
+		if ($_SESSION["messageShow "] == 3) {
 			if ($delImage) {
 				unlink ($pathPrev);	
 			}

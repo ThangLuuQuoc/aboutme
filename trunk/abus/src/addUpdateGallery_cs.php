@@ -38,24 +38,24 @@
 			$data->gall_order = ((int) $gallery->getMaxOrder() + 1);
 			
 			if ($data->gall_code = $gallery->insertGallery($data)) {				
-				$_SESSION["message_value"] = replaceMessage($messages["gallery_message_added"], array($data->gall_name)).'<br />';
-				$_SESSION["message_show"] = 3;				
+				$_SESSION["messageValue"] = replaceMessage($messages["gallery_message_added"], array($data->gall_name)).'<br />';
+				$_SESSION["messageShow "] = 3;				
 			} else {
-				$_SESSION["message_value"] = $messages["gallery_message_errorAdding"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["gallery_message_errorAdding"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		} elseif ($data->gall_code > 0) {
 			$action = "update";
 			if ($gallery->updateGallery($data)) {
-				$_SESSION["message_value"] = replaceMessage($messages["gallery_message_updated"], array($data->gall_name));
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = replaceMessage($messages["gallery_message_updated"], array($data->gall_name));
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["gallery_message_errorUpdating"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["gallery_message_errorUpdating"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		}
 		
-		if (isset ($_SESSION["message_show"]) && ($_SESSION["message_show"] == 3)) {
+		if (isset ($_SESSION["messageShow "]) && ($_SESSION["messageShow "] == 3)) {
 			$count_images = count ($_POST["array_images"]);
 			$image_path = "../file_upload/images_bank/";
 			$image_path_gallery = "../file_upload/gallery/";
@@ -128,8 +128,8 @@
 			}
 
 			if ($errorImages) {
-				$_SESSION["message_value"] = $messages["gallery_message_successWarningImages"].'<br />';
-				$_SESSION["message_show"] = 2;
+				$_SESSION["messageValue"] = $messages["gallery_message_successWarningImages"].'<br />';
+				$_SESSION["messageShow "] = 2;
 			}
 		}
 		echo "<script> window.location.href='listGalleries.php'</script>";

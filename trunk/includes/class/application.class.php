@@ -36,10 +36,10 @@ class Application {
 			}
 			
 			$query = "SELECT a.app_code, a.".$app_slogan.", a.".$app_information_office.", a.".$app_text_footer.", a.".$app_background.", a.app_background_type,
-						a.app_background_color, a.".$app_keywords." FROM application a;";	
+						a.app_background_color, a.".$app_keywords.", a.app_advertising_type, a.app_facebook FROM application a;";	
 		} else {
 			$query = "SELECT a.app_code, a.app_slogan, a.app_slogan_e, a.app_information_office, a.app_information_office_e, a.app_text_footer, a.app_text_footer_e,
-						a.app_background, a.app_background_e, a.app_background_type, a.app_background_color, a.app_keywords, a.app_keywords_e FROM application a;";
+						a.app_background, a.app_background_e, a.app_background_type, a.app_background_color, a.app_keywords, a.app_keywords_e, a.app_advertising_type, a.app_facebook FROM application a;";
 		}
 
 		$data = NULL;
@@ -66,6 +66,8 @@ class Application {
 				}
 				$data->app_background_type = $row["app_background_type"];
 				$data->app_background_color = $row["app_background_color"];
+				$data->app_advertising_type = $row["app_advertising_type"];
+				$data->app_facebook = $row["app_facebook"];
 			}
 		}
 		
@@ -139,7 +141,7 @@ class Application {
 	*				code: codigo del item a actualizar
 	*	@return boolean, resultado de la operacion
 	*/
-	function updateInformationApp($field, $field_value, $code) {
+	function updateInformationApp($field, $field_value, $code = 1) {
 		$additionaly = "";
 		if ($field == "app_background_color") {
 			if ($field_value == "#F2F2F2") {
@@ -149,6 +151,8 @@ class Application {
 			}
 		} elseif($field == "app_background" || $field == "app_background_e") {
 			$additionaly = ", app_background_type=2 ";
+		} elseif($field == "app_facebook") {
+			$additionaly = ", app_advertising_type=2 ";//social
 		}
 		
 		

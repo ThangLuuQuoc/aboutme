@@ -46,16 +46,16 @@
 		/* email */
 		if ($contactus->insertContactUs($data)) {
 			if ($save == 1) {
-				$_SESSION["message_value"] = $messages_p["general_info_send"];
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = $messages_p["general_info_send"];
+				$_SESSION["messageShow "] = 3;
 				echo ("<script> window.location.href = '/".$_SESSION["lang"]."' </script>");
 			} else {
 				echo 1;	
 			}
 		} else {
 			if ($save == 1) {
-				$_SESSION["message_value"] = $messages_p["general_error_send"];
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages_p["general_error_send"];
+				$_SESSION["messageShow "] = 1;
 				echo ("<script> window.location.href = '/".$_SESSION["lang"]."' </script>");
 			} else {
 				echo 0;	

@@ -117,15 +117,9 @@
 
     function loadImageCropper(image_rename) {
         close_fancy();
-        var response = '<li style="display: block;">'
-                     + '<a href="javascript:;" id="'+ image_rename +'">'
-                     + '<img src="../images/delete.png"></a><img src="../file_upload/images_bank/'+ image_rename +'">'
-                     + '<input type="hidden" name="array_images[]" value="' + image_rename + ',0" />'
-                     + '<input type="hidden" name="array_images_valid[]" id="hidden_' + image_rename + '" value="1" />'
-                     + '</li>';
         var img_code = countImages + isNewImg;
 
-        response = '<li style="display: block;">'
+        var response = '<li style="display: block;">'
             + '<input type="hidden" name="img_name[]" id="img_name_' + img_code + '" value=" " />'
             + '<input type="hidden" name="img_name_e[]" id="img_name_e_' + img_code + '" value=" " />'
             + '<input type="hidden" id="img_path_' + img_code + '" value="../file_upload/images_bank/' + image_rename + '" />'
@@ -191,7 +185,7 @@
 
 
 </head>
-<body onload="showMessage('<?php echo $message_show;?>')">
+<body onload="showMessage('<?php echo $messageShow;?>')">
     <div id="sign_up">
         <input type="hidden" id="img_code_temp" value="0" />
         <table class="tbl_form_fancy">
