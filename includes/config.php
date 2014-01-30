@@ -24,7 +24,6 @@ define ('EMAIL_FROM', 'info@clicksy.co');
 define ('EMAIL_TO', 'contact.abus@gmail.com');
 define ('WHATSAPP', '312 774 8821');
 define ('TWITTER_URL', 'http://twitter.com/');
-define ('FACEBOOK_URL', 'http://facebook.com/');
 define ('TWITTER_ACCOUNT', 'sebastianlara_');
 /* Nombre del servicio especial a cargar */
 define ('SPECIAL_MODULE', 'specialServiceSolucionesCelulares.php');
@@ -76,5 +75,5 @@ if (isset ($dataAppPublic->app_keywords)) {
     $meta_keywords_value    = $dataAppPublic->app_keywords;
     $app_slogan             = $dataAppPublic->app_slogan;
     $app_information_office = $dataAppPublic->app_information_office;
-    $dataAppPublic          = $dataAppPublic->app_text_footer;
+    //$dataAppPublic          = $dataAppPublic->app_text_footer;
 }

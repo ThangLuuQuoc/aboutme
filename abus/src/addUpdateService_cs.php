@@ -91,23 +91,23 @@
 
 		if (empty ($data->serv_code)) {
 			if ($service->insertService($data)) {
-				$_SESSION["message_value"] = replaceMessage($messages["service_message_added"], array($data->serv_name)).'<br />';
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = replaceMessage($messages["service_message_added"], array($data->serv_name)).'<br />';
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["service_message_errorAdding"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["service_message_errorAdding"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		} elseif ($data->serv_code > 0) {
 			if ($service->updateService($data)) {
-				$_SESSION["message_value"] = replaceMessage($messages["service_message_updated"], array($data->serv_name));
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = replaceMessage($messages["service_message_updated"], array($data->serv_name));
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["service_message_errorUpdating"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["service_message_errorUpdating"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		}
 		
-		if ($_SESSION["message_show"] == 3) {
+		if ($_SESSION["messageShow "] == 3) {
 			if ($delImage) {
 				unlink ($pathPrev);	
 				if (file_exists($pathPrevSmall)) {

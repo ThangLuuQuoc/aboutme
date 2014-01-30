@@ -50,6 +50,35 @@
 					}
 				}
 			break;
+
+			case 'getImagesBanner':
+				require ("../includes/class/banner.class.php");
+				
+				$banner = new Banner();
+				
+				$path = "../file_upload/banner/118x200/";
+				$images = $banner->getBannerImages();
+				$countImages = $banner->countBannerImages();
+				
+				for ($i = 0; $i < $countImages; $i++) {
+					$pathImage = $path . $images[$i]->imgb_rename;
+					if (!file_exists ($pathImage)) {
+						continue;
+					}
+					
+					echo  '
+					<li style="display: block;">
+						<input type="hidden" name="imgb_name[]" id="imgb_name_' . $images[$i]->imgb_code . '" value="' . $images[$i]->imgb_name . ' " />
+						<input type="hidden" name="imgb_name_e[]" id="imgb_name_e_' . $images[$i]->imgb_code . '" value="' . $images[$i]->imgb_name_e . ' " />
+						<input type="hidden" id="imgb_path_' . $images[$i]->imgb_code . '" value="' . $pathImage . '" />
+						<a href="javascript:;" class="to_delete" id="'.$images[$i]->imgb_code.'" title="' . $messages['general_remove'] . '"><img src="../images/delete.png"></a>
+						<a href="javascript:;" onclick="updateIMageInformation(' . $images[$i]->imgb_code.')" id="info_imgb_' . $images[$i]->imgb_code.'" title="' . $messages['general_information'] . '" class="info"><img src="../images/info.png" width="16" height="16"></a>
+						<img id="imgb_elem_' . $images[$i]->imgb_code . '" src="'.$pathImage.'" title="[' . $messages['general_es'] . ': '. $images[$i]->imgb_name .'] [' . $messages['general_en'] . ': '. $images[$i]->imgb_name_e .']">
+						<input type="hidden" name="array_images[]" value="'.$images[$i]->imgb_rename.', '.$images[$i]->imgb_code.'" />
+						<input type="hidden" name="array_images_valid[]" id="hidden_'.$images[$i]->imgb_code.'" value="1" />
+					</li>';
+				}
+			break;
 		}
 	}
 	

@@ -25,19 +25,19 @@
 		$data->use_password = $rijndaelHex->linencrypthex( $data->use_login.fieldSecure($_POST['use_password'], false).$data->use_login );
 		if ($data->use_code == 0) {					/*agregar usuario*/
 			if ($user->addUser($data)) {
-				$_SESSION["message_value"] = replaceMessage($messages["user_message_addedUser"], array($data->use_login));
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = replaceMessage($messages["user_message_addedUser"], array($data->use_login));
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["user_message_errorAdding"];
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["user_message_errorAdding"];
+				$_SESSION["messageShow "] = 1;
 			}
 		} elseif ($data->use_code > 0) {			/*actualizar usuario*/
 			if ($user->updateUser($data)) {
-				$_SESSION["message_value"] = replaceMessage($messages["user_message_updatedUser"], array($data->use_login));
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = replaceMessage($messages["user_message_updatedUser"], array($data->use_login));
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["user_message_errorUpdating"];
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["user_message_errorUpdating"];
+				$_SESSION["messageShow "] = 1;
 			}
 		}
 		echo ("<script> window.location.href='listUser.php'</script>");

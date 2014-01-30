@@ -55,8 +55,8 @@
 			$file_ext = strtolower ( substr ( $filename, strrpos ( $filename, '.') ) );
 			
 			if ( ! in_array ($file_ext, $allow_extensions) ){
-				$_SESSION["message_value"] = $messages["videoValidation_formatVideoValidate"].'<br />';
-				$_SESSION["message_show"] = 2;
+				$_SESSION["messageValue"] = $messages["videoValidation_formatVideoValidate"].'<br />';
+				$_SESSION["messageShow "] = 2;
 				$error = true;
 			} else {
 				$vid_file_pc = $file->subirArchivo($_FILES['vid_file_pc']['tmp_name'], $_FILES['vid_file_pc']['name'], '../file_upload/videos/file/');
@@ -75,8 +75,8 @@
 				$data->vid_original = fieldSecure($_POST["vid_file_yt"]);
 				$data->vid_file = $id_youtube;
 			} else {
-				$_SESSION["message_value"] = $messages["videoValidation_noExistsValidate"].'<br />';
-				$_SESSION["message_show"] = 2;
+				$_SESSION["messageValue"] = $messages["videoValidation_noExistsValidate"].'<br />';
+				$_SESSION["messageShow "] = 2;
 				$error = true;
 			}
 		}
@@ -94,31 +94,31 @@
 		}
 		
 		if ($error) {
-			if (empty ($_SESSION["message_value"])) {
-				$_SESSION["message_value"] = $messages["video_message_errorAdding"].'...<br />';
+			if (empty ($_SESSION["messageValue"])) {
+				$_SESSION["messageValue"] = $messages["video_message_errorAdding"].'...<br />';
 			}
-			$_SESSION["message_show"] = 1;
+			$_SESSION["messageShow "] = 1;
 		} elseif (empty ($data->vid_code)) {
 			$data->vid_order = ((int) $video->getMaxOrder() + 1);			
 			
 			if ($data->vid_code = $video->insertVideo($data)) {				
-				$_SESSION["message_value"] = replaceMessage($messages["video_message_added"], array($data->vid_name)).'<br />';
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = replaceMessage($messages["video_message_added"], array($data->vid_name)).'<br />';
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["video_message_errorAdding"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["video_message_errorAdding"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		} elseif ($data->vid_code > 0) {			
 			if ($video->updateVideo($data)) {
-				$_SESSION["message_value"] = replaceMessage($messages["video_message_updated"], array($data->vid_name));
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] = replaceMessage($messages["video_message_updated"], array($data->vid_name));
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] = $messages["video_message_errorUpdating"].'<br />';
-				$_SESSION["message_show"] = 1;
+				$_SESSION["messageValue"] = $messages["video_message_errorUpdating"].'<br />';
+				$_SESSION["messageShow "] = 1;
 			}
 		}		
 		
-		if (($_SESSION["message_show"] == 3)) {
+		if (($_SESSION["messageShow "] == 3)) {
 			if (! empty ($data->vid_file) && ($data->vid_file != $_POST["vid_file_prev"])) {			
 				$path_aux = "../file_upload/videos/file/".$_POST["vid_file_prev"];
 				if (file_exists ($path_aux)) {	

@@ -124,7 +124,7 @@
 <!-- /TinyMCE -->
 
 </head>
-<body onload="showMessage('<?php echo $message_show;?>')">
+<body onload="showMessage('<?php echo $messageShow ;?>')">
 <?php $item_select = 3; include("menu.php");?>
     <form name="form1" id="form1" method="post" action="">
     <input type="hidden" name="save" id="save" value="1"/>

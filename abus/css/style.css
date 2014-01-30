@@ -1486,6 +1486,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 		padding-top:10px;
 		overflow-y:auto;
 	}
+
+	#content_b {
+		width:930px;
+		margin:20px auto;
+		height:300px;
+		border:6px solid #F3F3F3;
+		padding-top:10px;
+		overflow-y:auto;
+	}
 	
 	.link_upload {  
 		padding:12px;  
@@ -1539,6 +1548,48 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	}
 
 	#gallery li a img {
+		width:auto; 
+		height:auto
+	}
+
+	/** */
+	#bannerContent{
+		list-style:none;
+		margin:20px 0 0 0;
+		padding:0
+	}
+	
+	#bannerContent li{
+		display:block;
+		float:left;
+		width:118px;
+		height:200px;
+		background:#fff;
+		border:1px solid #979797;
+		text-align:center;
+		position:relative;
+		margin: 5px 9px 5px 9px;
+		padding: 2px;
+	}
+	
+	#bannerContent li img{
+		width:118px;
+		height:200px
+	}
+	
+	#bannerContent li a{
+		position:absolute;
+		right:10px;
+		top:10px
+	}
+	
+	#bannerContent li .info {
+		position:absolute;
+		right:35px;
+		top:10px
+	}
+
+	#bannerContent li a img {
 		width:auto; 
 		height:auto
 	}

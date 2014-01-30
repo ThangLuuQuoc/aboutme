@@ -1,3 +1,36 @@
+<!-- slider lateral -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		
+<!-- Base MasterSlider style sheet -->
+<link rel="stylesheet" href="/masterslider/style/masterslider.css" />
+
+<!-- Master Slider Skin -->
+<link href="/masterslider/skins/black-2/style.css" rel='stylesheet' type='text/css'>
+ 
+<!-- MasterSlider Template Style -->
+<link href='css/ms-gallery-style.css' rel='stylesheet' type='text/css'>
+
+<!-- google font Lato -->
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+
+<!-- jQuery -->
+<script src="/masterslider/jquery-1.10.2.min.js"></script>
+<script src="/masterslider/jquery.easing.min.js"></script>
+
+<!-- Master Slider -->
+<script src="/masterslider/masterslider.min.js"></script>
+
+<!-- Template JS -->
+<script src="js/masterslider.gallery.js"></script>	
+
+<style>			
+	#ms-gallery-1{
+		max-width: 100%;
+		margin:0 auto;
+	}
+</style>
+<!-- slider lateral -->
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="favicon.ico">
 <link href="/css/style.css" rel="stylesheet" type="text/css" />

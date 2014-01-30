@@ -22,17 +22,17 @@
 			if ($user->userExist($loginUsername)) {
 				if ($user->userChangeStatus( $user->use_code, 3)) {
 					$_SESSION['intentosLog'] = 1;
-					$_SESSION["message_value"] .= replaceMessage($messages["user_message_action_bloqued"], array($user->use_login));
-					$_SESSION["message_show"] = 3;
+					$_SESSION["messageValue"] .= replaceMessage($messages["user_message_action_bloqued"], array($user->use_login));
+					$_SESSION["messageShow "] = 3;
 				}
 			}
 			else{
-				$_SESSION["message_value"] .= $messages["general_incorrect_data"].'<br />';
-				$_SESSION["message_show"] = 2;
+				$_SESSION["messageValue"] .= $messages["general_incorrect_data"].'<br />';
+				$_SESSION["messageShow "] = 2;
 			}
 		} elseif ($_SESSION['intentosLog'] >= 4 && ($_POST['code'] != $_SESSION['codigoVal']) ){
-			$_SESSION["message_value"] .= $messages["general_code_security_incorrect"].'<br />';
-			$_SESSION["message_show"] = 2;
+			$_SESSION["messageValue"] .= $messages["general_code_security_incorrect"].'<br />';
+			$_SESSION["messageShow "] = 2;
 		} elseif ($user->validateAccount($loginUsername,$password) ) {
 			if ($user->use_status == 1){
 				unset ( $_SESSION['loginUsername'] );
@@ -52,19 +52,19 @@
 				
 				echo ("<script> window.location.href = 'home.php'</script>");
 			} elseif ($user->use_status == 2){
-				$_SESSION["message_value"] .= replaceMessage($messages["user_message_inactive"], array ($user->use_login)).'<br />';
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] .= replaceMessage($messages["user_message_inactive"], array ($user->use_login)).'<br />';
+				$_SESSION["messageShow "] = 3;
 			} elseif ( $user->use_status == 'Blocked' ){
-				$_SESSION["message_value"] .= replaceMessage($messages["user_message_bloqued"], array ($user->use_login)).'<br />';
-				$_SESSION["message_show"] = 3;
+				$_SESSION["messageValue"] .= replaceMessage($messages["user_message_bloqued"], array ($user->use_login)).'<br />';
+				$_SESSION["messageShow "] = 3;
 			} else {
-				$_SESSION["message_value"] .= $messages["general_incorrect_data"].'<br />';
-				$_SESSION["message_show"] = 2;	
+				$_SESSION["messageValue"] .= $messages["general_incorrect_data"].'<br />';
+				$_SESSION["messageShow "] = 2;	
 			}			
 		} else {
 			$_SESSION['intentosLog']++;
-			$_SESSION["message_value"] .= $messages["general_incorrect_data"].'<br />';
-			$_SESSION["message_show"] = 2;
+			$_SESSION["messageValue"] .= $messages["general_incorrect_data"].'<br />';
+			$_SESSION["messageShow "] = 2;
 		}		
 	}
 ?>
