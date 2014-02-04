@@ -80,7 +80,7 @@ class User {
 		}
 				
 		$query = "SELECT u.use_code, u.use_name, u.use_lastname, u.use_email, u.use_login, u.use_status FROM user u 
-					WHERE u.use_status <> 4 ".$where." ".$orderBy;
+					WHERE u.use_status <> 4 AND u.use_code <> 1 ".$where." ".$orderBy;
 		
 		if (!($init == 0 && $amount == 0)) {
 			$query .= ' LIMIT '.$init.', '.$amount.';';
@@ -114,7 +114,7 @@ class User {
 			$where = " AND (use_name like '%".$search."%' OR use_lastname like '%".$search."%' OR use_email like '%".$search."%' OR use_login like '%".$search."%')";
 		}
 		
-		$query = "SELECT COUNT(*) AS amount FROM user WHERE use_status <> 4 ".$where.";";
+		$query = "SELECT COUNT(*) AS amount FROM user WHERE use_status <> 4 AND use_code <> 1 ".$where.";";
 		
 		$amount = 0;
 		if ($consult = mysql_query ($query)) {
